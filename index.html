@@ -1,2 +1,308 @@
-<h1>Welcome to ChristianBeener.com!</h1>
-<h2>Website Coming Soon!</h2>
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christian Beener | DevOps & Cloud Automation Specialist</title>
+    <!-- Load Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for Icons (GitHub, LinkedIn) -->
+    <script src="https://kit.fontawesome.com/b85698e96c.js" crossorigin="anonymous"></script>
+    <!-- Fonts: Inter (Sans) for body, Roboto Mono (Monospace) for code -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Roboto+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Custom Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        // Professional Theme Colors (Deep Slate/Blue Accent)
+                        'c-primary': '#3B82F6', // Trustworthy Blue (Buttons, Accents)
+                        'c-dark': '#0F172A',    // Deep Slate (Main Background)
+                        'c-light': '#F1F5F9',   // Light Gray (Text)
+                        'c-card': '#1E293B',    // Dark Card Background
+                        'c-accent': '#64748B',  // Slate Gray (Borders/Dividers)
+                        'c-white': '#FFFFFF'    // Pure White
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['Roboto Mono', 'monospace'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Ensures the sticky header works well */
+        body { padding-top: 5rem; }
+        .sticky-nav {
+            backdrop-filter: blur(8px);
+            background-color: rgba(15, 23, 42, 0.95);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+        /* Style for the tab switcher */
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        /* Apply monospace font to code/tech labels */
+        .tech-label {
+            font-family: 'Roboto Mono', monospace;
+            font-size: 0.875rem; /* text-sm */
+        }
+        /* Style for active button state */
+        .tab-button.active {
+            background-color: var(--tw-colors-c-primary) !important;
+            color: #fff !important;
+        }
+        .tab-button:not(.active) {
+            background-color: #475569 !important; /* Slate-600 */
+        }
+        
+    </style>
+</head>
+<body class="bg-c-dark text-c-light font-sans">
+
+    <!-- Sticky Navigation Bar -->
+    <nav class="fixed top-0 left-0 right-0 z-50 sticky-nav h-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex justify-between items-center">
+            <div class="text-2xl font-extrabold text-c-light tracking-tight">ChristianBeener.com</div>
+            <div class="space-x-8 text-sm font-semibold">
+                <a href="#home" class="text-c-light hover:text-c-primary transition duration-300">Home</a>
+                <a href="#experience" class="text-c-light hover:text-c-primary transition duration-300">Experience</a>
+                <a href="#contact" class="text-c-light hover:text-c-primary transition duration-300">Contact</a>
+                <!-- <a href="https://lvncloudsolutions.com" target="_blank" class="px-3 py-1 border border-c-primary text-c-primary hover:bg-c-primary hover:text-white transition duration-300 rounded-md">
+                    LVN Cloud (Coming Soon)
+                </a> -->
+            </div>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTENT SECTIONS -->
+    <main>
+
+        <!-- 1. Landing Page (Home) - Split 25/75 Layout -->
+        <section id="home" class="min-h-full flex items-center py-16 bg-c-dark">
+            <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-4 gap-8 items-center w-full">
+                
+                <!-- Left Column: Name & Image (Approx 25%) -->
+                <div class="md:col-span-1 text-center md:text-left p-4">
+                    <div class="h-40 w-40 rounded-full mx-auto md:mx-0 mb-4 overflow-hidden bg-c-light border-4 border-c-primary shadow-xl">
+                        <img src="WIN_20251104_10_10_41_Pro.jpg" onerror="this.onerror=null;this.src='https://placehold.co/160x160/3B82F6/F1F5F9?text=CB'" alt="Christian Beener Profile" class="w-full h-full object-cover">
+                    </div>
+                    <p class="text-2xl text-c-light font-bold">Christian Beener</p>
+                    <p class="text-sm text-c-primary font-medium mt-1">Austin, TX</p>
+                    <div class="flex justify-center md:justify-start space-x-4 mt-4 text-xl">
+                        <a href="https://linkedin.com/in/christianbeener" target="_blank" class="text-slate-300 hover:text-c-primary transition duration-300"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="https://github.com/christianbeener" target="_blank" class="text-slate-300 hover:text-c-primary transition duration-300"><i class="fa-brands fa-github"></i></a>
+                    </div>
+                </div>
+
+                <!-- Right Column: Heading & Summary (Approx 75%) -->
+                <div class="md:col-span-3 p-4 border-l-4 border-c-accent pl-8">
+                    <h1 class="text-5xl sm:text-6xl font-extrabold mb-6 leading-tight text-white">
+                        DevOps & Cloud Automation Specialist
+                    </h1>
+                    <p class="text-xl text-slate-400 mb-8">
+                        4+ years of experience focused on deploying <strong>scalable full-stack applications</strong> (Node.js/Java) using <strong>Infrastructure as Code</strong> (Terraform) and <strong>CI/CD</strong> on AWS and Azure.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-8 sm:gap-0 space-x-4">
+                        <a href="#contact" class="px-8 py-3 bg-c-primary text-center text-white font-bold rounded-lg shadow-lg hover:bg-c-primary/90 transition duration-300">
+                            Connect with Me
+                        </a>
+                        <a href="#experience" class="px-8 py-3 text-center border-2 border-slate-700 text-slate-300 font-bold rounded-lg shadow-lg hover:bg-c-primary/90 transition duration-300">
+                            View Full Experience
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. Experience Page (Websume/Portfolio Summary) -->
+        <section id="experience" class="py-10 bg-c-card text-c-light">
+            <div class="max-w-5xl mx-auto px-4">
+                <h2 class="text-4xl font-bold text-center mb-5 border-b-4 border-c-primary pb-3">Technical Experience & Expertise</h2>
+                
+                <!-- Key Skills Summary -->
+                <div class="grid md:grid-cols-3 gap-8 text-left">
+                    <div class="p-6 bg-c-dark rounded-xl shadow-lg border-t-4 border-c-primary">
+                        <h3 class="text-xl font-bold mb-2">Cloud Infrastructure</h3>
+                        <p class="text-slate-400 font-semibold mb-3 text-sm">Automation & Provisioning</p>
+                        <ul class="list-disc list-inside text-sm text-slate-400 space-y-1 font-mono">
+                            <li><strong>AWS</strong>: EC2, S3, RDS, IAM, SES</li>
+                            <li><strong>DevOps</strong>: Terraform, CI/CD Pipelines (GH Actions)</li>
+                            <li><strong>Containers</strong>: Docker and Containerized Deployment</li>
+                        </ul>
+                    </div>
+                    <div class="p-6 bg-c-dark rounded-xl shadow-lg border-t-4 border-c-primary">
+                        <h3 class="text-xl font-bold mb-2">Backend Development</h3>
+                        <p class="text-slate-400 font-semibold mb-3 text-sm">APIs and Systems</p>
+                        <ul class="list-disc list-inside text-sm text-slate-400 space-y-1 font-mono">
+                            <li><strong>Stacks</strong>: MEAN, Java/Spring, Node.js/Express</li>
+                            <li><strong>Data</strong>: PostgreSQL, MongoDB, SQL/NoSQL Design</li>
+                            <li><strong>Specialty</strong>: Legacy System Modernization</li>
+                        </ul>
+                    </div>
+                    <div class="p-6 bg-c-dark rounded-xl shadow-lg border-t-4 border-c-primary">
+                        <h3 class="text-xl font-bold mb-2">Development Practice</h3>
+                        <p class="text-slate-400 font-semibold mb-3 text-sm">Quality & Workflow</p>
+                        <ul class="list-disc list-inside text-sm text-slate-400 space-y-1 font-mono">
+                            <li><strong>Tools</strong>: Git, VS Code, Linux Environments</li>
+                            <li><strong>Frontend</strong>: Angular, Tailwind CSS, Responsive UI</li>
+                            <li><strong>Code Quality</strong>: Unit Testing and Code Review</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Portfolio Projects (Coming Soon) -->
+                <!-- <div class="text-center p-8 bg-c-dark text-c-light rounded-xl shadow-2xl border border-c-accent">
+                    <h3 class="text-3xl font-bold mb-4 text-c-primary">Portfolio: Projects Loading Soon</h3>
+                    <p class="text-lg mb-6 text-slate-400">
+                        I am currently developing real-world, high-value templates to demonstrate competence in:
+                    </p>
+                    <ul class="list-none text-left mx-auto max-w-md text-slate-400 space-y-1 font-mono text-sm">
+                        <li>— Secure, Automated Full-Stack Deployment (MEAN/Docker/EC2)</li>
+                        <li>— Terraform Environment Provisioning (VPC, RDS, EC2)</li>
+                    </ul>
+                </div> -->
+            </div>
+        </section>
+
+        <!-- 3. Contact Page with Dual Forms -->
+        <section id="contact" class="py-10 bg-c-dark">
+            <div class="max-w-4xl mx-auto px-4">
+                <h2 class="text-4xl font-bold text-center mb-5 border-b-4 border-c-primary pb-3 text-c-light">Contact & Inquiry</h2>
+                <p class="text-center text-slate-400 mb-5">Please use the tabs below to direct your message to the correct channel.</p>
+
+                <!-- Tab Buttons -->
+                <div class="flex justify-center mb-5 space-x-4">
+                    <button onclick="showTab('recruiter')" class="tab-button active px-6 py-2 rounded-lg text-white font-semibold bg-c-primary hover:bg-c-primary/90 transition duration-300 shadow-md">
+                        Recruiter / Full-Time Inquiry
+                    </button>
+                    <button onclick="showTab('service')" class="tab-button px-6 py-2 rounded-lg text-slate-300 bg-slate-700 hover:bg-slate-600 transition duration-300 shadow-md">
+                        Freelance / Service Request
+                    </button>
+                </div>
+
+                <!-- Tab Content: Recruiter Form -->
+                <div id="recruiter" class="tab-content active p-8 bg-c-card rounded-xl shadow-2xl border border-slate-700">
+                    <h3 class="text-2xl font-bold mb-4 text-c-primary">Full-Time Job Inquiry</h3>
+                    <p class="text-slate-400 mb-6 text-sm">
+                        For job offers, full-time positions, or general HR inquiries.
+                    </p>
+                    <form onsubmit="handleFormSubmit(event, 'recruiting@christianbeener.com')" class="space-y-4">
+                        <input type="text" placeholder="Your Name / Company" required class="w-full p-3 rounded-lg bg-c-dark text-c-light border border-slate-700 focus:ring-c-primary focus:border-c-primary font-mono">
+                        <input type="email" placeholder="Your Email" required class="w-full p-3 rounded-lg bg-c-dark text-c-light border border-slate-700 focus:ring-c-primary focus:border-c-primary font-mono">
+                        <textarea placeholder="Job Details / Message" rows="4" required class="w-full p-3 rounded-lg bg-c-dark text-c-light border border-slate-700 focus:ring-c-primary focus:border-c-primary font-mono"></textarea>
+                        <button type="submit" class="w-full py-3 bg-c-primary text-white font-bold rounded-lg hover:bg-c-primary/90 transition duration-300">
+                            Send Inquiry
+                        </button>
+                    </form>
+                    <!-- <div class="mt-6 text-center space-x-4 text-sm font-semibold">
+                         <a href="https://link-to-your-resume-pdf.com" target="_blank" class="text-c-primary hover:text-c-light underline transition duration-300">
+                            Download Resume PDF
+                        </a>
+                    </div> -->
+                    <div class="form-message mt-4 text-sm font-semibold tech-label"></div>
+                </div>
+
+                <!-- Tab Content: Service Form -->
+                <div id="service" class="tab-content p-8 bg-c-card rounded-xl shadow-2xl border border-slate-700">
+                    <h3 class="text-2xl font-bold mb-4 text-c-primary">Freelance & Contract Services</h3>
+                    <p class="text-slate-400 mb-6 text-sm">
+                        For quick, fixed-price DevOps projects, cloud consultation, or inquiries about LVN Cloud Solutions.
+                    </p>
+                    <form onsubmit="handleFormSubmit(event, 'info@christianbeener.com')" class="space-y-4">
+                        <input type="text" placeholder="Your Name / Company" required class="w-full p-3 rounded-lg bg-c-dark text-c-light border border-slate-700 focus:ring-c-primary focus:border-c-primary font-mono">
+                        <input type="email" placeholder="Your Email" required class="w-full p-3 rounded-lg bg-c-dark text-c-light border border-slate-700 focus:ring-c-primary focus:border-c-primary font-mono">
+                        <select class="w-full p-3 rounded-lg bg-c-dark text-c-light border border-slate-700 focus:ring-c-primary focus:border-c-primary font-mono">
+                            <option>CI/CD Pipeline Setup (GitHub Actions)</option>
+                            <option>AWS/Terraform Infrastructure</option>
+                            <option>Full-Stack Consulting (MEAN/Java)</option>
+                            <option>Other Inquiry</option>
+                        </select>
+                        <textarea placeholder="Project Scope / Details" rows="4" required class="w-full p-3 rounded-lg bg-c-dark text-c-light border border-slate-700 focus:ring-c-primary focus:border-c-primary font-mono"></textarea>
+                        <button type="submit" class="w-full py-3 bg-c-primary text-white font-bold rounded-lg hover:bg-c-primary/90 transition duration-300">
+                            Send Service Request
+                        </button>
+                    </form>
+                    <div class="mt-6 text-center space-x-4 text-sm font-semibold">
+                        <a href="https://upwork.com/freelancer/~01cbeener" target="_blank" class="text-c-primary hover:text-c-light underline">Upwork Profile</a>
+                        <a href="https://twine.net/christianbeener" target="_blank" class="text-c-primary hover:text-c-light underline">Twine.net</a>
+                    </div>
+                    <div class="form-message mt-4 text-sm font-semibold tech-label"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center py-6 border-t border-slate-700 text-slate-500 text-xs">
+        <p>Christian Beener | Professional Websume | Built with Tailwind CSS and Hosted on GitHub Pages.</p>
+    </footer>
+
+    <!-- JavaScript for Tabs and Form Handling -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initialize tab visibility
+            document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+            document.getElementById('recruiter').classList.add('active');
+            
+            // Set initial button active state
+            const recruiterBtn = document.querySelector('.tab-button[onclick*="recruiter"]');
+            if (recruiterBtn) {
+                recruiterBtn.classList.remove('bg-slate-700', 'text-slate-300');
+                recruiterBtn.classList.add('bg-c-primary', 'text-white');
+            }
+        });
+
+        function showTab(tabId) {
+            // Hide all tab contents
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+                const messageDiv = content.querySelector('.form-message');
+                if (messageDiv) messageDiv.textContent = '';
+            });
+
+            // Show the selected tab content
+            document.getElementById(tabId).classList.add('active');
+
+            // Update button styles
+            document.querySelectorAll('.tab-button').forEach(button => {
+                button.classList.remove('bg-c-primary', 'text-white');
+                button.classList.add('bg-slate-700', 'text-slate-300');
+            });
+
+            const activeBtn = document.querySelector(`.tab-button[onclick*="${tabId}"]`);
+            if (activeBtn) {
+                activeBtn.classList.remove('bg-slate-700', 'text-slate-300');
+                activeBtn.classList.add('bg-c-primary', 'text-white');
+            }
+        }
+
+        function handleFormSubmit(event, targetEmail) {
+            event.preventDefault();
+            
+            const form = event.target;
+            let messageDiv = form.parentNode.querySelector('.form-message');
+            if (!messageDiv) {
+                 messageDiv = document.createElement('div');
+                 messageDiv.className = 'form-message mt-4 text-sm font-semibold tech-label';
+                 form.parentNode.appendChild(messageDiv);
+            }
+
+            // Simulate email sending success
+            messageDiv.classList.remove('bg-red-700', 'text-c-light', 'bg-green-700');
+            messageDiv.classList.add('bg-c-primary/20', 'text-c-light', 'p-2', 'rounded-lg');
+            
+            messageDiv.textContent = `SUCCESS: Inquiry simulated and routed to ${targetEmail}. I will respond shortly. (Backend deployment is the next step!)`;
+            
+            // Log for local development inspection
+            console.log("Form submitted to:", targetEmail);
+            
+            // Optional: Reset form fields after successful submission
+            form.reset();
+        }
+    </script>
+
+</body>
+</html>
