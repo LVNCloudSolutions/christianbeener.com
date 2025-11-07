@@ -1,280 +1,825 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Christian Beener | DevOps & Cloud Automation Specialist</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://kit.fontawesome.com/b85698e96c.js" crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Roboto+Mono:wght@400;600&display=swap" rel="stylesheet">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Christian Beener | DevOps & Cloud Automation Specialist</title>
+		<script src="https://cdn.tailwindcss.com"></script>
+		<script src="./scripts/script.js"></script>
+		<script
+			src="https://kit.fontawesome.com/b85698e96c.js"
+			crossorigin="anonymous"></script>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Roboto+Mono:wght@400;600&display=swap"
+			rel="stylesheet" />
+		<link
+			rel="apple-touch-icon"
+			sizes="180x180"
+			href="./assets/apple-touch-icon.png" />
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="32x32"
+			href="./assets/favicon-32x32.png" />
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="16x16"
+			href="./assets/favicon-16x16.png" />
+		<link rel="manifest" href="/site.webmanifest" />
 
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        // Professional Theme Colors (Deep Slate/Blue Accent)
-                        'c-primary': '#3B82F6', // Trustworthy Blue (Buttons, Accents)
-                        'c-dark': '#0F172A',    // Deep Slate (Main Background)
-                        'c-light': '#F1F5F9',   // Light Gray (Text)
-                        'c-card': '#1E293B',    // Dark Card Background
-                        'c-accent': '#64748B',  // Slate Gray (Borders/Dividers)
-                        'c-white': '#FFFFFF'    // Pure White
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        mono: ['Roboto Mono', 'monospace'],
-                    },
-                }
-            }
-        }
-    </script>
-    <style>
-        /* Ensures the sticky header works well */
-        body { padding-top: 5rem; }
-        .sticky-nav {
-            backdrop-filter: blur(8px);
-            background-color: rgba(15, 23, 42, 0.95);
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-        }
-        /* Style for the tab switcher */
-        .tab-content { display: none; }
-        .tab-content.active { display: block; }
-        /* Apply monospace font to code/tech labels */
-        .tech-label {
-            font-family: 'Roboto Mono', monospace;
-            font-size: 0.875rem; /* text-sm */
-        }
-        
-    </style>
-</head>
-<body class="bg-c-dark text-c-light font-sans">
+		<script>
+			tailwind.config = {
+				theme: {
+					extend: {
+						colors: {
+							// Professional Theme Colors (Deep Slate/Blue Accent)
+							"c-primary": "#3B82F6", // Trustworthy Blue (Buttons, Accents)
+							"c-dark": "#0F172A", // Deep Slate (Main Background)
+							"c-light": "#F1F5F9", // Light Gray (Text)
+							"c-card": "#1E293B", // Dark Card Background
+							"c-accent": "#64748B", // Slate Gray (Borders/Dividers)
+							"c-white": "#FFFFFF", // Pure White
+						},
+						fontFamily: {
+							sans: ["Inter", "sans-serif"],
+							mono: ["Roboto Mono", "monospace"],
+						},
+					},
+				},
+			};
+		</script>
+		<style>
+			/* Ensures the sticky header works well */
+			body {
+				padding-top: 5rem;
+			}
+			.sticky-nav {
+				backdrop-filter: blur(8px);
+				background-color: rgba(15, 23, 42, 0.95);
+				box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+			}
+			/* Style for the tab switcher */
+			.tab-content {
+				display: none;
+			}
+			.tab-content.active {
+				display: block;
+			}
+			/* Apply monospace font to code/tech labels */
+			.tech-label {
+				font-family: "Roboto Mono", monospace;
+				font-size: 0.875rem;
+			}
+			/* Starting state: Push menu fully off-screen (h-full is needed for proper effect) */
+			.mobile-menu-off {
+				transform: translateY(-100%);
+				visibility: hidden; /* Ensure it doesn't block clicks when off-screen */
+			}
 
-    <nav class="fixed top-0 left-0 right-0 z-50 sticky-nav h-20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex justify-between items-center">
-            <div class="text-2xl font-extrabold text-c-light tracking-tight">CB</div>
-            <div class="space-x-8 text-sm font-semibold">
-                <a href="#home" class="text-c-light hover:text-c-primary transition duration-300">Home</a>
-                <a href="#experience" class="text-c-light hover:text-c-primary transition duration-300">Experience</a>
-                <a href="#contact" class="text-c-light hover:text-c-primary transition duration-300">Contact</a>
-            </div>
-        </div>
-    </nav>
+			/* Active state: Bring menu back to the top (relative to its starting top-20 position) */
+			.mobile-menu-on {
+				transform: translateY(0);
+				visibility: visible;
+			}
+		</style>
+	</head>
+	<body class="bg-c-dark text-c-light font-sans">
+		<nav class="fixed top-0 left-0 right-0 z-50 sticky-nav h-20">
+			<div
+				class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex justify-between items-center">
+				<div class="flex flex-row items-center gap-1">
+					<div
+						class="text-2xl font-extrabold text-c-light tracking-tight bg-c-primary rounded-full px-2 py-2">
+						CB
+					</div>
+					<div
+						class="text-2xl font-extrabold text-c-light tracking-tight">
+						.com
+					</div>
+				</div>
+				<div
+					id="desktop-menu"
+					class="hidden sm:flex space-x-8 text-sm font-semibold">
+					<a
+						href="#home"
+						class="tech-label text-c-light hover:text-c-primary transition duration-300"
+						>Home</a
+					>
+					<a
+						href="#skills"
+						class="tech-label text-c-light hover:text-c-primary transition duration-300"
+						>Skills</a
+					>
+					<a
+						href="#experience"
+						class="tech-label text-c-light hover:text-c-primary transition duration-300"
+						>Experience</a
+					>
+					<a
+						href="#projects"
+						class="tech-label text-c-light hover:text-c-primary transition duration-300"
+						>Projects</a
+					>
+					<a
+						href="#contact"
+						class="tech-label text-c-light hover:text-c-primary transition duration-300"
+						>Contact</a
+					>
+					<a
+						href="./downloadables/Christian_Beener_Resume_oct25_download.pdf"
+						target="_blank"
+						class="tech-label text-c-light hover:text-c-primary transition duration-300"
+						>Resume</a
+					>
+				</div>
+				<button
+					id="menu-toggle"
+					class="sm:hidden text-c-light text-xl"
+					onclick="toggleMenu()">
+					<i class="fa-solid fa-bars"></i>
+					Menu
+				</button>
+			</div>
+		</nav>
 
-    <main>
+		<div
+			id="mobile-menu"
+			class="fixed top-20 left-0 right-0 z-40 bg-c-dark h-[calc(100vh-5rem)] sm:hidden transition-transform duration-300 mobile-menu-off overflow-y-auto">
+			<div
+				class="flex flex-col px-8 py-4 space-y-4 text-lg font-semibold">
+				<a
+					href="#home"
+					onclick="closeMenu()"
+					class="tech-label text-c-light hover:text-c-primary transition duration-300 pb-2 border-b-2 border-c-accent"
+					>Home</a
+				>
+				<a
+					href="#skills"
+					onclick="closeMenu()"
+					class="tech-label text-c-light hover:text-c-primary transition duration-300 pb-2 border-b-2 border-c-accent"
+					>Skills</a
+				>
+				<a
+					href="#experience"
+					onclick="closeMenu()"
+					class="tech-label text-c-light hover:text-c-primary transition duration-300 pb-2 border-b-2 border-c-accent"
+					>Experience</a
+				>
+				<a
+					href="#projects"
+					onclick="closeMenu()"
+					class="tech-label text-c-light hover:text-c-primary transition duration-300 pb-2 border-b-2 border-c-accent"
+					>Projects</a
+				>
+				<a
+					href="#contact"
+					onclick="closeMenu()"
+					class="tech-label text-c-light hover:text-c-primary transition duration-300 pb-2 border-b-2 border-c-accent"
+					>Contact</a
+				>
+				<a
+					onclick="closeMenu()"
+					href="./downloadables/Christian_Beener_Resume_oct25_download.pdf"
+					target="_blank"
+					class="tech-label text-c-light hover:text-c-primary transition duration-300 pb-2 border-b-2 border-c-accent"
+					>Resume</a
+				>
+			</div>
+		</div>
 
-        <section id="home" class="min-h-full flex items-center py-16 bg-c-dark">
-            <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-4 gap-8 items-center w-full">
-                
-                <div class="md:col-span-1 text-center md:text-left p-4">
-                    <div class="h-40 w-40 rounded-full mx-auto md:mx-0 mb-4 overflow-hidden bg-c-light border-4 border-c-primary shadow-xl">
-                        <img src="./assets/headshot.png" alt="Christian Beener Profile" class="w-full h-full object-cover">
-                    </div>
-                    <p class="text-2xl text-c-light font-bold">Christian Beener</p>
-                    <p class="text-sm text-c-primary font-medium mt-1">Austin, TX</p>
-                    <div class="flex justify-center md:justify-start space-x-4 mt-4 text-xl">
-                        <a href="https://linkedin.com/in/christianbeener" target="_blank" class="text-slate-300 hover:text-c-primary transition duration-300"><i class="fa-brands fa-linkedin-in"></i></a>
-                        <a href="https://github.com/lvncloudsolutions" target="_blank" class="text-slate-300 hover:text-c-primary transition duration-300"><i class="fa-brands fa-github"></i></a>
-                    </div>
-                </div>
+		<main>
+			<section
+				id="home"
+				class="min-h-full flex items-center px-4 py-16 bg-c-dark">
+				<div
+					class="max-w-7xl mx-auto px-4 grid md:grid-cols-4 gap-8 items-center w-full">
+					<div class="md:col-span-1 text-center md:text-left p-4">
+						<div
+							class="h-52 w-52 rounded-full mx-auto md:mx-0 mb-4 overflow-hidden bg-c-light border-4 border-c-primary shadow-xl">
+							<img
+								src="./assets/headshot_glasses_square.jpg"
+								alt="Christian Beener Profile"
+								class="w-full h-full object-cover" />
+						</div>
+						<p class="text-2xl text-c-light font-bold">
+							Christian Beener
+						</p>
+						<p class="text-sm text-c-primary font-medium mt-1">
+							Austin, TX
+						</p>
+						<div
+							class="flex justify-center md:justify-start space-x-4 mt-4 text-xl">
+							<a
+								href="https://linkedin.com/in/christianbeener"
+								target="_blank"
+								class="text-slate-300 hover:text-c-primary transition duration-300"
+								><i class="fa-brands fa-linkedin-in"></i
+							></a>
+							<a
+								href="https://www.upwork.com/freelancers/~01d6483b90641b9ead"
+								target="_blank"
+								class="text-slate-300 hover:text-c-primary transition duration-300"
+								><i class="fa-brands fa-square-upwork"></i
+							></a>
+							<a
+								href="https://github.com/lvncloudsolutions"
+								target="_blank"
+								class="text-slate-300 hover:text-c-primary transition duration-300"
+								><i class="fa-brands fa-github"></i
+							></a>
+						</div>
+					</div>
 
-                <div class="md:col-span-3 p-4 border-l-4 border-c-accent pl-8">
-                    <h1 class="text-5xl sm:text-6xl font-extrabold mb-6 leading-tight text-white">
-                        DevOps & Cloud Automation Specialist
-                    </h1>
-                    <p class="text-xl text-slate-400 mb-8">
-                        4+ years of experience focused on deploying <strong>scalable full-stack applications</strong> (Node.js/Java) using <strong>Infrastructure as Code</strong> (Terraform) and <strong>CI/CD</strong> on AWS and Azure.
-                    </p>
-                    <div class="flex flex-col sm:flex-row gap-4 sm:gap-0 sm:space-x-4">
-                        <a href="#contact" class="px-8 py-3 bg-c-primary text-center text-white font-bold rounded-lg shadow-lg hover:bg-c-primary/90 transition duration-300">
-                            Connect with Me
-                        </a>
-                        <a href="#experience" class="px-8 py-3 text-center border-2 border-slate-700 text-slate-300 font-bold rounded-lg shadow-lg hover:bg-c-primary/90 transition duration-300">
-                            View Full Experience
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
+					<div
+						class="md:col-span-3 p-4 border-l-4 border-c-accent pl-8">
+						<h1
+							class="text-4xl sm:text-4xl font-extrabold mb-5 leading-tight text-white">
+							Automating Software Delivery on AWS
+						</h1>
+						<p class="text-xl text-slate-400 mb-5">
+							With over 5-years of full-stack development
+							experience using the
+							<strong
+								>MEAN Stack, Java/Spring, Dockerized containers,
+								and AWS Cloud Services</strong
+							>, I can help you and your team get off the ground
+							faster with reliable, automated cloud infrastructure
+							and efficient development workflows. Watch my
+							current projects on GitHub as this simple site
+							evolves!
+						</p>
+						<div
+							class="flex flex-col sm:flex-row gap-4 sm:gap-0 sm:space-x-4">
+							<a
+								href="#contact"
+								class="px-8 py-3 bg-c-primary text-center text-white font-bold rounded-lg shadow-lg hover:bg-c-primary/90 transition duration-300">
+								Connect with Me
+							</a>
+							<a
+								href="#projects"
+								class="px-8 py-3 text-center bg-slate-700 text-slate-300 font-bold rounded-lg shadow-lg hover:bg-c-primary/90 transition duration-300">
+								Current Projects
+							</a>
+						</div>
+					</div>
+				</div>
+			</section>
 
-        <section id="experience" class="py-10 bg-c-card text-c-light">
-            <div class="max-w-5xl mx-auto px-4">
-                <h2 class="text-4xl font-bold text-center mb-5 border-b-4 border-c-primary pb-3">Technical Experience & Expertise</h2>
-                
-                <div class="grid md:grid-cols-3 gap-8 text-left">
-                    <div class="p-6 bg-c-dark rounded-xl shadow-lg border-t-4 border-c-primary">
-                        <h3 class="text-xl font-bold mb-2">Cloud Infrastructure</h3>
-                        <p class="text-slate-400 font-semibold mb-3 text-sm">Automation & Provisioning</p>
-                        <ul class="list-disc list-inside text-sm text-slate-400 space-y-1 font-mono">
-                            <li><strong>AWS</strong>: EC2, S3, RDS, IAM, SES</li>
-                            <li><strong>DevOps</strong>: Terraform, CI/CD Pipelines (GH Actions)</li>
-                            <li><strong>Containers</strong>: Docker and Containerized Deployment</li>
-                        </ul>
-                    </div>
-                    <div class="p-6 bg-c-dark rounded-xl shadow-lg border-t-4 border-c-primary">
-                        <h3 class="text-xl font-bold mb-2">Backend Development</h3>
-                        <p class="text-slate-400 font-semibold mb-3 text-sm">APIs and Systems</p>
-                        <ul class="list-disc list-inside text-sm text-slate-400 space-y-1 font-mono">
-                            <li><strong>Stacks</strong>: MEAN, Java/Spring, Node.js/Express</li>
-                            <li><strong>Data</strong>: PostgreSQL, MongoDB, SQL/NoSQL Design</li>
-                            <li><strong>Specialty</strong>: Legacy System Modernization</li>
-                        </ul>
-                    </div>
-                    <div class="p-6 bg-c-dark rounded-xl shadow-lg border-t-4 border-c-primary">
-                        <h3 class="text-xl font-bold mb-2">Development Practice</h3>
-                        <p class="text-slate-400 font-semibold mb-3 text-sm">Quality & Workflow</p>
-                        <ul class="list-disc list-inside text-sm text-slate-400 space-y-1 font-mono">
-                            <li><strong>Tools</strong>: Git, VS Code, Linux Environments</li>
-                            <li><strong>Frontend</strong>: Angular, Tailwind CSS, Responsive UI</li>
-                            <li><strong>Code Quality</strong>: Unit Testing and Code Review</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
+			<section id="skills" class="py-16 px-4 bg-c-card text-c-light">
+				<div class="max-w-5xl mx-auto px-4">
+					<h2
+						class="text-4xl font-bold text-center mb-5 border-b-4 border-c-primary pb-3">
+						End-to-End Tech Stack
+					</h2>
 
-        <section id="contact" class="py-10 bg-c-dark">
-            <div class="max-w-4xl mx-auto px-4">
-                <h2 class="text-4xl font-bold text-center mb-5 border-b-4 border-c-primary pb-3 text-c-light">Contact & Inquiry</h2>
-                <p class="text-center text-slate-400 mb-5">Please use the tabs below to direct your message to the correct channel.</p>
+					<div class="grid md:grid-cols-3 gap-8 text-left">
+						<div
+							class="p-6 bg-c-dark rounded-xl shadow-lg border-t-4 border-c-primary">
+							<h3 class="text-xl font-bold mb-2">
+								Fullstack Development
+							</h3>
+							<p
+								class="text-slate-400 font-semibold mb-3 text-sm">
+								Robust & Scalable Applications
+							</p>
+							<ul
+								class="list-none list-inside text-sm text-slate-400 space-y-1 font-mono">
+								<li>
+									<strong>Stacks</strong>:<br />
+									MEAN, Java/Spring, HTML5/TailwindCSS/JS
+								</li>
+								<li>
+									<strong>Data</strong>:<br />
+									MySQL, PostgreSQL, MongoDB, SQL/NoSQL Design
+								</li>
+								<li>
+									<strong>Specialty</strong>:<br />
+									Legacy System Modernization
+								</li>
+							</ul>
+						</div>
+						<div
+							class="p-6 bg-c-dark rounded-xl shadow-lg border-t-4 border-c-primary">
+							<h3 class="text-xl font-bold mb-2">
+								Cloud Infrastructure
+							</h3>
+							<p
+								class="text-slate-400 font-semibold mb-3 text-sm">
+								Automation & Provisioning
+							</p>
+							<ul
+								class="list-none list-inside text-sm text-slate-400 space-y-1 font-mono">
+								<li>
+									<strong>AWS</strong>:<br />
+									EC2, S3, RDS, IAM, SES
+								</li>
+								<li>
+									<strong>DevOps</strong>:<br />
+									Terraform, CI/CD Pipelines (GitHub Actions)
+								</li>
+								<li>
+									<strong>Containers</strong>:<br />
+									Docker and Containerized Deployment
+								</li>
+							</ul>
+						</div>
+						<div
+							class="p-6 bg-c-dark rounded-xl shadow-lg border-t-4 border-c-primary">
+							<h3 class="text-xl font-bold mb-2">
+								Optimized Workflows
+							</h3>
+							<p
+								class="text-slate-400 font-semibold mb-3 text-sm">
+								Agile & Efficient Development
+							</p>
+							<ul
+								class="list-none list-inside text-sm text-slate-400 space-y-1 font-mono">
+								<li>
+									<strong>Tools</strong>:<br />
+									Git, VS Code, Linux Environments
+								</li>
+								<li>
+									<strong>Agile Delivery</strong>:<br />
+									SCRUM/Kanban, Sprint Planning, Asana/GH
+									Projects
+								</li>
+								<li>
+									<strong>Testing & Quality</strong>:<br />
+									Unit & Integration Testing, AI-Assisted Code
+									Review
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</section>
 
-                <div class="flex justify-center mb-5 space-x-4">
-                    <button onclick="showTab('recruiter')" class="tab-button px-6 py-2 rounded-lg font-semibold transition duration-300 shadow-md">
-                        Recruiter / Full-Time Inquiry
-                    </button>
-                    <button onclick="showTab('service')" class="tab-button px-6 py-2 rounded-lg font-semibold transition duration-300 shadow-md">
-                        Freelance / Service Request
-                    </button>
-                </div>
+			<section id="experience" class="py-16 px-4 bg-c-dark text-c-light">
+				<div class="max-w-4xl mx-auto px-4">
+					<h2
+						class="text-4xl font-bold text-center mb-10 border-b-4 border-c-primary pb-3">
+						Professional Experience
+					</h2>
 
-                <div id="recruiter" class="tab-content active p-8 bg-c-card rounded-xl shadow-2xl border border-slate-700">
-                    <h3 class="text-2xl font-bold mb-4 text-c-primary">Full-Time Job Inquiry</h3>
-                    <p class="text-slate-400 mb-6 text-sm">
-                        For job offers, full-time positions, or general HR inquiries.
-                    </p>
-                    <form onsubmit="handleFormSubmit(event, 'recruiting@christianbeener.com')" class="space-y-4 lg:grid lg:grid-cols-2 lg:gap-4 lg:space-y-0">
-                        <div class="space-y-4">
-                            <input type="text" placeholder="Your Name / Company" required class="w-full p-3 rounded-lg bg-c-dark text-c-light border border-slate-700 focus:ring-c-primary focus:border-c-primary font-mono">
-                            <input type="email" placeholder="Your Email" required class="w-full p-3 rounded-lg bg-c-dark text-c-light border border-slate-700 focus:ring-c-primary focus:border-c-primary font-mono">
-                        </div>
-                        <div>
-                            <textarea placeholder="Job Details / Message" rows="3" required class="w-full p-3 rounded-lg bg-c-dark text-c-light border border-slate-700 focus:ring-c-primary focus:border-c-primary font-mono lg:h-full"></textarea>
-                        </div>
-                        <div class="lg:col-span-2">
-                            <button type="submit" class="w-full py-3 bg-c-primary text-white font-bold rounded-lg hover:bg-c-primary/90 transition duration-300">
-                                Send Inquiry
-                            </button>
-                        </div>
-                    </form>
-                    <div class="form-message mt-4 text-sm font-semibold tech-label"></div>
-                </div>
+					<div
+						class="relative border-l-4 border-c-accent space-y-12 ml-4 md:ml-0 md:pl-8">
+						<div class="relative pl-8">
+							<div
+								class="absolute -left-2 top-1 w-4 h-4 rounded-full bg-c-primary border-4 border-c-dark"></div>
+							<h3 class="text-2xl font-bold text-c-primary">
+								DevOps Engineering & Consulting
+							</h3>
+							<p class="text-lg font-semibold text-c-light mt-1">
+								Independent Freelance, Austin, TX
+							</p>
+							<p class="text-sm text-slate-500 mb-4">
+								Oct 2025 - Present
+							</p>
+							<ul
+								class="list-disc ml-5 space-y-2 text-slate-400 tech-label">
+								<li>
+									Actively building reusable
+									<strong
+										>Infrastructure as Code (IaC)</strong
+									>
+									templates (see AWS IaC Boilerplate project)
+									to ensure client solutions start with
+									secure, scalable foundations.
+								</li>
+								<li>
+									Designing and implementing automated
+									<strong>CI/CD pipelines</strong> for
+									containerized applications, focusing on
+									reliability and speed in deployment cycles.
+								</li>
+								<li>
+									Preparing for the AWS Solutions Architect -
+									Associate certification to expand and
+									formalize expertise in
+									<strong>cloud architecture design</strong>.
+								</li>
+								<li>
+									Providing specialized consulting on
+									migrating monolithic applications to modern,
+									scalable
+									<strong
+										>Docker-based cloud environments</strong
+									>.
+								</li>
+							</ul>
+						</div>
 
-                <div id="service" class="tab-content p-8 bg-c-card rounded-xl shadow-2xl border border-slate-700">
-                    <h3 class="text-2xl font-bold mb-4 text-c-primary">Freelance & Contract Services</h3>
-                    <p class="text-slate-400 mb-6 text-sm">
-                        For quick, fixed-price DevOps projects, cloud consultation, or inquiries about LVN Cloud Solutions.
-                    </p>
-                    <form onsubmit="handleFormSubmit(event, 'info@christianbeener.com')" class="space-y-4 lg:grid lg:grid-cols-2 lg:gap-4 lg:space-y-0">
-                        <div class="space-y-4">
-                            <input type="text" placeholder="Your Name / Company" required class="w-full p-3 rounded-lg bg-c-dark text-c-light border border-slate-700 focus:ring-c-primary focus:border-c-primary font-mono">
-                            <input type="email" placeholder="Your Email" required class="w-full p-3 rounded-lg bg-c-dark text-c-light border border-slate-700 focus:ring-c-primary focus:border-c-primary font-mono">
-                            <select class="w-full p-3 rounded-lg bg-c-dark text-c-light border border-slate-700 focus:ring-c-primary focus:border-c-primary font-mono">
-                                <option>CI/CD Pipeline Setup</option>
-                                <option>AWS/Terraform Infrastructure</option>
-                                <option>Full-Stack Consulting</option>
-                                <option>Other Inquiry</option>
-                            </select>
-                        </div>
-                        <div>
-                            <textarea placeholder="Project Scope / Details" rows="4" required class="w-full p-3 rounded-lg bg-c-dark text-c-light border border-slate-700 focus:ring-c-primary focus:border-c-primary font-mono lg:h-full"></textarea>
-                        </div>
-                        <div class="lg:col-span-2">
-                            <button type="submit" class="w-full py-3 bg-c-primary text-white font-bold rounded-lg hover:bg-c-primary/90 transition duration-300">
-                                Send Service Request
-                            </button>
-                        </div>
-                    </form>
-                    <div class="mt-6 text-center space-x-4 text-sm font-semibold">
-                        <a href="https://upwork.com/freelancer/~01cbeener" target="_blank" class="text-c-primary hover:text-c-light underline">Upwork Profile</a>
-                        <a href="https://twine.net/christianbeener" target="_blank" class="text-c-primary hover:text-c-light underline">Twine.net</a>
-                    </div>
-                    <div class="form-message mt-4 text-sm font-semibold tech-label"></div>
-                </div>
-            </div>
-        </section>
-    </main>
+						<div class="relative pl-8">
+							<div
+								class="absolute -left-2 top-1 w-4 h-4 rounded-full bg-c-primary border-4 border-c-dark"></div>
 
-    <footer class="text-center py-6 border-t border-slate-700 text-slate-500 text-xs">
-        <p>Christian Beener | Professional Websume | Built with Tailwind CSS and Hosted on GitHub Pages.</p>
-    </footer>
+							<h3 class="text-2xl font-bold text-c-primary">
+								Full-Stack Developer
+							</h3>
+							<p class="text-lg font-semibold text-c-light mt-1">
+								Fieldd, Austin, TX
+							</p>
+							<p class="text-sm text-slate-500 mb-4">
+								Sep 2024 - Oct 2025
+							</p>
+							<ul
+								class="list-disc ml-5 space-y-2 text-slate-400 tech-label">
+								<li>
+									<strong>Mobile App Delivery:</strong>
+									Developed and delivered
+									<strong>Angular/Ionic</strong> mobile
+									applications for iOS/Android, encompassing
+									the full MEAN stack and ensuring a cohesive
+									SaaS user experience.
+								</li>
+								<li>
+									<strong>Workflow Automation:</strong>
+									Engineered specialized real-time mobile
+									tools (e.g., license plate scanner) that
+									<strong
+										>improved field service speed</strong
+									>
+									and boosted user engagement.
+								</li>
+								<li>
+									<strong>Internal Tooling:</strong>
+									Contributed to a dedicated
+									<strong>sales suite</strong> for lead
+									tracking and conversion analysis, directly
+									supporting the business development team.
+								</li>
+								<li>
+									<strong>Quality & Release:</strong> Managed
+									post-launch QA and support, ensuring high
+									stability and rapid iteration cycles for the
+									production environment.
+								</li>
+							</ul>
+						</div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // 1. Set the initial active state to the Recruiter tab
-            document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
-            document.getElementById('recruiter').classList.add('active');
-            
-            // 2. Call showTab to correctly apply the primary color styles on load
-            showTab('recruiter'); 
+						<div class="relative pl-8">
+							<div
+								class="absolute -left-2 top-1 w-4 h-4 rounded-full bg-c-primary border-4 border-c-dark"></div>
 
-            // 3. Add universal HOVER logic to ALL tab buttons once on load
-            // This is handled inside showTab now for better control.
-        });
+							<h3 class="text-2xl font-bold text-c-primary">
+								Software Engineer
+							</h3>
+							<p class="text-lg font-semibold text-c-light mt-1">
+								General Motors, Austin, TX
+							</p>
+							<p class="text-sm text-slate-500 mb-4">
+								Jan 2022 - Aug 2024
+							</p>
+							<ul
+								class="list-disc ml-5 space-y-2 text-slate-400 tech-label">
+								<li>
+									<strong>Enterprise Modernization:</strong>
+									Led the modernization of the core
+									warehousing integration platform,
+									successfully linking
+									<strong>SAP</strong> and custom WMS via
+									<strong>Angular/Spring</strong>.
+								</li>
+								<li>
+									<strong>Tech Stack Upgrades:</strong>
+									Executed large-scale migration of legacy
+									codebases from Java 8/Spring 2 to Java
+									17/Spring 3 and Angular 8 to 14+,
+									significantly improving performance and
+									long-term viability.
+								</li>
+								<li>
+									<strong>Process Automation:</strong>
+									Developed Python/Kubernetes CronJobs to
+									automate compliance report generation,
+									reducing manual runtime from hours to
+									seconds.
+								</li>
+								<li>
+									<strong
+										>DevOps & Cloud Orchestration:</strong
+									>
+									Managed CI/CD pipelines and container
+									deployment strategies using Azure DevOps and
+									<strong>Kubernetes</strong> for
+									mission-critical logistics systems.
+								</li>
+							</ul>
+						</div>
 
-        function showTab(tabId) {
-            // Hide all tab contents and clear messages
-            document.querySelectorAll('.tab-content').forEach(content => {
-                content.classList.remove('active');
-                const messageDiv = content.querySelector('.form-message');
-                if (messageDiv) messageDiv.textContent = '';
-            });
+						<div class="relative pl-8">
+							<div
+								class="absolute -left-2 top-1 w-4 h-4 rounded-full bg-c-primary border-4 border-c-dark"></div>
 
-            // Show the selected tab content
-            document.getElementById(tabId).classList.add('active');
+							<h3 class="text-2xl font-bold text-c-primary">
+								Project Manager / Full-Stack Developer
+							</h3>
+							<p class="text-lg font-semibold text-c-light mt-1">
+								UH Capstone Project, Houston, TX
+							</p>
+							<p class="text-sm text-slate-500 mb-4">
+								Aug 2020 - May 2021
+							</p>
+							<ul
+								class="list-disc ml-5 space-y-2 text-slate-400 tech-label">
+								<li>
+									Directed a 9-member team to deliver
+									full-stack Java and AWS business app valued
+									at $50K.
+								</li>
+								<li>
+									Oversaw SDLC: requirements, architecture,
+									coding, testing, and deployment.
+								</li>
+								<li>
+									Developed backend services and responsive UI
+									integrated with AWS-hosted data pipelines.
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</section>
 
-            // Update button styles: <strong>All buttons have the hover effect now</strong>
-            document.querySelectorAll('.tab-button').forEach(button => {
-                const isTarget = button.getAttribute('onclick').includes(tabId);
-                
-                // Ensure all buttons have the required hover class
-                button.classList.add('hover:bg-c-primary/90', 'hover:text-white');
+			<section id="projects" class="py-16 px-4 bg-c-card text-c-light">
+				<div class="max-w-5xl mx-auto px-4">
+					<h2
+						class="text-4xl font-bold text-center mb-10 border-b-4 border-c-primary pb-3">
+						Current Projects
+					</h2>
+					<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+						<div
+							class="bg-c-dark p-6 rounded-xl shadow-lg border-t-4 border-c-primary/50 flex flex-col justify-between">
+							<div>
+								<span
+									class="inline-block bg-yellow-600 text-white text-xs font-bold px-2 py-1 rounded-full mb-3"
+									>In Progress</span
+								>
+								<span
+									class="float-end text-xs text-c-accent font-mono"
+									>Start: Nov 2025</span
+								>
+								<h3
+									class="text-xl font-bold mb-2 text-c-primary">
+									AWS IaC Boilerplate
+								</h3>
+								<p class="text-slate-400 mb-4 text-sm">
+									A reusable <strong>Terraform</strong> module
+									providing a secure, baseline
+									<strong>AWS VPC</strong>. It quickly deploys
+									an <strong>EC2 instance</strong> and an
+									<strong>S3 bucket</strong> within this
+									structure, ready for application hosting
+								</p>
+							</div>
+							<div>
+								<p class="text-xs text-c-accent font-mono mb-2">
+									Tech: Terraform, AWS VPC, AWS EC2, IaC
+								</p>
+								<!-- <a
+									href="https://github.com/lvncloudsolutions/terraform-aws-vpc-module"
+									target="_blank"
+									class="text-c-primary hover:text-c-light underline text-sm font-semibold transition duration-300">
+									<i class="fa-brands fa-github mr-1"></i>
+									View on GitHub
+								</a> -->
+							</div>
+						</div>
 
-                if (isTarget) {
-                    // ACTIVATE: Primary Blue with White text
-                    button.classList.remove('bg-slate-700', 'text-slate-300');
-                    button.classList.add('bg-c-primary', 'text-white'); // Enforce bg-c-primary for active tab
-                } else {
-                    // DEACTIVATE: Subtle Gray with Light text
-                    button.classList.remove('bg-c-primary', 'text-white');
-                    button.classList.add('bg-slate-700', 'text-slate-300');
-                }
-            });
-        }
+						<div
+							class="bg-c-dark p-6 rounded-xl shadow-lg border-t-4 border-c-primary/50 flex flex-col justify-between">
+							<div>
+								<span
+									class="inline-block bg-yellow-600 text-white text-xs font-bold px-2 py-1 rounded-full mb-3"
+									>In Progress</span
+								>
+								<span
+									class="float-end text-xs text-c-accent font-mono"
+									>Start: Nov 2025</span
+								>
+								<h3
+									class="text-xl font-bold mb-2 text-c-primary">
+									SAA-C03 Certification
+								</h3>
+								<p class="text-slate-400 mb-4 text-sm">
+									Currently studying for the
+									<strong
+										>AWS Certified Solutions Architect -
+										Associate (SAA-C03)</strong
+									>
+									exam, focusing on designing resilient
+									architectures, high-performing systems, and
+									cost-optimized solutions on AWS.
+								</p>
+							</div>
+							<div>
+								<p class="text-xs text-c-accent font-mono mb-2">
+									Tech: AWS, Lambda, S3, VPC Design, IAM
+									Security
+								</p>
+								<!-- <a
+									href="https://github.com/lvncloudsolutions/mean-cicd-template"
+									target="_blank"
+									class="text-c-primary hover:text-c-light underline text-sm font-semibold transition duration-300">
+									<i class="fa-brands fa-github mr-1"></i>
+									View on GitHub
+								</a> -->
+							</div>
+						</div>
 
-        function handleFormSubmit(event, targetEmail) {
-            event.preventDefault();
-            
-            const form = event.target;
-            let messageDiv = form.parentNode.querySelector('.form-message');
-            if (!messageDiv) {
-                messageDiv = document.createElement('div');
-                messageDiv.className = 'form-message mt-4 text-sm font-semibold tech-label';
-                form.parentNode.appendChild(messageDiv);
-            }
+						<div
+							class="bg-c-dark p-6 rounded-xl shadow-lg border-t-4 border-c-primary/50 flex flex-col justify-between">
+							<div>
+								<span
+									class="inline-block bg-green-600 text-white text-xs font-bold px-2 py-1 rounded-full mb-3"
+									>Complete</span
+								>
+								<span
+									class="float-end text-xs text-c-accent font-mono"
+									>Completed: Nov 2025</span
+								>
+								<h3
+									class="text-xl font-bold mb-2 text-c-primary">
+									Static Website Launch
+								</h3>
+								<p class="text-slate-400 mb-4 text-sm">
+									This site is a static website built using
+									<strong>HTML5</strong>, and
+									<strong>Tailwind CSS</strong> via CDN. It is
+									hosted on GitHub Pages, and deployments are
+									automated through a
+									<strong>CI/CD pipeline</strong> built in
+									GitHub Actions.
+								</p>
+							</div>
+							<div>
+								<p class="text-xs text-c-accent font-mono mb-2">
+									Tech: Tailwind CSS, HTML5, GitHub Pages,
+									GitHub Actions
+								</p>
+								<!-- <a
+									href="https://lvncloudsolutions.com"
+									target="_blank"
+									class="text-c-primary hover:text-c-light underline text-sm font-semibold transition duration-300">
+									<i
+										class="fa-solid fa-arrow-up-right-from-square mr-1"></i>
+									View Live Demo
+								</a> -->
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
 
-            // Simulate email sending success
-            messageDiv.classList.remove('bg-red-700', 'text-c-light', 'bg-green-700');
-            messageDiv.classList.add('bg-c-primary/20', 'text-c-light', 'p-2', 'rounded-lg');
-            
-            messageDiv.textContent = `SUCCESS: Inquiry simulated and routed to ${targetEmail}. I will respond shortly. (Backend deployment is the next step!)`;
-            
-            // Log for local development inspection
-            console.log("Form submitted to:", targetEmail);
-            
-            // Optional: Reset form fields after successful submission
-            form.reset();
-        }
-    </script>
+			<section id="contact" class="py-16 px-4 bg-c-dark">
+				<div class="max-w-4xl mx-auto px-4">
+					<h2
+						class="text-4xl font-bold text-center mb-5 border-b-4 border-c-primary pb-3 text-c-light">
+						Contact Me
+					</h2>
+					<p class="text-center text-slate-400 mb-5">
+						Please use the tabs below to direct your message to the
+						correct channel.
+					</p>
 
-</body>
+					<div class="flex justify-center mb-5 space-x-4">
+						<button
+							onclick="showTab('service')"
+							class="tab-button px-6 py-2 rounded-lg font-semibold transition duration-300 shadow-md">
+							Freelance / Service Request
+						</button>
+						<button
+							onclick="showTab('recruiter')"
+							class="tab-button px-6 py-2 rounded-lg font-semibold transition duration-300 shadow-md">
+							Recruiter / Full-Time Inquiry
+						</button>
+					</div>
+
+					<div
+						id="recruiter"
+						class="tab-content active p-5 bg-c-card rounded-xl shadow-2xl border border-slate-700">
+						<h3 class="text-2xl font-bold mb-4 text-c-primary">
+							Full-Time Job Inquiry
+						</h3>
+						<p class="text-slate-400 mb-4 text-sm">
+							For job offers, full-time positions, or general HR
+							inquiries.
+						</p>
+						<form
+							onsubmit="handleFormSubmit(event, 'recruiting@christianbeener.com')"
+							class="space-y-4 lg:grid lg:grid-cols-2 lg:gap-4 lg:space-y-0">
+							<div class="space-y-4">
+								<input
+									type="text"
+									placeholder="Your Name / Company"
+									required
+									class="w-full p-3 rounded-lg bg-c-dark text-c-light border border-slate-700 focus:ring-c-primary focus:border-c-primary font-mono" />
+								<input
+									type="email"
+									placeholder="Your Email"
+									required
+									class="w-full p-3 rounded-lg bg-c-dark text-c-light border border-slate-700 focus:ring-c-primary focus:border-c-primary font-mono" />
+							</div>
+							<div>
+								<textarea
+									placeholder="Job Details"
+									rows="3"
+									required
+									class="w-full p-3 rounded-lg bg-c-dark text-c-light border border-slate-700 focus:ring-c-primary focus:border-c-primary font-mono lg:h-full"></textarea>
+							</div>
+							<div class="lg:col-span-2">
+								<button
+									type="submit"
+									class="w-full py-3 bg-c-primary text-white font-bold rounded-lg hover:bg-c-primary/90 transition duration-300">
+									Submit Inquiry
+								</button>
+							</div>
+						</form>
+						<div
+							class="form-message mt-4 text-sm font-semibold tech-label"></div>
+					</div>
+
+					<div
+						id="service"
+						class="tab-content p-5 bg-c-card rounded-xl shadow-2xl border border-slate-700">
+						<h3 class="text-2xl font-bold mb-4 text-c-primary">
+							Freelance & Contract Services
+						</h3>
+						<p class="text-slate-400 mb-4 text-sm">
+							For quick, fixed-price DevOps projects, cloud
+							consultation, or inquiries about LVN Cloud
+							Solutions.
+						</p>
+						<form
+							onsubmit="handleFormSubmit(event, 'info@christianbeener.com')"
+							class="space-y-4 lg:grid lg:grid-cols-2 lg:gap-4 lg:space-y-0">
+							<div class="space-y-4">
+								<input
+									type="text"
+									placeholder="Your Name / Company"
+									required
+									class="w-full p-3 rounded-lg bg-c-dark text-c-light border border-slate-700 focus:ring-c-primary focus:border-c-primary font-mono" />
+								<input
+									type="email"
+									placeholder="Your Email"
+									required
+									class="w-full p-3 rounded-lg bg-c-dark text-c-light border border-slate-700 focus:ring-c-primary focus:border-c-primary font-mono" />
+								<select
+									class="w-full p-3 rounded-lg bg-c-dark text-c-light border border-slate-700 focus:ring-c-primary focus:border-c-primary font-mono">
+									<option>Static Website Deployment</option>
+									<option>CI/CD Pipeline Setup</option>
+									<option>
+										AWS/Terraform Infrastructure
+									</option>
+									<option>Full-Stack Consulting</option>
+									<option>Other Inquiry</option>
+								</select>
+							</div>
+							<div>
+								<textarea
+									placeholder="Project Details"
+									rows="4"
+									required
+									class="w-full p-3 rounded-lg bg-c-dark text-c-light border border-slate-700 focus:ring-c-primary focus:border-c-primary font-mono lg:h-full"></textarea>
+							</div>
+							<div class="lg:col-span-2">
+								<button
+									type="submit"
+									class="w-full py-3 bg-c-primary text-white font-bold rounded-lg hover:bg-c-primary/90 transition duration-300">
+									Submit Service Request
+								</button>
+							</div>
+						</form>
+						<div
+							class="form-message mt-4 text-sm font-semibold tech-label"></div>
+					</div>
+				</div>
+			</section>
+		</main>
+
+		<div
+			id="form-loader"
+			class="fixed inset-0 z-10] bg-c-dark/80 hidden items-center justify-center">
+			<i class="fa-solid fa-spinner fa-spin text-4xl text-c-primary"></i>
+		</div>
+
+		<div
+			id="toast-notification"
+			class="fixed bottom-5 left-1/2 transform -translate-x-1/2 z-100 hidden">
+			<div
+				class="bg-c-primary text-c-white font-semibold px-6 py-3 rounded-xl shadow-2xl flex items-center space-x-3 min-w-xs transition-opacity duration-300">
+				<i class="fas fa-check-circle text-lg"></i>
+				<span id="toast-message"></span>
+			</div>
+		</div>
+
+		<footer
+			class="text-center py-6 px-8 border-t border-slate-700 text-slate-500 text-xs">
+			<p>
+				&copy; 2025 Christian Beener, All rights reserved. | Built with
+				TailwindCSS and Hosted on GitHub Pages.
+			</p>
+		</footer>
+	</body>
 </html>
