@@ -1,1 +1,46 @@
 @import "tailwindcss";
+
+@theme {
+	--color-primary: #3b82f6; /* Trustworthy Blue (Buttons, Accents) */
+	--color-dark: #0f172a; /* Deep Slate (Main Background) */
+	--color-light: #f1f5f9; /* Light Gray (Text) */
+	--color-card: #1e293b; /* Dark Card Background */
+	--color-accent: #64748b; /* Slate Gray (Borders/Dividers) */
+	--color-white: #ffffff; /* Pure White */
+
+	--font-sans: "Inter", sans-serif;
+	--font-mono: "Roboto Mono", monospace;
+}
+
+/* Ensures the sticky header works well */
+body {
+	padding-top: 5rem;
+}
+.sticky-nav {
+	backdrop-filter: blur(8px);
+	background-color: rgba(15, 23, 42, 0.95);
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+/* Style for the tab switcher */
+.tab-content {
+	display: none;
+}
+.tab-content.active {
+	display: block;
+}
+/* Apply monospace font to code/tech labels */
+.tech-label {
+	font-family: "Roboto Mono", monospace;
+	font-size: 0.875rem;
+}
+/* Starting state: Push menu fully off-screen (h-full is needed for proper effect) */
+.mobile-menu-off {
+	transform: translateY(-100%);
+	visibility: hidden; /* Ensure it doesn't block clicks when off-screen */
+}
+
+/* Active state: Bring menu back to the top (relative to its starting top-20 position) */
+.mobile-menu-on {
+	transform: translateY(0);
+	visibility: visible;
+}
