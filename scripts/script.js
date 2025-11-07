@@ -37,7 +37,6 @@ function toggleMenu() {
 function closeMenu() {
 	const mobileMenu = document.getElementById("mobile-menu");
 	const toggleButton = document.getElementById("menu-toggle");
-	const body = document.body;
 
 	// Only close if it's currently open
 	if (mobileMenu.classList.contains("mobile-menu-on")) {
@@ -53,7 +52,6 @@ function closeMenu() {
 function closeMenu() {
 	const mobileMenu = document.getElementById("mobile-menu");
 	const toggleButton = document.getElementById("menu-toggle");
-	const body = document.body;
 
 	if (!mobileMenu.classList.contains("hidden")) {
 		mobileMenu.classList.add("hidden");
