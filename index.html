@@ -4,7 +4,6 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Christian Beener | Cloud Solutions Provider</title>
-		<script src="https://cdn.tailwindcss.com"></script>
 		<script src="./scripts/script.js"></script>
 		<script
 			src="https://kit.fontawesome.com/b85698e96c.js"
@@ -27,64 +26,9 @@
 			sizes="16x16"
 			href="./assets/favicon-16x16.png" />
 		<link rel="manifest" href="/site.webmanifest" />
-
-		<script>
-			tailwind.config = {
-				theme: {
-					extend: {
-						colors: {
-							// Professional Theme Colors (Deep Slate/Blue Accent)
-							"c-primary": "#3B82F6", // Trustworthy Blue (Buttons, Accents)
-							"c-dark": "#0F172A", // Deep Slate (Main Background)
-							"c-light": "#F1F5F9", // Light Gray (Text)
-							"c-card": "#1E293B", // Dark Card Background
-							"c-accent": "#64748B", // Slate Gray (Borders/Dividers)
-							"c-white": "#FFFFFF", // Pure White
-						},
-						fontFamily: {
-							sans: ["Inter", "sans-serif"],
-							mono: ["Roboto Mono", "monospace"],
-						},
-					},
-				},
-			};
-		</script>
-		<style>
-			/* Ensures the sticky header works well */
-			body {
-				padding-top: 5rem;
-			}
-			.sticky-nav {
-				backdrop-filter: blur(8px);
-				background-color: rgba(15, 23, 42, 0.95);
-				box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-			}
-			/* Style for the tab switcher */
-			.tab-content {
-				display: none;
-			}
-			.tab-content.active {
-				display: block;
-			}
-			/* Apply monospace font to code/tech labels */
-			.tech-label {
-				font-family: "Roboto Mono", monospace;
-				font-size: 0.875rem;
-			}
-			/* Starting state: Push menu fully off-screen (h-full is needed for proper effect) */
-			.mobile-menu-off {
-				transform: translateY(-100%);
-				visibility: hidden; /* Ensure it doesn't block clicks when off-screen */
-			}
-
-			/* Active state: Bring menu back to the top (relative to its starting top-20 position) */
-			.mobile-menu-on {
-				transform: translateY(0);
-				visibility: visible;
-			}
-		</style>
+		<link rel="stylesheet" href="./styles/output.css" />
 	</head>
-	<body class="bg-c-dark text-c-light font-sans">
+	<body class="bg-dark text-light font-sans">
 		<nav class="fixed top-0 left-0 right-0 z-50 sticky-nav h-20">
 			<div
 				class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex justify-between items-center">
@@ -92,11 +36,11 @@
 					class="flex flex-row items-center gap-1 cursor-pointer"
 					onclick="scrollToTop()">
 					<div
-						class="text-2xl font-extrabold text-c-light tracking-tight bg-c-primary rounded-full px-2 py-2">
+						class="text-2xl font-extrabold text-light tracking-tight bg-primary rounded-full px-2 py-2">
 						CB
 					</div>
 					<div
-						class="text-2xl font-extrabold text-c-light tracking-tight">
+						class="text-2xl font-extrabold text-light tracking-tight">
 						.com
 					</div>
 				</div>
@@ -105,45 +49,45 @@
 					class="hidden lg:flex space-x-8 text-sm font-semibold">
 					<a
 						href="#about"
-						class="tech-label text-c-light hover:text-c-primary transition duration-300">
+						class="tech-label text-light hover:text-primary transition duration-300">
 						<i class="fa-solid fa-user"></i>
 						<span>About</span>
 					</a>
 					<a
 						href="#skills"
-						class="tech-label text-c-light hover:text-c-primary transition duration-300">
+						class="tech-label text-light hover:text-primary transition duration-300">
 						<i class="fa-solid fa-brain"></i>
 						<span>Skills</span>
 					</a>
 					<a
 						href="#experience"
-						class="tech-label text-c-light hover:text-c-primary transition duration-300">
+						class="tech-label text-light hover:text-primary transition duration-300">
 						<i class="fa-solid fa-timeline"></i>
 						<span>Experience</span>
 					</a>
 					<a
 						href="#projects"
-						class="tech-label text-c-light hover:text-c-primary transition duration-300">
+						class="tech-label text-light hover:text-primary transition duration-300">
 						<i class="fa-solid fa-diagram-project"></i>
 						<span>Projects</span>
 					</a>
 					<a
 						href="#contact"
-						class="tech-label text-c-light hover:text-c-primary transition duration-300">
+						class="tech-label text-light hover:text-primary transition duration-300">
 						<i class="fa-solid fa-message"></i>
 						<span>Contact</span>
 					</a>
 					<a
 						href="./downloadables/Christian_Beener_Resume_oct25_download.pdf"
 						target="_blank"
-						class="tech-label text-c-light hover:text-c-primary transition duration-300">
+						class="tech-label text-light hover:text-primary transition duration-300">
 						<i class="fa-solid fa-file-pdf"></i>
 						<span>Resume</span>
 					</a>
 				</div>
 				<button
 					id="menu-toggle"
-					class="lg:hidden text-c-light text-lg flex-items-center"
+					class="lg:hidden text-light text-lg flex-items-center cursor-pointer"
 					onclick="toggleMenu()">
 					<span class="font-mono hidden sm:inline lg:hidden"
 						>Menu</span
@@ -155,41 +99,41 @@
 
 		<div
 			id="mobile-menu"
-			class="fixed top-20 left-0 right-0 z-40 bg-c-dark h-[calc(100vh-5rem)] lg:hidden transition-transform duration-300 mobile-menu-off overflow-y-auto">
+			class="fixed top-20 left-0 right-0 z-40 bg-dark h-[calc(100vh-5rem)] lg:hidden transition-transform duration-300 mobile-menu-off overflow-y-auto">
 			<div
 				class="flex flex-col px-8 py-4 space-y-4 text-lg font-semibold">
 				<a
 					href="#about"
 					onclick="closeMenu()"
-					class="tech-label text-c-light hover:text-c-primary transition duration-300 pb-2 border-b-2 border-c-accent">
+					class="tech-label text-light hover:text-primary transition duration-300 pb-2 border-b-2 border-accent">
 					<i class="fa-solid fa-user"></i>
 					<span>About</span>
 				</a>
 				<a
 					href="#skills"
 					onclick="closeMenu()"
-					class="tech-label text-c-light hover:text-c-primary transition duration-300 pb-2 border-b-2 border-c-accent">
+					class="tech-label text-light hover:text-primary transition duration-300 pb-2 border-b-2 border-accent">
 					<i class="fa-solid fa-brain"></i>
 					<span>Skills</span>
 				</a>
 				<a
 					href="#experience"
 					onclick="closeMenu()"
-					class="tech-label text-c-light hover:text-c-primary transition duration-300 pb-2 border-b-2 border-c-accent">
+					class="tech-label text-light hover:text-primary transition duration-300 pb-2 border-b-2 border-accent">
 					<i class="fa-solid fa-timeline"></i>
 					<span>Experience</span>
 				</a>
 				<a
 					href="#projects"
 					onclick="closeMenu()"
-					class="tech-label text-c-light hover:text-c-primary transition duration-300 pb-2 border-b-2 border-c-accent">
+					class="tech-label text-light hover:text-primary transition duration-300 pb-2 border-b-2 border-accent">
 					<i class="fa-solid fa-diagram-project"></i>
 					<span>Projects</span>
 				</a>
 				<a
 					href="#contact"
 					onclick="closeMenu()"
-					class="tech-label text-c-light hover:text-c-primary transition duration-300 pb-2 border-b-2 border-c-accent">
+					class="tech-label text-light hover:text-primary transition duration-300 pb-2 border-b-2 border-accent">
 					<i class="fa-solid fa-message"></i>
 					<span>Contact</span>
 				</a>
@@ -197,7 +141,7 @@
 					onclick="closeMenu()"
 					href="./downloadables/Christian_Beener_Resume_oct25_download.pdf"
 					target="_blank"
-					class="tech-label text-c-light hover:text-c-primary transition duration-300 pb-2 border-b-2 border-c-accent">
+					class="tech-label text-light hover:text-primary transition duration-300 pb-2 border-b-2 border-accent">
 					<i class="fa-solid fa-file-pdf"></i>
 					<span>Resume</span>
 				</a>
@@ -207,22 +151,22 @@
 		<main>
 			<section
 				id="about"
-				class="min-h-full flex items-center px-4 py-16 bg-c-dark">
+				class="min-h-full flex items-center px-4 py-16 bg-dark">
 				<div
 					class="max-w-7xl mx-auto px-4 grid md:grid-cols-5 lg:grid-cols-4 sm:gap-12 md:gap-8 items-center w-full">
 					<div
 						class="lg:col-span-1 md:col-span-2 text-center md:text-left p-4">
 						<div
-							class="h-52 w-52 rounded-full mx-auto md:mx-0 mb-4 overflow-hidden bg-c-light border-4 border-c-primary shadow-xl">
+							class="h-52 w-52 rounded-full mx-auto md:mx-0 mb-4 overflow-hidden bg-light border-4 border-primary shadow-xl">
 							<img
 								src="./assets/headshot_glasses_square.jpg"
 								alt="Christian Beener Profile"
 								class="w-full h-full object-cover" />
 						</div>
-						<p class="text-2xl text-c-light font-bold">
+						<p class="text-2xl text-light font-bold">
 							Christian Beener
 						</p>
-						<p class="text-sm text-c-primary font-medium mt-1">
+						<p class="text-sm text-primary font-medium mt-1">
 							Austin, TX
 						</p>
 						<div
@@ -230,26 +174,26 @@
 							<a
 								href="https://linkedin.com/in/christianbeener"
 								target="_blank"
-								class="text-slate-300 hover:text-c-primary transition duration-300"
+								class="text-slate-300 hover:text-primary transition duration-300"
 								><i class="fa-brands fa-linkedin-in"></i
 							></a>
 							<a
 								href="https://www.upwork.com/freelancers/~01d6483b90641b9ead"
 								target="_blank"
-								class="text-slate-300 hover:text-c-primary transition duration-300"
+								class="text-slate-300 hover:text-primary transition duration-300"
 								><i class="fa-brands fa-square-upwork"></i
 							></a>
 							<a
 								href="https://github.com/lvncloudsolutions"
 								target="_blank"
-								class="text-slate-300 hover:text-c-primary transition duration-300"
+								class="text-slate-300 hover:text-primary transition duration-300"
 								><i class="fa-brands fa-github"></i
 							></a>
 						</div>
 					</div>
 
 					<div
-						class="md:col-span-3 p-4 border-l-4 border-c-accent pl-8">
+						class="md:col-span-3 p-4 border-l-4 border-accent pl-8">
 						<h1
 							class="text-4xl sm:text-4xl font-extrabold mb-5 leading-tight text-white">
 							Automating Software Delivery on AWS
@@ -270,13 +214,13 @@
 							class="flex flex-col sm:flex-row gap-4 sm:gap-0 sm:space-x-4">
 							<a
 								href="#contact"
-								class="px-8 py-3 bg-c-primary text-center text-white font-bold rounded-lg shadow-lg hover:bg-c-primary/90 transition duration-300">
+								class="px-8 py-3 bg-primary text-center text-white font-bold rounded-lg shadow-lg hover:bg-primary/90 transition duration-300">
 								<i class="fa-solid fa-message mr-1"></i>
 								Connect with Me
 							</a>
 							<a
 								href="#projects"
-								class="px-8 py-3 text-center bg-slate-700 text-slate-300 font-bold rounded-lg shadow-lg hover:bg-c-primary/90 transition duration-300">
+								class="px-8 py-3 text-center bg-slate-700 text-slate-300 font-bold rounded-lg shadow-lg hover:bg-primary/90 transition duration-300">
 								<i class="fa-solid fa-diagram-project mr-1"></i>
 								Current Projects
 							</a>
@@ -285,16 +229,16 @@
 				</div>
 			</section>
 
-			<section id="skills" class="py-16 px-4 bg-c-card text-c-light">
+			<section id="skills" class="py-16 px-4 bg-card text-light">
 				<div class="max-w-5xl mx-auto px-4">
 					<h2
-						class="text-4xl font-bold text-center mb-5 border-b-4 border-c-primary pb-3">
+						class="text-4xl font-bold text-center mb-5 border-b-4 border-primary pb-3">
 						End-to-End Tech Stack
 					</h2>
 
 					<div class="grid md:grid-cols-3 gap-8 text-left">
 						<div
-							class="p-6 bg-c-dark rounded-xl shadow-lg border-t-4 border-c-primary">
+							class="p-6 bg-dark rounded-xl shadow-lg border-t-4 border-primary">
 							<h3 class="text-xl font-bold mb-2">
 								Fullstack Development
 							</h3>
@@ -319,7 +263,7 @@
 							</ul>
 						</div>
 						<div
-							class="p-6 bg-c-dark rounded-xl shadow-lg border-t-4 border-c-primary">
+							class="p-6 bg-dark rounded-xl shadow-lg border-t-4 border-primary">
 							<h3 class="text-xl font-bold mb-2">
 								Cloud Infrastructure
 							</h3>
@@ -344,7 +288,7 @@
 							</ul>
 						</div>
 						<div
-							class="p-6 bg-c-dark rounded-xl shadow-lg border-t-4 border-c-primary">
+							class="p-6 bg-dark rounded-xl shadow-lg border-t-4 border-primary">
 							<h3 class="text-xl font-bold mb-2">
 								Optimized Workflows
 							</h3>
@@ -374,22 +318,22 @@
 				</div>
 			</section>
 
-			<section id="experience" class="py-16 px-4 bg-c-dark text-c-light">
+			<section id="experience" class="py-16 px-4 bg-dark text-light">
 				<div class="max-w-4xl mx-auto px-4">
 					<h2
-						class="text-4xl font-bold text-center mb-10 border-b-4 border-c-primary pb-3">
+						class="text-4xl font-bold text-center mb-10 border-b-4 border-primary pb-3">
 						Professional Experience
 					</h2>
 
 					<div
-						class="relative border-l-4 border-c-accent space-y-12 ml-4 md:ml-0 md:pl-8">
+						class="relative border-l-4 border-accent space-y-12 ml-4 md:ml-0 md:pl-8">
 						<div class="relative pl-8">
 							<div
-								class="absolute -left-2 top-1 w-4 h-4 rounded-full bg-c-primary border-4 border-c-dark"></div>
-							<h3 class="text-2xl font-bold text-c-primary">
+								class="absolute -left-2 top-1 w-4 h-4 rounded-full bg-primary border-4 border-dark"></div>
+							<h3 class="text-2xl font-bold text-primary">
 								DevOps Engineering & Consulting
 							</h3>
-							<p class="text-lg font-semibold text-c-light mt-1">
+							<p class="text-lg font-semibold text-light mt-1">
 								Independent Freelance, Austin, TX
 							</p>
 							<p class="text-sm text-slate-500 mb-4">
@@ -431,12 +375,12 @@
 
 						<div class="relative pl-8">
 							<div
-								class="absolute -left-2 top-1 w-4 h-4 rounded-full bg-c-primary border-4 border-c-dark"></div>
+								class="absolute -left-2 top-1 w-4 h-4 rounded-full bg-primary border-4 border-dark"></div>
 
-							<h3 class="text-2xl font-bold text-c-primary">
+							<h3 class="text-2xl font-bold text-primary">
 								Full-Stack Developer
 							</h3>
-							<p class="text-lg font-semibold text-c-light mt-1">
+							<p class="text-lg font-semibold text-light mt-1">
 								Fieldd, Austin, TX
 							</p>
 							<p class="text-sm text-slate-500 mb-4">
@@ -479,12 +423,12 @@
 
 						<div class="relative pl-8">
 							<div
-								class="absolute -left-2 top-1 w-4 h-4 rounded-full bg-c-primary border-4 border-c-dark"></div>
+								class="absolute -left-2 top-1 w-4 h-4 rounded-full bg-primary border-4 border-dark"></div>
 
-							<h3 class="text-2xl font-bold text-c-primary">
+							<h3 class="text-2xl font-bold text-primary">
 								Software Engineer
 							</h3>
-							<p class="text-lg font-semibold text-c-light mt-1">
+							<p class="text-lg font-semibold text-light mt-1">
 								General Motors, Austin, TX
 							</p>
 							<p class="text-sm text-slate-500 mb-4">
@@ -529,12 +473,12 @@
 
 						<div class="relative pl-8">
 							<div
-								class="absolute -left-2 top-1 w-4 h-4 rounded-full bg-c-primary border-4 border-c-dark"></div>
+								class="absolute -left-2 top-1 w-4 h-4 rounded-full bg-primary border-4 border-dark"></div>
 
-							<h3 class="text-2xl font-bold text-c-primary">
+							<h3 class="text-2xl font-bold text-primary">
 								Project Manager / Full-Stack Developer
 							</h3>
-							<p class="text-lg font-semibold text-c-light mt-1">
+							<p class="text-lg font-semibold text-light mt-1">
 								UH Capstone Project, Houston, TX
 							</p>
 							<p class="text-sm text-slate-500 mb-4">
@@ -561,26 +505,25 @@
 				</div>
 			</section>
 
-			<section id="projects" class="py-16 px-4 bg-c-card text-c-light">
+			<section id="projects" class="py-16 px-4 bg-card text-light">
 				<div class="max-w-5xl mx-auto px-4">
 					<h2
-						class="text-4xl font-bold text-center mb-10 border-b-4 border-c-primary pb-3">
+						class="text-4xl font-bold text-center mb-10 border-b-4 border-primary pb-3">
 						Current Projects
 					</h2>
 					<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 						<div
-							class="bg-c-dark p-6 rounded-xl shadow-lg border-t-4 border-c-primary/50 flex flex-col justify-between">
+							class="bg-dark p-6 rounded-xl shadow-lg border-t-4 border-primary/50 flex flex-col justify-between">
 							<div>
 								<span
 									class="inline-block bg-yellow-600 text-white text-xs font-bold px-2 py-1 rounded-full mb-3"
 									>In Progress</span
 								>
 								<span
-									class="float-end text-xs text-c-accent font-mono"
+									class="float-end text-xs text-accent font-mono"
 									>Start: Nov 2025</span
 								>
-								<h3
-									class="text-xl font-bold mb-2 text-c-primary">
+								<h3 class="text-xl font-bold mb-2 text-primary">
 									AWS IaC Boilerplate
 								</h3>
 								<p class="text-slate-400 mb-4 text-sm">
@@ -593,13 +536,13 @@
 								</p>
 							</div>
 							<div>
-								<p class="text-xs text-c-accent font-mono mb-2">
+								<p class="text-xs text-accent font-mono mb-2">
 									Tech: Terraform, AWS VPC, AWS EC2, IaC
 								</p>
 								<a
 									href="https://github.com/lvncloudsolutions/terraform-aws-boilerplate"
 									target="_blank"
-									class="text-c-primary hover:text-c-light underline text-sm font-semibold transition duration-300">
+									class="text-primary hover:text-light underline text-sm font-semibold transition duration-300">
 									<i class="fa-brands fa-github mr-1"></i>
 									View on GitHub
 								</a>
@@ -607,18 +550,17 @@
 						</div>
 
 						<div
-							class="bg-c-dark p-6 rounded-xl shadow-lg border-t-4 border-c-primary/50 flex flex-col justify-between">
+							class="bg-dark p-6 rounded-xl shadow-lg border-t-4 border-primary/50 flex flex-col justify-between">
 							<div>
 								<span
 									class="inline-block bg-yellow-600 text-white text-xs font-bold px-2 py-1 rounded-full mb-3"
 									>In Progress</span
 								>
 								<span
-									class="float-end text-xs text-c-accent font-mono"
+									class="float-end text-xs text-accent font-mono"
 									>Start: Nov 2025</span
 								>
-								<h3
-									class="text-xl font-bold mb-2 text-c-primary">
+								<h3 class="text-xl font-bold mb-2 text-primary">
 									SAA-C03 Certification
 								</h3>
 								<p class="text-slate-400 mb-4 text-sm">
@@ -633,14 +575,14 @@
 								</p>
 							</div>
 							<div>
-								<p class="text-xs text-c-accent font-mono mb-2">
+								<p class="text-xs text-accent font-mono mb-2">
 									Tech: AWS, Lambda, S3, VPC Design, IAM
 									Security
 								</p>
 								<a
 									href="https://aws.amazon.com/certification/certified-solutions-architect-associate/"
 									target="_blank"
-									class="text-c-primary hover:text-c-light underline text-sm font-semibold transition duration-300">
+									class="text-primary hover:text-light underline text-sm font-semibold transition duration-300">
 									<i class="fa-brands fa-amazon"></i>
 									View on AWS
 								</a>
@@ -648,18 +590,17 @@
 						</div>
 
 						<div
-							class="bg-c-dark p-6 rounded-xl shadow-lg border-t-4 border-c-primary/50 flex flex-col justify-between">
+							class="bg-dark p-6 rounded-xl shadow-lg border-t-4 border-primary/50 flex flex-col justify-between">
 							<div>
 								<span
 									class="inline-block bg-green-600 text-white text-xs font-bold px-2 py-1 rounded-full mb-3"
 									>Complete</span
 								>
 								<span
-									class="float-end text-xs text-c-accent font-mono"
+									class="float-end text-xs text-accent font-mono"
 									>Completed: Nov 2025</span
 								>
-								<h3
-									class="text-xl font-bold mb-2 text-c-primary">
+								<h3 class="text-xl font-bold mb-2 text-primary">
 									Static Website Launch
 								</h3>
 								<p class="text-slate-400 mb-4 text-sm">
@@ -674,14 +615,14 @@
 								</p>
 							</div>
 							<div>
-								<p class="text-xs text-c-accent font-mono mb-2">
+								<p class="text-xs text-accent font-mono mb-2">
 									Tech: HTML5, JavaScript, Tailwind CSS,
 									GitHub Pages, GitHub Actions
 								</p>
 								<a
-									href="https://github.com/LVNCloudSolutions/christianbeener.com"
+									href="https://github.com/lvncloudsolutions/christianbeener.com"
 									target="_blank"
-									class="text-c-primary hover:text-c-light underline text-sm font-semibold transition duration-300">
+									class="text-primary hover:text-light underline text-sm font-semibold transition duration-300">
 									<i class="fa-brands fa-github mr-1"></i>
 									View on GitHub
 								</a>
@@ -691,10 +632,10 @@
 				</div>
 			</section>
 
-			<section id="contact" class="py-16 px-4 bg-c-dark">
+			<section id="contact" class="py-16 px-4 bg-dark">
 				<div class="max-w-4xl mx-auto px-4">
 					<h2
-						class="text-4xl font-bold text-center mb-5 border-b-4 border-c-primary pb-3 text-c-light">
+						class="text-4xl font-bold text-center mb-5 border-b-4 border-primary pb-3 text-light">
 						Contact Me
 					</h2>
 					<p class="text-center text-slate-400 mb-5">
@@ -719,8 +660,8 @@
 
 					<div
 						id="recruiter"
-						class="tab-content active p-5 bg-c-card rounded-xl shadow-2xl border border-slate-700">
-						<h3 class="text-2xl font-bold mb-4 text-c-primary">
+						class="tab-content active p-5 bg-card rounded-xl shadow-2xl border border-slate-700">
+						<h3 class="text-2xl font-bold mb-4 text-primary">
 							Full-Time Job Inquiry
 						</h3>
 						<p class="text-slate-400 mb-4 text-sm">
@@ -738,13 +679,13 @@
 									name="Name/Company"
 									placeholder="Your Name / Company"
 									required
-									class="w-full p-3 rounded-lg bg-c-dark text-c-light border border-slate-700 focus:ring-c-primary focus:border-c-primary font-mono" />
+									class="w-full p-3 rounded-lg bg-dark text-light border border-slate-700 focus:ring-primary focus:border-primary font-mono" />
 								<input
 									type="email"
 									name="Email"
 									placeholder="Your Email"
 									required
-									class="w-full p-3 rounded-lg bg-c-dark text-c-light border border-slate-700 focus:ring-c-primary focus:border-c-primary font-mono" />
+									class="w-full p-3 rounded-lg bg-dark text-light border border-slate-700 focus:ring-primary focus:border-primary font-mono" />
 							</div>
 							<div>
 								<textarea
@@ -752,12 +693,12 @@
 									name="Job Details"
 									rows="3"
 									required
-									class="w-full p-3 rounded-lg bg-c-dark text-c-light border border-slate-700 focus:ring-c-primary focus:border-c-primary font-mono lg:h-full"></textarea>
+									class="w-full p-3 rounded-lg bg-dark text-light border border-slate-700 focus:ring-primary focus:border-primary font-mono lg:h-full"></textarea>
 							</div>
 							<div class="lg:col-span-2">
 								<button
 									type="submit"
-									class="w-full py-3 bg-c-primary text-white font-bold rounded-lg hover:bg-c-primary/90 transition duration-300">
+									class="w-full py-3 bg-primary text-white font-bold rounded-lg hover:bg-primary/90 transition duration-300">
 									<i class="fa-solid fa-paper-plane mr-1"></i>
 									Send
 								</button>
@@ -769,8 +710,8 @@
 
 					<div
 						id="service"
-						class="tab-content p-5 bg-c-card rounded-xl shadow-2xl border border-slate-700">
-						<h3 class="text-2xl font-bold mb-4 text-c-primary">
+						class="tab-content p-5 bg-card rounded-xl shadow-2xl border border-slate-700">
+						<h3 class="text-2xl font-bold mb-4 text-primary">
 							Freelance & Contract Services
 						</h3>
 						<p class="text-slate-400 mb-4 text-sm">
@@ -789,16 +730,16 @@
 									name="Name/Company"
 									placeholder="Your Name / Company"
 									required
-									class="w-full p-3 rounded-lg bg-c-dark text-c-light border border-slate-700 focus:ring-c-primary focus:border-c-primary font-mono" />
+									class="w-full p-3 rounded-lg bg-dark text-light border border-slate-700 focus:ring-primary focus:border-primary font-mono" />
 								<input
 									type="email"
 									name="Email"
 									placeholder="Your Email"
 									required
-									class="w-full p-3 rounded-lg bg-c-dark text-c-light border border-slate-700 focus:ring-c-primary focus:border-c-primary font-mono" />
+									class="w-full p-3 rounded-lg bg-dark text-light border border-slate-700 focus:ring-primary focus:border-primary font-mono" />
 								<select
 									name="Service"
-									class="w-full p-3 rounded-lg bg-c-dark text-c-light border border-slate-700 focus:ring-c-primary focus:border-c-primary font-mono">
+									class="w-full p-3 rounded-lg bg-dark text-light border border-slate-700 focus:ring-primary focus:border-primary font-mono">
 									<option>Static Website Deployment</option>
 									<option>CI/CD Pipeline Setup</option>
 									<option>
@@ -814,12 +755,12 @@
 									name="Project Details"
 									rows="4"
 									required
-									class="w-full p-3 rounded-lg bg-c-dark text-c-light border border-slate-700 focus:ring-c-primary focus:border-c-primary font-mono lg:h-full"></textarea>
+									class="w-full p-3 rounded-lg bg-dark text-light border border-slate-700 focus:ring-primary focus:border-primary font-mono lg:h-full"></textarea>
 							</div>
 							<div class="lg:col-span-2">
 								<button
 									type="submit"
-									class="w-full py-3 bg-c-primary text-white font-bold rounded-lg hover:bg-c-primary/90 transition duration-300">
+									class="w-full py-3 bg-primary text-white font-bold rounded-lg hover:bg-primary/90 transition duration-300">
 									<i class="fa-solid fa-paper-plane mr-1"></i>
 									Send
 								</button>
@@ -835,8 +776,8 @@
 		<!-- Loading Spinner Overlay -->
 		<div
 			id="form-loader"
-			class="fixed inset-0 z-100 bg-c-dark/80 hidden flex items-center justify-center">
-			<i class="fa-solid fa-spinner fa-spin text-4xl text-c-primary"></i>
+			class="fixed inset-0 z-100 bg-dark/80 hidden flex items-center justify-center">
+			<i class="fa-solid fa-spinner fa-spin text-4xl text-primary"></i>
 		</div>
 
 		<!-- Toast Notification -->
@@ -844,7 +785,7 @@
 			id="toast-notification"
 			class="fixed bottom-5 left-1/2 transform -translate-x-1/2 z-100 hidden">
 			<div
-				class="bg-c-primary text-c-white font-semibold px-6 py-3 rounded-xl shadow-2xl flex items-center space-x-3 min-w-xs transition-opacity duration-300">
+				class="bg-primary text-white font-semibold px-6 py-3 rounded-xl shadow-2xl flex items-center space-x-3 min-w-xs transition-opacity duration-300">
 				<i class="fas fa-check-circle text-lg"></i>
 				<span id="toast-message"></span>
 			</div>
@@ -854,13 +795,13 @@
 		<button
 			id="back-to-top"
 			onclick="scrollToTop()"
-			class="fixed bottom-6 right-6 z-50 h-8 w-8 bg-c-primary text-white rounded-full shadow-lg opacity-0 transition-opacity duration-300 hover:bg-c-primary/80 focus:outline-none focus:ring-2 focus:ring-c-primary"
+			class="fixed bottom-6 right-6 z-50 h-8 w-8 bg-primary text-white rounded-full shadow-lg opacity-0 transition-opacity duration-300 hover:bg-primary/80 focus:outline-none focus:ring-2 focus:ring-primary"
 			aria-label="Scroll back to top">
 			<i class="fa-solid fa-arrow-up text-lg"></i>
 		</button>
 
 		<footer
-			class="text-center py-6 px-8 border-t border-slate-700 text-slate-500 text-xs">
+			class="text-center py-6 px-8 border-t border-slate-600 text-slate-400 text-xs">
 			<p>
 				&copy; 2025 Christian Beener, All rights reserved. | Built with
 				TailwindCSS and Hosted on GitHub Pages.
