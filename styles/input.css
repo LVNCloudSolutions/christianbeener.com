@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant hover (&:hover);
+
 @theme {
 	--color-primary: #3b82f6; /* Trustworthy Blue (Buttons, Accents) */
 	--color-dark: #0f172a; /* Deep Slate (Main Background) */
