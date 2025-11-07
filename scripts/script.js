@@ -1,4 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
+	const recruiterForm = document.getElementById("recruiter-form");
+	const serviceForm = document.getElementById("service-form");
+
 	// 1. Set the initial active state to the service tab
 	document
 		.querySelectorAll(".tab-content")
@@ -7,13 +10,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	// 2. Call showTab to correctly apply the primary color styles on load
 	showTab("service");
+
+	// 3. Handle submit events for both forms
+	if (recruiterForm) {
+		recruiterForm.addEventListener("submit", handleSubmit);
+	}
+	if (serviceForm) {
+		serviceForm.addEventListener("submit", handleSubmit);
+	}
 });
 
 // Hamburger Menu Toggle Functionality
 function toggleMenu() {
 	const mobileMenu = document.getElementById("mobile-menu");
 	const toggleButton = document.getElementById("menu-toggle");
-	const body = document.body;
 
 	const isOpen = mobileMenu.classList.contains("mobile-menu-on");
 
@@ -94,11 +104,32 @@ function showTab(tabId) {
 /**
  * Shows a non-blocking toast notification.
  */
-function showToast(message) {
+function showToast(message, isError = false) {
 	const toast = document.getElementById("toast-notification");
 	const toastMessage = document.getElementById("toast-message");
+	const toastIcon = toast.querySelector("i"); // Grab the icon for visual change
+	const toastDiv = toast.querySelector("div"); // Grab the inner div for background color
 
-	// Set message and make visible
+	// 1. Reset all error/success styling
+	toastDiv.classList.remove(
+		"bg-c-primary",
+		"text-c-white",
+		"bg-red-500",
+		"text-white"
+	);
+	toastIcon.classList.remove("fa-check-circle", "fa-triangle-exclamation");
+
+	// 2. Set message and visibility
+	if (isError) {
+		// ERROR STYLE: Red background, White/Light text
+		toastDiv.classList.add("bg-red-500", "text-white");
+		toastIcon.classList.add("fa-triangle-exclamation"); // Use a clear error icon
+	} else {
+		// SUCCESS STYLE: Green background, White text
+		toastDiv.classList.add("bg-green-500", "text-c-white");
+		toastIcon.classList.add("fa-check-circle");
+	}
+
 	toastMessage.textContent = message;
 	toast.classList.remove("hidden", "opacity-0");
 	toast.classList.add("opacity-100");
@@ -116,29 +147,47 @@ function showToast(message) {
 }
 
 /**
- * Handles form submission by showing a loader, simulating a network delay,
- * and displaying a success toast.
+ * Handles form submission success/failure by checking the network response.
+ * NOTE: The HTML form now uses the standard 'action' attribute to submit data.
  */
-function handleFormSubmit(event, targetEmail) {
+async function handleSubmit(event) {
 	event.preventDefault();
-
-	const form = event.target;
+	console.log(event.target);
 	const loader = document.getElementById("form-loader");
+	const data = new FormData(event.target);
+	console.log(data);
 
-	// 1. Show the loader and disable scrolling
 	loader.classList.remove("hidden");
 
-	// Simulate network delay for 1500ms (1.5 seconds)
-	setTimeout(() => {
-		// --- Simulate Backend Response ---
+	fetch(event.target.action, {
+		method: event.target.method,
+		body: data,
+		headers: {
+			Accept: "application/json",
+		},
+	})
+		.then((res) => {
+			if (res.ok) {
+				loader.classList.add("hidden");
+				showToast("Form submitted! I'll be in touch soon.");
+				event.target.reset();
+			} else {
+				loader.classList.add("hidden");
+				showToast("Oops! Something went wrong.", true);
+			}
+		})
+		.catch(() => {
+			loader.classList.add("hidden");
+			showToast("Oops! Something went wrong.", true);
+		});
+}
 
-		// 2. Hide the loader
-		loader.classList.add("hidden");
-
-		// 3. Show the success message (Toast notification)
-		const successMsg = `Message sent! I will respond shortly.`;
-		showToast(successMsg);
-
-		form.reset();
-	}, 1500);
+// Helper function to convert FormData to JSON
+function formDataToJSON(form) {
+	const formData = new FormData(form);
+	const dataToSend = {};
+	formData.forEach((value, key) => {
+		dataToSend[key] = value;
+	});
+	return JSON.stringify(dataToSend);
 }
