@@ -1,6 +1,25 @@
 document.addEventListener("DOMContentLoaded", () => {
 	const recruiterForm = document.getElementById("recruiter-form");
 	const serviceForm = document.getElementById("service-form");
+	const backToTop = document.getElementById("back-to-top");
+
+	// Back to Top Button Functionality
+	if (!backToTop) return;
+	window.onscroll = function () {
+		// Show button if scroll position is greater than 300px from the top
+		if (
+			document.body.scrollTop > 300 ||
+			document.documentElement.scrollTop > 300
+		) {
+			backToTop.classList.remove("opacity-0");
+			backToTop.classList.add("opacity-100");
+			backToTop.style.pointerEvents = "auto"; // Re-enable clicks
+		} else {
+			backToTop.classList.remove("opacity-100");
+			backToTop.classList.add("opacity-0");
+			backToTop.style.pointerEvents = "none"; // Disable clicks when hidden
+		}
+	};
 
 	// 1. Set the initial active state to the service tab
 	document
@@ -182,12 +201,10 @@ async function handleSubmit(event) {
 		});
 }
 
-// Helper function to convert FormData to JSON
-function formDataToJSON(form) {
-	const formData = new FormData(form);
-	const dataToSend = {};
-	formData.forEach((value, key) => {
-		dataToSend[key] = value;
+// Function to smoothly scroll the window to the top
+function scrollToTop() {
+	window.scrollTo({
+		top: 0,
+		behavior: "smooth",
 	});
-	return JSON.stringify(dataToSend);
 }
