@@ -6,6 +6,10 @@
 		<title>Christian Beener | Cloud Solutions Provider</title>
 		<script src="./scripts/script.js"></script>
 		<script
+			src="https://www.google.com/recaptcha/api.js?render=6LdP1AUsAAAAAH1nR1KgJWdEzFM4URRQmUuw52Vq"
+			async
+			defer></script>
+		<script
 			src="https://kit.fontawesome.com/b85698e96c.js"
 			crossorigin="anonymous"></script>
 		<link
@@ -87,7 +91,7 @@
 				</div>
 				<button
 					id="menu-toggle"
-					class="lg:hidden text-light text-lg flex-items-center cursor-pointer"
+					class="lg:hidden text-light hover:text-primary text-lg flex-items-center cursor-pointer"
 					onclick="toggleMenu()">
 					<span class="font-mono hidden sm:inline lg:hidden"
 						>Menu</span
@@ -646,13 +650,13 @@
 					<div class="flex justify-center mb-5 space-x-4">
 						<button
 							onclick="showTab('service')"
-							class="tab-button w-48 px-6 py-2 rounded-lg font-semibold transition duration-300 shadow-md">
+							class="tab-button w-48 px-6 py-2 rounded-lg font-semibold transition duration-300 shadow-md cursor-pointer hover:bg-primary/90 hover:text-white">
 							<i class="fa-solid fa-briefcase mr-1"></i>
 							Services
 						</button>
 						<button
 							onclick="showTab('recruiter')"
-							class="tab-button w-48 px-6 py-2 rounded-lg font-semibold transition duration-300 shadow-md">
+							class="tab-button w-48 px-6 py-2 rounded-lg font-semibold transition duration-300 shadow-md cursor-pointer hover:bg-primary/90 hover:text-white">
 							<i class="fa-solid fa-user-tie mr-1"></i>
 							Recruiters
 						</button>
@@ -695,10 +699,14 @@
 									required
 									class="w-full p-3 rounded-lg bg-dark text-light border border-slate-700 focus:ring-primary focus:border-primary font-mono lg:h-full"></textarea>
 							</div>
+							<input
+								type="hidden"
+								name="g-recaptcha-response"
+								id="g-recaptcha-response" />
 							<div class="lg:col-span-2">
 								<button
 									type="submit"
-									class="w-full py-3 bg-primary text-white font-bold rounded-lg hover:bg-primary/90 transition duration-300">
+									class="cursor-pointer w-full py-3 bg-primary text-white font-bold rounded-lg hover:bg-primary/90 transition duration-300">
 									<i class="fa-solid fa-paper-plane mr-1"></i>
 									Send
 								</button>
@@ -757,10 +765,14 @@
 									required
 									class="w-full p-3 rounded-lg bg-dark text-light border border-slate-700 focus:ring-primary focus:border-primary font-mono lg:h-full"></textarea>
 							</div>
+							<input
+								type="hidden"
+								name="g-recaptcha-response"
+								id="g-recaptcha-response" />
 							<div class="lg:col-span-2">
 								<button
 									type="submit"
-									class="w-full py-3 bg-primary text-white font-bold rounded-lg hover:bg-primary/90 transition duration-300">
+									class="cursor-pointer w-full py-3 bg-primary text-white font-bold rounded-lg hover:bg-primary/90 transition duration-300">
 									<i class="fa-solid fa-paper-plane mr-1"></i>
 									Send
 								</button>

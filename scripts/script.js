@@ -106,15 +106,15 @@ function showTab(tabId) {
 		const isTarget = button.getAttribute("onclick").includes(tabId);
 
 		// Ensure all buttons have the required hover class
-		button.classList.add("hover:bg-c-primary/90", "hover:text-white");
+		button.classList.add("hover:bg-primary/90", "hover:text-white");
 
 		if (isTarget) {
 			// ACTIVATE: Primary Blue with White text
 			button.classList.remove("bg-slate-700", "text-slate-300");
-			button.classList.add("bg-c-primary", "text-white"); // Enforce bg-c-primary for active tab
+			button.classList.add("bg-primary", "text-white"); // Enforce bg-primary for active tab
 		} else {
 			// DEACTIVATE: Subtle Gray with Light text
-			button.classList.remove("bg-c-primary", "text-white");
+			button.classList.remove("bg-primary", "text-white");
 			button.classList.add("bg-slate-700", "text-slate-300");
 		}
 	});
@@ -131,8 +131,8 @@ function showToast(message, isError = false) {
 
 	// 1. Reset all error/success styling
 	toastDiv.classList.remove(
-		"bg-c-primary",
-		"text-c-white",
+		"bg-primary",
+		"text-white",
 		"bg-red-500",
 		"text-white"
 	);
@@ -145,7 +145,7 @@ function showToast(message, isError = false) {
 		toastIcon.classList.add("fa-triangle-exclamation"); // Use a clear error icon
 	} else {
 		// SUCCESS STYLE: Green background, White text
-		toastDiv.classList.add("bg-green-500", "text-c-white");
+		toastDiv.classList.add("bg-green-500", "text-white");
 		toastIcon.classList.add("fa-check-circle");
 	}
 
@@ -169,36 +169,68 @@ function showToast(message, isError = false) {
  * Handles form submission success/failure by checking the network response.
  * NOTE: The HTML form now uses the standard 'action' attribute to submit data.
  */
+
+// --- Helper function to convert FormData to a plain object ---
+function formDataToJSON(formElement) {
+	const formData = new FormData(formElement);
+	const dataToSend = {};
+	formData.forEach((value, key) => {
+		dataToSend[key] = value;
+	});
+	return dataToSend;
+}
+
+// --- Main Submission Logic ---
 async function handleSubmit(event) {
 	event.preventDefault();
-	console.log(event.target);
 	const loader = document.getElementById("form-loader");
-	const data = new FormData(event.target);
-	console.log(data);
+	const formMessage = event.target
+		.closest(".tab-content")
+		.querySelector(".form-message");
 
 	loader.classList.remove("hidden");
+	formMessage.textContent = "";
 
-	fetch(event.target.action, {
-		method: event.target.method,
-		body: data,
-		headers: {
-			Accept: "application/json",
-		},
-	})
-		.then((res) => {
-			if (res.ok) {
-				loader.classList.add("hidden");
-				showToast("Form submitted! I'll be in touch soon.");
-				event.target.reset();
-			} else {
-				loader.classList.add("hidden");
-				showToast("Oops! Something went wrong.", true);
-			}
-		})
-		.catch(() => {
-			loader.classList.add("hidden");
-			showToast("Oops! Something went wrong.", true);
+	try {
+		// 1. Execute reCAPTCHA v3 and get the security token
+		const token = await grecaptcha.execute(
+			"6LdP1AUsAAAAAH1nR1KgJWdEzFM4URRQmUuw52Vq",
+			{ action: "submit" }
+		);
+		console.log("reCAPTCHA token:", token);
+
+		// 2. Convert form data to JSON object and add the token
+		const dataObject = formDataToJSON(event.target);
+		dataObject["g-recaptcha-response"] = token; // Add the token to the data object
+
+		console.log("Form Data Object:", dataObject);
+		// 3. Send the JSON string to Formspree
+		const response = await fetch(event.target.action, {
+			method: event.target.method,
+			body: JSON.stringify(dataObject),
+			headers: {
+				"Content-Type": "application/json", // Critical for JSON body
+				Accept: "application/json",
+			},
 		});
+
+		loader.classList.add("hidden");
+
+		if (response.ok) {
+			event.target.reset();
+			showToast("Service request submitted. I'll be in touch!");
+		} else {
+			// Read and display specific error from Formspree
+			const errorData = await response.json();
+			const errorMessage = errorData.errors
+				? errorData.errors.map((e) => e.message).join(", ")
+				: "Submission failed.";
+			showToast("Error: " + errorMessage, true);
+		}
+	} catch (error) {
+		loader.classList.add("hidden");
+		showToast("Network error or reCAPTCHA failed. Please refresh.", true);
+	}
 }
 
 // Function to smoothly scroll the window to the top
