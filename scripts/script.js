@@ -129,7 +129,6 @@ function handleFormSubmit(event, targetEmail) {
 
 	// 1. Show the loader and disable scrolling
 	loader.classList.remove("hidden");
-	docume;
 
 	// Simulate network delay for 1500ms (1.5 seconds)
 	setTimeout(() => {
