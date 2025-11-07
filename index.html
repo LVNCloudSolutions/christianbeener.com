@@ -100,43 +100,58 @@
 				</div>
 				<div
 					id="desktop-menu"
-					class="hidden sm:flex space-x-8 text-sm font-semibold">
+					class="hidden lg:flex space-x-8 text-sm font-semibold">
 					<a
 						href="#home"
-						class="tech-label text-c-light hover:text-c-primary transition duration-300"
-						>Home</a
-					>
+						class="tech-label text-c-light hover:text-c-primary transition duration-300">
+						<i class="fa-solid fa-house"></i>
+						<span>Home</span>
+					</a>
+					<a
+						href="#about"
+						class="tech-label text-c-light hover:text-c-primary transition duration-300">
+						<i class="fa-solid fa-user"></i>
+						<span>About</span>
+					</a>
 					<a
 						href="#skills"
-						class="tech-label text-c-light hover:text-c-primary transition duration-300"
-						>Skills</a
-					>
+						class="tech-label text-c-light hover:text-c-primary transition duration-300">
+						<i class="fa-solid fa-brain"></i>
+						<span>Skills</span>
+					</a>
 					<a
 						href="#experience"
-						class="tech-label text-c-light hover:text-c-primary transition duration-300"
-						>Experience</a
-					>
+						class="tech-label text-c-light hover:text-c-primary transition duration-300">
+						<i class="fa-solid fa-timeline"></i>
+						<span>Experience</span>
+					</a>
 					<a
 						href="#projects"
-						class="tech-label text-c-light hover:text-c-primary transition duration-300"
-						>Projects</a
-					>
+						class="tech-label text-c-light hover:text-c-primary transition duration-300">
+						<i class="fa-solid fa-diagram-project"></i>
+						<span>Projects</span>
+					</a>
 					<a
 						href="#contact"
-						class="tech-label text-c-light hover:text-c-primary transition duration-300"
-						>Contact</a
-					>
+						class="tech-label text-c-light hover:text-c-primary transition duration-300">
+						<i class="fa-solid fa-message"></i>
+						<span>Contact</span>
+					</a>
 					<a
 						href="./downloadables/Christian_Beener_Resume_oct25_download.pdf"
 						target="_blank"
-						class="tech-label text-c-light hover:text-c-primary transition duration-300"
-						>Resume</a
-					>
+						class="tech-label text-c-light hover:text-c-primary transition duration-300">
+						<i class="fa-solid fa-file-pdf"></i>
+						<span>Resume</span>
+					</a>
 				</div>
 				<button
 					id="menu-toggle"
-					class="sm:hidden text-c-light text-xl"
+					class="lg:hidden text-c-light text-lg flex-items-center"
 					onclick="toggleMenu()">
+					<span class="font-mono hidden sm:inline lg:hidden"
+						>Menu</span
+					>
 					<i class="fa-solid fa-bars"></i>
 				</button>
 			</div>
@@ -144,46 +159,52 @@
 
 		<div
 			id="mobile-menu"
-			class="fixed top-20 left-0 right-0 z-40 bg-c-dark h-[calc(100vh-5rem)] sm:hidden transition-transform duration-300 mobile-menu-off overflow-y-auto">
+			class="fixed top-20 left-0 right-0 z-40 bg-c-dark h-[calc(100vh-5rem)] lg:hidden transition-transform duration-300 mobile-menu-off overflow-y-auto">
 			<div
 				class="flex flex-col px-8 py-4 space-y-4 text-lg font-semibold">
 				<a
 					href="#home"
 					onclick="closeMenu()"
-					class="tech-label text-c-light hover:text-c-primary transition duration-300 pb-2 border-b-2 border-c-accent"
-					>Home</a
-				>
+					class="tech-label text-c-light hover:text-c-primary transition duration-300 pb-2 border-b-2 border-c-accent">
+					<i class="fa-solid fa-house"></i>
+					<span>Home</span>
+				</a>
 				<a
 					href="#skills"
 					onclick="closeMenu()"
-					class="tech-label text-c-light hover:text-c-primary transition duration-300 pb-2 border-b-2 border-c-accent"
-					>Skills</a
-				>
+					class="tech-label text-c-light hover:text-c-primary transition duration-300 pb-2 border-b-2 border-c-accent">
+					<i class="fa-solid fa-brain"></i>
+					<span>Skills</span>
+				</a>
 				<a
 					href="#experience"
 					onclick="closeMenu()"
-					class="tech-label text-c-light hover:text-c-primary transition duration-300 pb-2 border-b-2 border-c-accent"
-					>Experience</a
-				>
+					class="tech-label text-c-light hover:text-c-primary transition duration-300 pb-2 border-b-2 border-c-accent">
+					<i class="fa-solid fa-timeline"></i>
+					<span>Experience</span>
+				</a>
 				<a
 					href="#projects"
 					onclick="closeMenu()"
-					class="tech-label text-c-light hover:text-c-primary transition duration-300 pb-2 border-b-2 border-c-accent"
-					>Projects</a
-				>
+					class="tech-label text-c-light hover:text-c-primary transition duration-300 pb-2 border-b-2 border-c-accent">
+					<i class="fa-solid fa-diagram-project"></i>
+					<span>Projects</span>
+				</a>
 				<a
 					href="#contact"
 					onclick="closeMenu()"
-					class="tech-label text-c-light hover:text-c-primary transition duration-300 pb-2 border-b-2 border-c-accent"
-					>Contact</a
-				>
+					class="tech-label text-c-light hover:text-c-primary transition duration-300 pb-2 border-b-2 border-c-accent">
+					<i class="fa-solid fa-message"></i>
+					<span>Contact</span>
+				</a>
 				<a
 					onclick="closeMenu()"
 					href="./downloadables/Christian_Beener_Resume_oct25_download.pdf"
 					target="_blank"
-					class="tech-label text-c-light hover:text-c-primary transition duration-300 pb-2 border-b-2 border-c-accent"
-					>Resume</a
-				>
+					class="tech-label text-c-light hover:text-c-primary transition duration-300 pb-2 border-b-2 border-c-accent">
+					<i class="fa-solid fa-file-pdf"></i>
+					<span>Resume</span>
+				</a>
 			</div>
 		</div>
 
@@ -686,13 +707,13 @@
 					<div class="flex justify-center mb-5 space-x-4">
 						<button
 							onclick="showTab('service')"
-							class="tab-button px-6 py-2 rounded-lg font-semibold transition duration-300 shadow-md">
-							Freelance / Service Request
+							class="tab-button w-48 px-6 py-2 rounded-lg font-semibold transition duration-300 shadow-md">
+							Service Requests
 						</button>
 						<button
 							onclick="showTab('recruiter')"
-							class="tab-button px-6 py-2 rounded-lg font-semibold transition duration-300 shadow-md">
-							Recruiter / Full-Time Inquiry
+							class="tab-button w-48 px-6 py-2 rounded-lg font-semibold transition duration-300 shadow-md">
+							Recruiters
 						</button>
 					</div>
 
@@ -707,16 +728,20 @@
 							inquiries.
 						</p>
 						<form
-							onsubmit="handleFormSubmit(event, 'recruiting@christianbeener.com')"
+							id="recruiter-form"
+							action="https://formspree.io/f/mjkjbbbj"
+							method="POST"
 							class="space-y-4 lg:grid lg:grid-cols-2 lg:gap-4 lg:space-y-0">
 							<div class="space-y-4">
 								<input
 									type="text"
+									name="Name/Company"
 									placeholder="Your Name / Company"
 									required
 									class="w-full p-3 rounded-lg bg-c-dark text-c-light border border-slate-700 focus:ring-c-primary focus:border-c-primary font-mono" />
 								<input
 									type="email"
+									name="Email"
 									placeholder="Your Email"
 									required
 									class="w-full p-3 rounded-lg bg-c-dark text-c-light border border-slate-700 focus:ring-c-primary focus:border-c-primary font-mono" />
@@ -724,6 +749,7 @@
 							<div>
 								<textarea
 									placeholder="Job Details"
+									name="Job Details"
 									rows="3"
 									required
 									class="w-full p-3 rounded-lg bg-c-dark text-c-light border border-slate-700 focus:ring-c-primary focus:border-c-primary font-mono lg:h-full"></textarea>
@@ -732,7 +758,8 @@
 								<button
 									type="submit"
 									class="w-full py-3 bg-c-primary text-white font-bold rounded-lg hover:bg-c-primary/90 transition duration-300">
-									Submit Inquiry
+									a Send
+									<i class="fa-solid fa-paper-plane ml-1"></i>
 								</button>
 							</div>
 						</form>
@@ -752,20 +779,25 @@
 							Solutions.
 						</p>
 						<form
-							onsubmit="handleFormSubmit(event, 'info@christianbeener.com')"
+							id="service-form"
+							action="https://formspree.io/f/xrbrzzza"
+							method="POST"
 							class="space-y-4 lg:grid lg:grid-cols-2 lg:gap-4 lg:space-y-0">
 							<div class="space-y-4">
 								<input
 									type="text"
+									name="Name/Company"
 									placeholder="Your Name / Company"
 									required
 									class="w-full p-3 rounded-lg bg-c-dark text-c-light border border-slate-700 focus:ring-c-primary focus:border-c-primary font-mono" />
 								<input
 									type="email"
+									name="Email"
 									placeholder="Your Email"
 									required
 									class="w-full p-3 rounded-lg bg-c-dark text-c-light border border-slate-700 focus:ring-c-primary focus:border-c-primary font-mono" />
 								<select
+									name="Service"
 									class="w-full p-3 rounded-lg bg-c-dark text-c-light border border-slate-700 focus:ring-c-primary focus:border-c-primary font-mono">
 									<option>Static Website Deployment</option>
 									<option>CI/CD Pipeline Setup</option>
@@ -779,6 +811,7 @@
 							<div>
 								<textarea
 									placeholder="Project Details"
+									name="Project Details"
 									rows="4"
 									required
 									class="w-full p-3 rounded-lg bg-c-dark text-c-light border border-slate-700 focus:ring-c-primary focus:border-c-primary font-mono lg:h-full"></textarea>
@@ -787,7 +820,8 @@
 								<button
 									type="submit"
 									class="w-full py-3 bg-c-primary text-white font-bold rounded-lg hover:bg-c-primary/90 transition duration-300">
-									Submit Service Request
+									Send
+									<i class="fa-solid fa-paper-plane ml-1"></i>
 								</button>
 							</div>
 						</form>
