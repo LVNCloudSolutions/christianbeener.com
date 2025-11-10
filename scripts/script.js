@@ -1,36 +1,11 @@
 document.addEventListener("DOMContentLoaded", () => {
 	const recruiterForm = document.getElementById("recruiter-form");
 	const serviceForm = document.getElementById("service-form");
-	const backToTop = document.getElementById("back-to-top");
-
-	// Back to Top Button Functionality
-	if (!backToTop) return;
-	window.onscroll = function () {
-		// Show button if scroll position is greater than 300px from the top
-		if (
-			document.body.scrollTop > 300 ||
-			document.documentElement.scrollTop > 300
-		) {
-			backToTop.classList.remove("opacity-0");
-			backToTop.classList.add("opacity-100");
-			backToTop.style.pointerEvents = "auto"; // Re-enable clicks
-		} else {
-			backToTop.classList.remove("opacity-100");
-			backToTop.classList.add("opacity-0");
-			backToTop.style.pointerEvents = "none"; // Disable clicks when hidden
-		}
-	};
 
 	// 1. Set the initial active state to the service tab
-	document
-		.querySelectorAll(".tab-content")
-		.forEach((content) => content.classList.remove("active"));
-	document.getElementById("service").classList.add("active");
-
-	// 2. Call showTab to correctly apply the primary color styles on load
 	showTab("service");
 
-	// 3. Handle submit events for both forms
+	// 2. Handle submit events for both forms
 	if (recruiterForm) {
 		recruiterForm.addEventListener("submit", handleSubmit);
 	}
@@ -91,31 +66,37 @@ function closeMenu() {
 }
 
 function showTab(tabId) {
-	// Hide all tab contents and clear messages
+	// 1. Hide all tab contents and clear messages
 	document.querySelectorAll(".tab-content").forEach((content) => {
 		content.classList.remove("active");
 		const messageDiv = content.querySelector(".form-message");
 		if (messageDiv) messageDiv.textContent = "";
 	});
 
-	// Show the selected tab content
+	// 2. Show the selected tab content
 	document.getElementById(tabId).classList.add("active");
 
-	// Update button styles: All buttons have the hover effect now
+	// 3. Update button styles (CRITICAL FIX)
 	document.querySelectorAll(".tab-button").forEach((button) => {
+		// Check if this button's onclick attribute targets the currently selected tabId
 		const isTarget = button.getAttribute("onclick").includes(tabId);
 
-		// Ensure all buttons have the required hover class
-		button.classList.add("hover:bg-primary/90", "hover:text-white");
+		// All buttons have the hover effect defined in the HTML (hover:bg-primary/90)
+		// We only manage the background/text color for the active state.
 
 		if (isTarget) {
 			// ACTIVATE: Primary Blue with White text
-			button.classList.remove("bg-slate-700", "text-slate-300");
-			button.classList.add("bg-primary", "text-white"); // Enforce bg-primary for active tab
+			button.classList.remove(
+				"bg-slate-700",
+				"text-slate-300",
+				"text-light"
+			);
+			button.classList.add("bg-primary", "text-white");
 		} else {
 			// DEACTIVATE: Subtle Gray with Light text
 			button.classList.remove("bg-primary", "text-white");
-			button.classList.add("bg-slate-700", "text-slate-300");
+			// NOTE: Using text-light is essential since your body font color is text-light
+			button.classList.add("bg-slate-700", "text-light");
 		}
 	});
 }
