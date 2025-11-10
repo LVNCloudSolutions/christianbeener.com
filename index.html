@@ -649,76 +649,24 @@
 
 					<div class="flex justify-center mb-5 space-x-4">
 						<button
+							id="service-btn"
 							onclick="showTab('service')"
-							class="tab-button w-48 px-6 py-2 rounded-lg font-semibold transition duration-300 shadow-md cursor-pointer hover:bg-primary/90 hover:text-white">
+							class="tab-button w-48 px-6 py-2 bg-slate-700 text-light rounded-lg font-semibold transition duration-300 shadow-md cursor-pointer hover:bg-primary/90 hover:text-white">
 							<i class="fa-solid fa-briefcase mr-1"></i>
 							Services
 						</button>
 						<button
+							id="recruiter-btn"
 							onclick="showTab('recruiter')"
-							class="tab-button w-48 px-6 py-2 rounded-lg font-semibold transition duration-300 shadow-md cursor-pointer hover:bg-primary/90 hover:text-white">
+							class="tab-button w-48 px-6 py-2 bg-slate-700 text-light rounded-lg font-semibold transition duration-300 shadow-md cursor-pointer hover:bg-primary/90 hover:text-white">
 							<i class="fa-solid fa-user-tie mr-1"></i>
 							Recruiters
 						</button>
 					</div>
 
 					<div
-						id="recruiter"
-						class="tab-content active p-5 bg-card rounded-xl shadow-2xl border border-slate-700">
-						<h3 class="text-2xl font-bold mb-4 text-primary">
-							Full-Time Job Inquiry
-						</h3>
-						<p class="text-slate-400 mb-4 text-sm">
-							For job offers, full-time positions, or general HR
-							inquiries.
-						</p>
-						<form
-							id="recruiter-form"
-							action="https://formspree.io/f/mjkjbbbj"
-							method="POST"
-							class="space-y-4 lg:grid lg:grid-cols-2 lg:gap-4 lg:space-y-0">
-							<div class="space-y-4">
-								<input
-									type="text"
-									name="Name/Company"
-									placeholder="Your Name / Company"
-									required
-									class="w-full p-3 rounded-lg bg-dark text-light border border-slate-700 focus:ring-primary focus:border-primary font-mono" />
-								<input
-									type="email"
-									name="Email"
-									placeholder="Your Email"
-									required
-									class="w-full p-3 rounded-lg bg-dark text-light border border-slate-700 focus:ring-primary focus:border-primary font-mono" />
-							</div>
-							<div>
-								<textarea
-									placeholder="Job Details"
-									name="Job Details"
-									rows="3"
-									required
-									class="w-full p-3 rounded-lg bg-dark text-light border border-slate-700 focus:ring-primary focus:border-primary font-mono lg:h-full"></textarea>
-							</div>
-							<input
-								type="hidden"
-								name="g-recaptcha-response"
-								id="g-recaptcha-response" />
-							<div class="lg:col-span-2">
-								<button
-									type="submit"
-									class="cursor-pointer w-full py-3 bg-primary text-white font-bold rounded-lg hover:bg-primary/90 transition duration-300">
-									<i class="fa-solid fa-paper-plane mr-1"></i>
-									Send
-								</button>
-							</div>
-						</form>
-						<div
-							class="form-message mt-4 text-sm font-semibold tech-label"></div>
-					</div>
-
-					<div
 						id="service"
-						class="tab-content p-5 bg-card rounded-xl shadow-2xl border border-slate-700">
+						class="tab-content active p-5 bg-card rounded-xl shadow-2xl border border-slate-700">
 						<h3 class="text-2xl font-bold mb-4 text-primary">
 							Freelance & Contract Services
 						</h3>
@@ -762,6 +710,60 @@
 									placeholder="Project Details"
 									name="Project Details"
 									rows="4"
+									required
+									class="w-full p-3 rounded-lg bg-dark text-light border border-slate-700 focus:ring-primary focus:border-primary font-mono lg:h-full"></textarea>
+							</div>
+							<input
+								type="hidden"
+								name="g-recaptcha-response"
+								id="g-recaptcha-response" />
+							<div class="lg:col-span-2">
+								<button
+									type="submit"
+									class="cursor-pointer w-full py-3 bg-primary text-white font-bold rounded-lg hover:bg-primary/90 transition duration-300">
+									<i class="fa-solid fa-paper-plane mr-1"></i>
+									Send
+								</button>
+							</div>
+						</form>
+						<div
+							class="form-message mt-4 text-sm font-semibold tech-label"></div>
+					</div>
+
+					<div
+						id="recruiter"
+						class="tab-content p-5 bg-card rounded-xl shadow-2xl border border-slate-700">
+						<h3 class="text-2xl font-bold mb-4 text-primary">
+							Full-Time Job Inquiry
+						</h3>
+						<p class="text-slate-400 mb-4 text-sm">
+							For job offers, full-time positions, or general HR
+							inquiries.
+						</p>
+						<form
+							id="recruiter-form"
+							action="https://formspree.io/f/mjkjbbbj"
+							method="POST"
+							class="space-y-4 lg:grid lg:grid-cols-2 lg:gap-4 lg:space-y-0">
+							<div class="space-y-4">
+								<input
+									type="text"
+									name="Name/Company"
+									placeholder="Your Name / Company"
+									required
+									class="w-full p-3 rounded-lg bg-dark text-light border border-slate-700 focus:ring-primary focus:border-primary font-mono" />
+								<input
+									type="email"
+									name="Email"
+									placeholder="Your Email"
+									required
+									class="w-full p-3 rounded-lg bg-dark text-light border border-slate-700 focus:ring-primary focus:border-primary font-mono" />
+							</div>
+							<div>
+								<textarea
+									placeholder="Job Details"
+									name="Job Details"
+									rows="3"
 									required
 									class="w-full p-3 rounded-lg bg-dark text-light border border-slate-700 focus:ring-primary focus:border-primary font-mono lg:h-full"></textarea>
 							</div>
