@@ -1,5 +1,8 @@
 node_modules/
 styles/output.css
 
+workspace.json
+.structurizr
+
 npm-debug.log
 *.log
