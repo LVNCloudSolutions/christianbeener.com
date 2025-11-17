@@ -178,19 +178,17 @@ async function handleSubmit(event) {
 			"6LdP1AUsAAAAAH1nR1KgJWdEzFM4URRQmUuw52Vq",
 			{ action: "submit" }
 		);
-		console.log("reCAPTCHA token:", token);
 
 		// 2. Convert form data to JSON object and add the token
 		const dataObject = formDataToJSON(event.target);
 		dataObject["g-recaptcha-response"] = token; // Add the token to the data object
 
-		console.log("Form Data Object:", dataObject);
 		// 3. Send the JSON string to Formspree
 		const response = await fetch(event.target.action, {
 			method: event.target.method,
 			body: JSON.stringify(dataObject),
 			headers: {
-				"Content-Type": "application/json", // Critical for JSON body
+				"Content-Type": "application/json",
 				Accept: "application/json",
 			},
 		});
