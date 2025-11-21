@@ -27,7 +27,7 @@ const projects = [
 		techStack: "IaC, Terraform, AWS",
 		url: "https://github.com/lvncloudsolutions/terraform-projects",
 		src: "GitHub",
-		startDate: new Date("2025-11-01"),
+		startDate: new Date("2025-11-21"),
 		endDate: null,
 		isComplete: false,
 	},

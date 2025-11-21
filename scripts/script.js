@@ -32,9 +32,9 @@ function getStatusBadge(project) {
 
 	// Check if the project is marked as explicitly complete OR if the target end date has passed
 	if (project.isComplete || (project.endDate && project.endDate < now)) {
-		return '<span class="inline-block bg-green-600 text-white text-xs font-bold px-2 py-1 rounded-full mb-3"><i class="fa-solid fa-check-circle mr-1"></i>Complete</span>';
+		return '<span class="inline-block bg-green-600 text-white text-xs px-2 py-1 rounded-full mb-3"><i class="fa-solid fa-check-circle mr-1"></i>Complete</span>';
 	} else {
-		return '<span class="inline-block bg-yellow-600 text-white text-xs font-bold px-2 py-1 rounded-full mb-3"><i class="fa-solid fa-hourglass-half mr-1"></i>In Progress</span>';
+		return '<span class="inline-block bg-yellow-600 text-white text-xs px-2 py-1 rounded-full mb-3"><i class="fa-solid fa-hourglass-half mr-1"></i>In Progress</span>';
 	}
 }
 
