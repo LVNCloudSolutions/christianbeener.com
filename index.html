@@ -4,7 +4,11 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Christian Beener | Cloud Solutions Provider</title>
+
+		<!-- My JavaScript files -->
+		<script src="./scripts/projects.js"></script>
 		<script src="./scripts/script.js"></script>
+
 		<script
 			src="https://www.google.com/recaptcha/api.js?render=6LdP1AUsAAAAAH1nR1KgJWdEzFM4URRQmUuw52Vq"
 			async
@@ -513,124 +517,28 @@
 						class="text-4xl font-bold text-center mb-10 border-b-4 border-primary pb-3">
 						Current Projects
 					</h2>
-					<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-						<div
-							class="bg-dark p-6 rounded-xl shadow-lg border-t-4 border-primary/50 flex flex-col justify-between">
-							<div>
-								<span
-									class="inline-block bg-yellow-600 text-white text-xs font-bold px-2 py-1 rounded-full mb-3"
-									>In Progress</span
-								>
-								<span
-									class="float-end text-xs text-accent font-mono"
-									>Start: Nov 2025</span
-								>
-								<h3 class="text-xl font-bold mb-2 text-primary">
-									IaC using Terraform
-								</h3>
-								<p class="text-slate-400 mb-4 text-sm">
-									An ongoing project to create reusable
-									<strong>
-										Infrastructure as Code (IaC) templates
-									</strong>
-									for provisioning secure and scalable AWS
-									cloud resources using
-									<strong>Terraform</strong>.
-								</p>
-							</div>
-							<div>
-								<p class="text-xs text-accent font-mono mb-2">
-									Tech: IaC, Terraform, AWS
-								</p>
-								<a
-									href="https://github.com/lvncloudsolutions/terraform-projects"
-									target="_blank"
-									class="text-primary hover:text-light underline text-sm font-semibold transition duration-300">
-									<i class="fa-brands fa-github mr-1"></i>
-									View on GitHub
-								</a>
-							</div>
-						</div>
 
-						<div
-							class="bg-dark p-6 rounded-xl shadow-lg border-t-4 border-primary/50 flex flex-col justify-between">
-							<div>
-								<span
-									class="inline-block bg-yellow-600 text-white text-xs font-bold px-2 py-1 rounded-full mb-3"
-									>In Progress</span
-								>
-								<span
-									class="float-end text-xs text-accent font-mono"
-									>Start: Nov 2025</span
-								>
-								<h3 class="text-xl font-bold mb-2 text-primary">
-									SAA-C03 Certification
-								</h3>
-								<p class="text-slate-400 mb-4 text-sm">
-									Currently studying for the
-									<strong
-										>AWS Certified Solutions Architect -
-										Associate (SAA-C03)</strong
-									>
-									exam, focusing on designing resilient
-									architectures, high-performing systems, and
-									cost-optimized solutions on AWS.
-								</p>
-							</div>
-							<div>
-								<p class="text-xs text-accent font-mono mb-2">
-									Tech: AWS, Lambda, S3, VPC Design, IAM
-									Security
-								</p>
-								<a
-									href="https://aws.amazon.com/certification/certified-solutions-architect-associate/"
-									target="_blank"
-									class="text-primary hover:text-light underline text-sm font-semibold transition duration-300">
-									<i class="fa-brands fa-amazon"></i>
-									View on AWS
-								</a>
-							</div>
-						</div>
+					<!-- Carousel Controls -->
+					<div class="flex justify-center mb-6 space-x-6">
+						<button
+							id="prev-project"
+							onclick="prevProject()"
+							class="p-3 rounded-full bg-slate-700 text-light hover:bg-primary transition duration-300 disabled:opacity-50 disabled:cursor-not-allowed">
+							<i class="fa-solid fa-arrow-left"></i>
+						</button>
+						<button
+							id="next-project"
+							onclick="nextProject()"
+							class="p-3 rounded-full bg-slate-700 text-light hover:bg-primary transition duration-300 disabled:opacity-50 disabled:cursor-not-allowed">
+							<i class="fa-solid fa-arrow-right"></i>
+						</button>
+					</div>
 
-						<div
-							class="bg-dark p-6 rounded-xl shadow-lg border-t-4 border-primary/50 flex flex-col justify-between">
-							<div>
-								<span
-									class="inline-block bg-green-600 text-white text-xs font-bold px-2 py-1 rounded-full mb-3"
-									>Complete</span
-								>
-								<span
-									class="float-end text-xs text-accent font-mono"
-									>Completed: Nov 2025</span
-								>
-								<h3 class="text-xl font-bold mb-2 text-primary">
-									Static Website Launch
-								</h3>
-								<p class="text-slate-400 mb-4 text-sm">
-									This static website was built using
-									<strong>HTML5</strong>,
-									<strong>Vanilla JavaScript</strong>, and
-									<strong>Tailwind CSS</strong> via CDN. It is
-									hosted on GitHub Pages, and deployments are
-									automated through a
-									<strong>CI/CD pipeline</strong> built in
-									GitHub Actions.
-								</p>
-							</div>
-							<div>
-								<p class="text-xs text-accent font-mono mb-2">
-									Tech: HTML5, JavaScript, Tailwind CSS,
-									GitHub Pages, GitHub Actions
-								</p>
-								<a
-									href="https://github.com/lvncloudsolutions/christianbeener.com"
-									target="_blank"
-									class="text-primary hover:text-light underline text-sm font-semibold transition duration-300">
-									<i class="fa-brands fa-github mr-1"></i>
-									View on GitHub
-								</a>
-							</div>
-						</div>
+					<!-- Projects Container -->
+					<div
+						id="projects-container"
+						class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 transition-transform duration-500">
+						<!-- Project cards will be injected here by JavaScript -->
 					</div>
 				</div>
 			</section>

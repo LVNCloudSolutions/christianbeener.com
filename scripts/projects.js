@@ -1,5 +1,19 @@
 const projects = [
 	{
+		title: "Dynamic Website Update",
+		description: `
+            Migrating the portfolio site to a data-driven model using a local JSON file (this file) 
+            and pure JavaScript rendering logic. This demonstrates separation of data from view, 
+            setting the stage for future migration to React/TypeScript.
+        `,
+		techStack: "HTML5, Vanilla JavaScript, Data-Driven UI",
+		url: "https://github.com/lvncloudsolutions/christianbeener.com",
+		src: "GitHub",
+		startDate: new Date("2025-11-21"),
+		endDate: null,
+		isComplete: false,
+	},
+	{
 		title: "IaC using Terraform",
 		description: `
             An ongoing project to create reusable
@@ -13,12 +27,12 @@ const projects = [
 		techStack: "IaC, Terraform, AWS",
 		url: "https://github.com/lvncloudsolutions/terraform-projects",
 		src: "GitHub",
-		startDate: "Nov 2025",
+		startDate: new Date("2025-11-01"),
 		endDate: null,
 		isComplete: false,
 	},
 	{
-		title: "SAA-C03 Certification",
+		title: "SAA-C03 Certification Prep",
 		description: `
             Currently studying for the
             <strong
@@ -32,7 +46,7 @@ const projects = [
 		techStack: "AWS, Cloud Architecture",
 		url: "https://aws.amazon.com/certification/certified-solutions-architect-associate/",
 		src: "AWS",
-		startDate: "Nov 2025",
+		startDate: new Date("2025-11-15"),
 		endDate: null,
 		isComplete: false,
 	},
@@ -48,10 +62,11 @@ const projects = [
             <strong>CI/CD pipeline</strong> built in
             GitHub Actions.
         `,
-		isComplete: true,
-		startDate: "Nov 2025",
-		endDate: "Nov 2025",
+		techStack: "HTML5, JavaScript, Tailwind CSS, GitHub Pages, CI/CD",
 		url: "https://github.com/lvncloudsolutions/christianbeener.com",
 		src: "GitHub",
+		startDate: new Date("2025-10-01"),
+		endDate: new Date("2025-11-06"),
+		isComplete: true,
 	},
 ];
