@@ -14,6 +14,7 @@ import {
 	DownloadCircle,
 	Menu,
 	Xmark,
+	HorizDistributionLeft,
 } from "iconoir-react";
 import "./StickyNavbar.module.css";
 
@@ -21,44 +22,47 @@ const LINKS = [
 	{
 		icon: User,
 		title: "About",
-		href: "#About",
+		href: "#about",
 	},
 	{
 		icon: Brain,
 		title: "Skills",
-		href: "#Skills",
+		href: "#skills",
 	},
 	{
 		icon: Clock,
 		title: "Experience",
-		href: "#Experience",
+		href: "#experience",
 	},
 	{
 		icon: Code,
 		title: "Projects",
-		href: "#Projects",
+		href: "#projects",
 	},
 	{
 		icon: MessageText,
 		title: "Contact",
-		href: "#Contact",
+		href: "#contact",
 	},
 	{
 		icon: DownloadCircle,
 		title: "Resume",
-		href: "../downloads/Christian_Beener_resume_2026-download.pdf",
+		href: "/downloads/Christian_Beener_resume_2026-download.pdf",
+		target: "_blank",
+		download: "Christian_Beener_resume_2026-download.pdf",
 	},
 ];
 
 function NavList() {
 	return (
 		<ul className="flex flex-col gap-x-3 gap-y-1.5 lg:mt-0 lg:flex-row lg:items-center pt-1">
-			{LINKS.map(({ icon: Icon, title, href }) => (
+			{LINKS.map(({ icon: Icon, title, href, download }) => (
 				<li key={title}>
 					<Typography
 						as="a"
 						href={href}
 						className="tech-label flex items-center gap-x-2 p-1"
+						download={download}
 					>
 						<Icon className="h-5 w-5 text-light" />
 						{title}
