@@ -5,51 +5,8 @@ import {
 	Collapse,
 	Navbar,
 } from "@material-tailwind/react";
-import {
-	User,
-	Brain,
-	Code,
-	Clock,
-	MessageText,
-	DownloadCircle,
-	Menu,
-	Xmark,
-} from "iconoir-react";
-
-const LINKS = [
-	{
-		icon: User,
-		title: "About",
-		href: "#about",
-	},
-	{
-		icon: Brain,
-		title: "Skills",
-		href: "#skills",
-	},
-	{
-		icon: Clock,
-		title: "Experience",
-		href: "#experience",
-	},
-	{
-		icon: Code,
-		title: "Projects",
-		href: "#projects",
-	},
-	{
-		icon: MessageText,
-		title: "Contact",
-		href: "#contact",
-	},
-	{
-		icon: DownloadCircle,
-		title: "Resume",
-		href: "/downloads/Christian_Beener_resume_2026-download.pdf",
-		target: "_blank",
-		download: "Christian_Beener_resume_2026-download.pdf",
-	},
-];
+import { Menu, Xmark } from "iconoir-react";
+import { LINKS } from "../constants";
 
 function NavList() {
 	return (
@@ -59,7 +16,7 @@ function NavList() {
 					<Typography
 						as="a"
 						href={href}
-						className="tech-label flex items-center gap-x-2 p-1"
+						className="link tech-label flex items-center gap-x-2 p-1"
 						download={download}
 					>
 						<Icon className="h-5 w-5 text-light" />
@@ -82,7 +39,7 @@ export default function StickyNavbar() {
 	}, []);
 
 	return (
-		<Navbar className="sticky top-0 z-10 w-full h-18 bg-dark shadow-md">
+		<Navbar className="sticky border-none top-0 z-10 w-full h-18 bg-dark shadow-md">
 			<div className="max-w-7xl mx-auto h-full px-4 sm:px-6 lg:px-8 flex items-center justify-between">
 				<Typography
 					as="a"
