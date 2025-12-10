@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import { Typography, Button, IconButton } from "@material-tailwind/react";
-import "./Profile.module.css";
+import { Linkedin, GithubCircle } from "iconoir-react";
 
 // TODO: USE MATERIAL TAILWIND COMPONENTS FOR BUTTONS AND TYPOGRAPHY
+// TODO: MAKE CONSTANTS FOR className STRING LITERALS??
 export default function Profile() {
 	return (
 		<>
@@ -29,37 +30,21 @@ export default function Profile() {
 							<a
 								href="https://linkedin.com/in/christianbeener"
 								target="_blank"
-								className="text-slate-300 hover:text-primary transition duration-300"
 							>
-								<i className="fa-brands fa-linkedin-in"></i>
-							</a>
-							<a
-								href="https://www.upwork.com/freelancers/~01d6483b90641b9ead"
-								target="_blank"
-								className="text-slate-300 hover:text-primary transition duration-300"
-							>
-								<i className="fa-brands fa-square-upwork"></i>
+								<Linkedin className="h-6 w-6" />
 							</a>
 							<a
 								href="https://github.com/lvncloudsolutions"
 								target="_blank"
-								className="text-slate-300 hover:text-primary transition duration-300"
 							>
-								<i className="fa-brands fa-github"></i>
-							</a>
-							<a
-								href="https://www.hackerrank.com/profile/christianbeener"
-								target="_blank"
-								className="text-slate-300 hover:text-primary transition duration-300"
-							>
-								<i className="fa-brands fa-hackerrank"></i>
+								<GithubCircle className="h-6 w-6" />
 							</a>
 						</div>
 					</div>
 
 					<div className="md:col-span-3 p-4 border-l-4 border-accent pl-8">
 						<h1 className="text-4xl sm:text-4xl font-extrabold mb-5 leading-tight text-white">
-							Automating Software Delivery on AWS
+							Full Stack Engineering & DevOps
 						</h1>
 						<p className="text-xl text-slate-400 mb-5">
 							With over 5-years of full-stack development

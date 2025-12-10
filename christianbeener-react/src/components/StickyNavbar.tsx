@@ -14,9 +14,7 @@ import {
 	DownloadCircle,
 	Menu,
 	Xmark,
-	HorizDistributionLeft,
 } from "iconoir-react";
-import "./StickyNavbar.module.css";
 
 const LINKS = [
 	{

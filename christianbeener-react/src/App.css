@@ -38,3 +38,18 @@
 	font-family: "Roboto Mono", monospace;
 	font-size: 0.875rem;
 }
+
+a {
+	color: var(--color-light);
+	text-decoration: none;
+}
+
+a:hover {
+	color: var(--color-primary);
+	text-decoration: none;
+	transform: scale(1.05);
+
+	svg {
+		color: var(--color-primary);
+	}
+}
