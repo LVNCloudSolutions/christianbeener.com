@@ -69,7 +69,6 @@ export default function Profile() {
 						<Button
 							as="a"
 							href="#contact"
-							variant="solid"
 							className={profileBtn + " btn primary-btn"}
 						>
 							<MessageText className="h-5 w-5 stroke-2" />
@@ -78,7 +77,6 @@ export default function Profile() {
 						<Button
 							as="a"
 							href="#projects"
-							variant="solid"
 							className={profileBtn + " btn secondary-btn"}
 						>
 							<Code className="h-5 w-5 stroke-2" />

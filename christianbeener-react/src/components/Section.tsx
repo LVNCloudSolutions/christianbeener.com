@@ -1,8 +1,8 @@
 import SectionHeading from "../SectionHeading";
-import Skills from "./Skills";
+import CardGroupContainer from "./CardGroupContainer";
 import Experience from "./Experience";
-import Projects from "./Projects";
 import Contact from "./Contact";
+import { Car } from "iconoir-react";
 
 export default function Section(config: {
 	id: string;
@@ -12,11 +12,9 @@ export default function Section(config: {
 	const SectionContent = () => {
 		switch (config.id) {
 			case "skills":
-				return <Skills />;
-			case "experience":
-				return <Experience />;
+				return <CardGroupContainer isProjects={false} />;
 			case "projects":
-				return <Projects />;
+				return <CardGroupContainer isProjects={true} />;
 			case "contact":
 				return <Contact />;
 			default:

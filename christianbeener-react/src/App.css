@@ -20,6 +20,7 @@
 
 .btn {
 	color: var(--color-white);
+	border: none;
 }
 
 .btn:hover {
