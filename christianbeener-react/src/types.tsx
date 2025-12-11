@@ -19,4 +19,18 @@ interface DisplayCard {
 	src?: string;
 }
 
-export type { DisplayCard };
+interface ExperienceItem {
+	role: string;
+	employer: string;
+	location: string;
+	startDate: Date;
+	endDate: Date | null;
+	highlights: ExperienceHighlight[];
+}
+
+interface ExperienceHighlight {
+	title: string;
+	description: string;
+}
+
+export type { DisplayCard, ExperienceItem };

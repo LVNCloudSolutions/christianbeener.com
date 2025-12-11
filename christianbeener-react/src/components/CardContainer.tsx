@@ -43,7 +43,7 @@ export default function CardContainer({ card }: { card: DisplayCard }) {
 				<CardBody>
 					<Typography
 						as="h3"
-						className="text-xl font-bold mb-2 text-primary"
+						className="text-xl font-bold text-primary"
 					>
 						{card.title}
 					</Typography>

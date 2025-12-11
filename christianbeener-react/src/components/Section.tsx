@@ -1,5 +1,6 @@
 import SectionHeading from "../SectionHeading";
 import CardGroupContainer from "./CardGroupContainer";
+import Experience from "./Experience";
 import Contact from "./Contact";
 
 export default function Section(config: {
@@ -13,6 +14,8 @@ export default function Section(config: {
 				return <CardGroupContainer isProjects={false} />;
 			case "projects":
 				return <CardGroupContainer isProjects={true} />;
+			case "experience":
+				return <Experience />;
 			case "contact":
 				return <Contact />;
 			default:

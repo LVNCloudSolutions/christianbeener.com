@@ -18,6 +18,10 @@ export default function CardGroupContainer({
 	// I need to manage the current index of the first card being displayed
 	const [currentIndex, setCurrentIndex] = useState(0);
 
+	const cardContainers = cards
+		.slice(currentIndex, currentIndex + 3)
+		.map((card, index) => <CardContainer key={index} card={card} />);
+
 	return (
 		<>
 			<div className="grid md:grid-cols-3 gap-8 text-left">
@@ -34,11 +38,7 @@ export default function CardGroupContainer({
 				{/* Card Group */}
 				<div className="col-span-3 grid md:grid-cols-3 gap-8 text-left">
 					{/* We will create a group of 3 CardContainer objects using the cards array */}
-					{cards
-						.slice(currentIndex, currentIndex + 3)
-						.map((card, index) => (
-							<CardContainer key={index} card={card} />
-						))}
+					{cardContainers}
 				</div>
 				{/* Navigation Button - Next */}
 				{/* <div className="col-span-1 flex items-center justify-center">

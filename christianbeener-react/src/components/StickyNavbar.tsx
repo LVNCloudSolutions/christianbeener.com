@@ -64,7 +64,7 @@ export default function StickyNavbar() {
 					variant="ghost"
 					color="secondary"
 					onClick={() => setOpenNav(!openNav)}
-					className="ml-auto grid lg:hidden"
+					className="ml-auto grid lg:hidden border-none"
 				>
 					{openNav ? (
 						<Xmark className="h-5 w-5" />

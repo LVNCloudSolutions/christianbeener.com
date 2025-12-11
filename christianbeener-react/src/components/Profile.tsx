@@ -2,7 +2,7 @@ import { Typography, Button } from "@material-tailwind/react";
 import { Linkedin, GithubCircle, Code, MessageText } from "iconoir-react";
 
 export default function Profile() {
-	const profileBtn = "flex gap-2 px-4 py-3 text-center font-bold rounded-lg";
+	const profileBtn = "flex gap-2 px-4 py-3 text-center rounded-lg";
 	return (
 		<section
 			id="about"
