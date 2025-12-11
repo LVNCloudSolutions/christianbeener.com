@@ -1,8 +1,6 @@
 import SectionHeading from "../SectionHeading";
 import CardGroupContainer from "./CardGroupContainer";
-import Experience from "./Experience";
 import Contact from "./Contact";
-import { Car } from "iconoir-react";
 
 export default function Section(config: {
 	id: string;

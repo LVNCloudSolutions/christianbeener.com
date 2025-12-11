@@ -10,7 +10,7 @@ export default function CardContainer({ card }: { card: DisplayCard }) {
 	let cardContent;
 	if (card.content.type === "text") {
 		cardContent = (
-			<Typography as="p" className="text-slate-400 mb-4 text-sm">
+			<Typography as="p" className="text-slate-400 mb-4">
 				{card.content.items as string}
 			</Typography>
 		);
@@ -18,7 +18,7 @@ export default function CardContainer({ card }: { card: DisplayCard }) {
 		cardContent = (
 			<Typography
 				as="ul"
-				className="list-none list-inside text-sm text-slate-400 space-y-1 font-mono"
+				className="list-none list-inside text-sm text-slate-400 font-mono"
 			>
 				{(card.content.items as { [key: string]: string }[]).map(
 					(detail, index) => {
@@ -43,9 +43,12 @@ export default function CardContainer({ card }: { card: DisplayCard }) {
 				<CardBody>
 					<Typography
 						as="h3"
-						className="text-xl font-bold mb-2 text-white"
+						className="text-xl font-bold mb-2 text-primary"
 					>
 						{card.title}
+					</Typography>
+					<Typography as="h4" className="text-sm mb-2 text-white">
+						{card.subtitle}
 					</Typography>
 					{cardContent}
 				</CardBody>
@@ -60,7 +63,7 @@ export default function CardContainer({ card }: { card: DisplayCard }) {
 						<Typography
 							as="a"
 							href={card.url}
-							className="text-primary hover:text-light underline text-sm font-semibold transition duration-300"
+							className="card-link text-primary underline text-sm font-semibold transition duration-300"
 							target="_blank"
 						>
 							View on {card.src}

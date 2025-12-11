@@ -106,7 +106,7 @@ const SKILLS: DisplayCard[] = [
 	{
 		category: "skills",
 		title: "Optimized Workflows",
-		subtitle: "Agile & Efficient Development",
+		subtitle: "Agile & Efficient Delivery",
 		tags: [],
 		content: {
 			type: "list",

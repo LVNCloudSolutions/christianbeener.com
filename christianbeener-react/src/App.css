@@ -12,7 +12,7 @@
 	color: var(--color-primary);
 	text-decoration: none;
 	transform: scale(1.05);
-
+	font-size: var(--text-md);
 	svg {
 		color: var(--color-primary);
 	}
@@ -34,4 +34,11 @@
 
 .secondary-btn {
 	background-color: var(--color-accent);
+}
+
+.card-link:hover {
+	cursor: pointer;
+	color: var(--color-light);
+	font-size: var(--text-md);
+	text-decoration: none;
 }

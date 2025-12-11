@@ -20,17 +20,17 @@ export default function CardGroupContainer({
 
 	return (
 		<>
-			<div className="grid md:grid-cols-5 gap-8 text-left">
+			<div className="grid md:grid-cols-3 gap-8 text-left">
 				{/* 
 				We should display up to 3 cards in the center columns,
 				and leave the first and last columns for navigation buttons.
 				*/}
 				{/* Navigation Button - Previous */}
-				<div className="col-span-1 flex items-center justify-center">
+				{/* <div className="col-span-1 flex items-center justify-center">
 					<button className="bg-primary text-dark font-bold py-2 px-4 rounded-full hover:bg-light transition duration-300">
 						&#8592;
 					</button>
-				</div>
+				</div> */}
 				{/* Card Group */}
 				<div className="col-span-3 grid md:grid-cols-3 gap-8 text-left">
 					{/* We will create a group of 3 CardContainer objects using the cards array */}
@@ -41,11 +41,11 @@ export default function CardGroupContainer({
 						))}
 				</div>
 				{/* Navigation Button - Next */}
-				<div className="col-span-1 flex items-center justify-center">
+				{/* <div className="col-span-1 flex items-center justify-center">
 					<button className="bg-primary text-dark font-bold py-2 px-4 rounded-full hover:bg-light transition duration-300">
 						&#8594;
 					</button>
-				</div>
+				</div> */}
 			</div>
 		</>
 	);
