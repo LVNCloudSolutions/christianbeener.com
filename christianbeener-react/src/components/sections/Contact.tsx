@@ -1,6 +1,6 @@
 import { useState } from "react";
 import TabGroup from "../general/TabGroup";
-import Form from "../general/Formral/Form";
+import Form from "../general/Form";
 
 export default function Contact() {
 	const [activeTab, setActiveTab] = useState("services");
