@@ -4,19 +4,19 @@ export default function CardContainer({ card }: { card: DisplayCard }) {
 	let cardContent;
 	if (card.content.type === "text") {
 		cardContent = (
-			<p className="text-slate-400 mb-4">
+			<p className="text-left text-slate-400 mb-4">
 				{card.content.items as string}
 			</p>
 		);
 	} else if (card.content.type === "list") {
 		cardContent = (
-			<ul className="list-none list-inside text-sm text-slate-400 font-mono">
+			<ul className="text-left list-none list-inside text-sm text-slate-400 font-mono">
 				{(card.content.items as { [key: string]: string }[]).map(
 					(detail, index) => {
 						const key = Object.keys(detail)[0];
 						return (
 							<li key={index}>
-								<strong>{key}</strong>:<br />
+								<strong>{key}</strong>:{" "}
 								{detail[key as keyof typeof detail]}
 							</li>
 						);
@@ -31,7 +31,7 @@ export default function CardContainer({ card }: { card: DisplayCard }) {
 				key={card.title}
 				className="p-6 bg-dark rounded-xl shadow-lg border-b-0 border-x-0 border-t-4 border-primary flex flex-col gap-1 justify-between"
 			>
-				<div>
+				<div className="text-center">
 					<h3 className="text-xl font-bold text-primary">
 						{card.title}
 					</h3>
