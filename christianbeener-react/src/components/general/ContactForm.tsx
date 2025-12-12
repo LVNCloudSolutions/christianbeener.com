@@ -113,16 +113,12 @@ export default function ContactForm({
 
 			if (response.ok) {
 				setToastStatus("success");
-				setToastMessage(
-					`Success! ${
-						form.id === "services" ? "Service request" : "Inquiry"
-					} submitted.`
-				);
+				setToastMessage("Message sent!");
 				setFormData(initialFormState);
 			} else {
 				const data = await response.json();
 				setToastStatus("error");
-				setToastMessage(data.error || "Error: Failed to send message.");
+				setToastMessage(data.error || "Uh Oh! Something went wrong.");
 			}
 		} catch (err) {
 			setToastStatus("error");
@@ -188,11 +184,11 @@ export default function ContactForm({
 					onChange={handleInputChange}
 				/>
 
-				{/* <input
+				<input
 					type="hidden"
 					name="g-recaptcha-response"
 					id="g-recaptcha-response"
-				/> */}
+				/>
 
 				<div className="lg:col-span-2">
 					<SendButton isSubmitting={isSubmitting} />

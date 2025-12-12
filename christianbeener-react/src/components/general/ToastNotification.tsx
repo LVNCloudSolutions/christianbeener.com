@@ -17,13 +17,12 @@ export default function ToastNotification({
 }: ToastProps) {
 	let bgColor = "";
 	let icon;
-	let ringColor = "";
 
 	if (status === "success") {
-		bgColor = "bg-green-700";
+		bgColor = "bg-green-600";
 		icon = SuccessIcon;
 	} else if (status === "error") {
-		bgColor = "bg-red-700";
+		bgColor = "bg-red-600";
 		icon = ErrorIcon;
 	} else {
 		return null;
@@ -41,7 +40,7 @@ export default function ToastNotification({
 
 	return (
 		<div
-			className={`fixed top-4 right-4 z-50 p-4 rounded-lg text-white shadow-xl transition-all duration-300 transform 
+			className={`fixed top-4 right-4 z-50 p-4 rounded-lg text-light shadow-xl transition-all duration-300 transform font-mono
                 ${bgColor} max-w-sm`}
 		>
 			<div className="flex items-center justify-between">

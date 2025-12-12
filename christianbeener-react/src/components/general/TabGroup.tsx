@@ -8,6 +8,7 @@ export default function TabGroup(props: { activeTab: any; setActiveTab: any }) {
 			{TABS.map(({ icon: Icon, name }) => {
 				return (
 					<button
+						key={name}
 						className={`btn cursor-pointer font-semibold flex flex-row items-center justify-center gap-2 w-full py-3 ml-2 my-1 rounded-lg ${
 							activeTab === name.toLowerCase()
 								? "bg-primary text-white"
