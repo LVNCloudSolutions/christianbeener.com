@@ -1,4 +1,4 @@
-import { EXPERIENCE } from "../../constants";
+import { EXPERIENCE } from "../../utils/constants";
 
 const formatDate = (date: Date | null): string => {
 	if (!date) {
@@ -11,9 +11,9 @@ const formatDate = (date: Date | null): string => {
 	}).format(date);
 };
 
-// This component uses a mix of the Material Tailwind timeline component and some custom design
+// This component displays a Timeline of Work Experience
 export default function Experience() {
-	const experienceItems = EXPERIENCE.map((experience, index) => {
+	const experienceItems = EXPERIENCE.map((experience: any, index) => {
 		return (
 			<>
 				<div key={index}>
@@ -29,14 +29,16 @@ export default function Experience() {
 						)}`}
 					</span>
 					<ul className="list-disc ml-5 space-y-2 text-slate-400 tech-label">
-						{experience.highlights.map((highlight, index) => {
-							return (
-								<li key={index}>
-									<strong>{highlight.title}: </strong>{" "}
-									{highlight.description}
-								</li>
-							);
-						})}
+						{experience.highlights.map(
+							(highlight: any, index: number) => {
+								return (
+									<li key={index}>
+										<strong>{highlight.title}: </strong>{" "}
+										{highlight.description}
+									</li>
+								);
+							}
+						)}
 					</ul>
 				</div>
 			</>

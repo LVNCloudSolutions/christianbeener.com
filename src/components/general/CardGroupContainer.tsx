@@ -1,4 +1,6 @@
-import { useState } from "react";
+// TODO: Update to do like a carousel effect showing 3 projects at a time!
+
+// import { useState } from "react";
 import { CARDS } from "../../utils/constants";
 import CardContainer from "./CardContainer";
 
@@ -16,10 +18,10 @@ export default function CardGroupContainer({
 	);
 
 	// I need to manage the current index of the first card being displayed
-	const [currentIndex, setCurrentIndex] = useState(0);
+	// const [currentIndex, setCurrentIndex] = useState(0);
 
 	const cardContainers = cards
-		.slice(currentIndex, currentIndex + 3)
+		.slice(0, 3)
 		.map((card, index) => <CardContainer key={index} card={card} />);
 
 	return (

@@ -1,7 +1,7 @@
 import Navbar from "./components/general/Navbar";
 import About from "./components/sections/About";
 import Section from "./components/general/Section";
-import { SECTIONS } from "./constants";
+import { SECTIONS } from "./utils/constants";
 import "./styles/App.css";
 
 function App() {
@@ -10,7 +10,7 @@ function App() {
 		<>
 			<Navbar></Navbar>
 			<About></About>
-			{sections.map((section) => (
+			{sections.map((section: any) => (
 				<Section
 					key={section.id}
 					id={section.id}
