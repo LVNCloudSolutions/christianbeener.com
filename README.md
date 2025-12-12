@@ -1,4 +1,4 @@
-# christianbeener.com - static-starter
+# christianbeener.com
 
 ## An evolving project 
 
