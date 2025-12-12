@@ -1,7 +1,7 @@
 import { useState } from "react";
 import TabGroup from "../general/TabGroup";
 import ContactForm from "../general/ContactForm";
-import { SERVICE_FORM, RECRUITER_FORM } from "../../constants";
+import { SERVICE_FORM, RECRUITER_FORM } from "../../utils/constants";
 import ToastNotification from "../general/ToastNotification";
 
 export default function Contact() {
