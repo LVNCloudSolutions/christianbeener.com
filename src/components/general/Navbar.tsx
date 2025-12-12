@@ -4,12 +4,15 @@ import { NAV_LINKS } from "../../utils/constants";
 
 function NavList() {
 	return (
-		<ul className="flex flex-col gap-x-3 gap-y-1.5 lg:mt-0 lg:flex-row lg:items-center pt-1">
+		<ul className="flex bg-dark flex-col gap-x-3 gap-y-1.5 lg:mt-0 lg:flex-row lg:items-center py-2">
 			{NAV_LINKS.map(({ icon: Icon, title, url, download }) => (
-				<li key={title}>
+				<li
+					className="lg:border-none border-b border-accent lg:p-0 px-2"
+					key={title}
+				>
 					<a
 						href={url}
-						className="link tech-label flex items-center gap-x-2 p-1"
+						className="link tech-label flex items-center gap-x-2 p-2"
 						download={download}
 					>
 						<Icon className="h-5 w-5 text-light" />
