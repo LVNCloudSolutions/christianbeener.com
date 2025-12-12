@@ -8,7 +8,7 @@ export default function IconLinkButton({
 }: IconLinkButtonConfig) {
 	const btnClass: string = isPrimary ? "btn-primary" : "btn-secondary";
 	const classList = btnClass.concat(
-		" btn flex gap-2 px-4 py-3 text-center rounded-lg"
+		" btn flex justify-center gap-2 px-4 py-3 text-center rounded-lg"
 	);
 	return (
 		<a href={url} className={classList}>
