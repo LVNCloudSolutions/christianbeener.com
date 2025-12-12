@@ -11,7 +11,9 @@ export default function Summary() {
 			<h1 className="text-4xl sm:text-4xl font-extrabold mb-5 leading-tight text-white">
 				{BIO.title}
 			</h1>
-			<p className="text-xl text-slate-400 mb-5">{BIO.summary}</p>
+			<p className="text-md text-slate-400 mb-5 font-mono">
+				{BIO.summary}
+			</p>
 			<div className="flex flex-col sm:flex-row gap-4 sm:gap-0 sm:space-x-4">
 				<IconLinkButton
 					text={"Connect with me"}

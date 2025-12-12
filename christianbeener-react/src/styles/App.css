@@ -33,7 +33,11 @@
 }
 
 .btn-secondary {
-	background-color: var(--color-accent);
+	background-color: var(--color-card);
+}
+
+.btn-secondary:hover {
+	color: var(--color-blue-300);
 }
 
 .card-link:hover {

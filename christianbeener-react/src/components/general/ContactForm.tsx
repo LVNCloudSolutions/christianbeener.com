@@ -188,11 +188,11 @@ export default function ContactForm({
 					onChange={handleInputChange}
 				/>
 
-				<input
+				{/* <input
 					type="hidden"
 					name="g-recaptcha-response"
 					id="g-recaptcha-response"
-				/>
+				/> */}
 
 				<div className="lg:col-span-2">
 					<SendButton isSubmitting={isSubmitting} />
