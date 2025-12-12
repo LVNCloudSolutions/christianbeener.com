@@ -1,32 +1,22 @@
-import { ProfileCircle, Suitcase } from "iconoir-react";
+import { TABS } from "../../constants";
 
 export default function TabGroup(props: { activeTab: any; setActiveTab: any }) {
 	const { activeTab, setActiveTab } = props;
-	const tabs = [
-		{
-			name: "Services",
-			icon: Suitcase,
-		},
-		{
-			name: "Recruiters",
-			icon: ProfileCircle,
-		},
-	];
 
 	return (
 		<div className="cursor-pointer flex flex-row items-center justify-center mb-4 gap-2 p-1 px-0 rounded-xl max-w-2xl mx-auto">
-			{tabs.map((tab) => {
+			{TABS.map(({ icon: Icon, name }) => {
 				return (
 					<button
-						className={`cursor-pointer font-semibold flex flex-row items-center justify-center gap-2 w-full py-3 ml-2 my-1 rounded-lg ${
-							activeTab === tab.name.toLowerCase()
+						className={`btn cursor-pointer font-semibold flex flex-row items-center justify-center gap-2 w-full py-3 ml-2 my-1 rounded-lg ${
+							activeTab === name.toLowerCase()
 								? "bg-primary text-white"
 								: "bg-card"
 						}`}
-						onClick={() => setActiveTab(tab.name.toLowerCase())}
+						onClick={() => setActiveTab(name.toLowerCase())}
 					>
-						<tab.icon />
-						{tab.name}
+						<Icon />
+						{name}
 					</button>
 				);
 			})}

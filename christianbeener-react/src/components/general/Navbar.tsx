@@ -1,14 +1,14 @@
 import { useState, useEffect } from "react";
 import { Menu, Xmark } from "iconoir-react";
-import { LINKS } from "../../constants";
+import { NAV_LINKS } from "../../constants";
 
 function NavList() {
 	return (
 		<ul className="flex flex-col gap-x-3 gap-y-1.5 lg:mt-0 lg:flex-row lg:items-center pt-1">
-			{LINKS.map(({ icon: Icon, title, href, download }) => (
+			{NAV_LINKS.map(({ icon: Icon, title, url, download }) => (
 				<li key={title}>
 					<a
-						href={href}
+						href={url}
 						className="link tech-label flex items-center gap-x-2 p-1"
 						download={download}
 					>
@@ -21,7 +21,7 @@ function NavList() {
 	);
 }
 
-export default function StickyNavbar() {
+export default function Navbar() {
 	const [openNav, setOpenNav] = useState(false);
 
 	useEffect(() => {

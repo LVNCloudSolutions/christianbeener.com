@@ -1,46 +1,48 @@
 import {
-	User,
-	Brain,
-	Code,
-	Clock,
-	MessageText,
-	DownloadCircle,
-	ProfileCircle,
-	Suitcase,
+	User as UserIcon,
+	Brain as BrainIcon,
+	Code as CodeIcon,
+	Clock as ClockIcon,
+	MessageText as MessageIcon,
+	DownloadCircle as DownloadIcon,
+	ProfileCircle as ProfileIcon,
+	Suitcase as SuitcaseIcon,
+	GithubCircle as GitHubIcon,
+	Linkedin as LinkedInIcon,
 } from "iconoir-react";
 import type { DisplayCard, ExperienceItem } from "./types";
 
 // Navigation Links
-const LINKS = [
+const NAV_LINKS = [
 	{
-		icon: User,
+		icon: UserIcon,
 		title: "About",
-		href: "#about",
+		url: "#about",
 	},
 	{
-		icon: Brain,
+		icon: BrainIcon,
 		title: "Skills",
-		href: "#skills",
+		url: "#skills",
 	},
 	{
-		icon: Clock,
+		icon: ClockIcon,
 		title: "Experience",
-		href: "#experience",
+		url: "#experience",
 	},
 	{
-		icon: Code,
+		icon: CodeIcon,
 		title: "Projects",
-		href: "#projects",
+		url: "#projects",
 	},
 	{
-		icon: MessageText,
+		icon: MessageIcon,
 		title: "Contact",
-		href: "#contact",
+		url: "#contact",
 	},
 	{
-		icon: DownloadCircle,
+		icon: DownloadIcon,
 		title: "Resume",
-		href: "/downloads/Christian_Beener_resume_2026-download.pdf",
+		url: "/downloads/Christian_Beener_resume_2026-download.pdf",
 		target: "_blank",
 		download: "Christian_Beener_resume_2026-download.pdf",
 	},
@@ -303,12 +305,25 @@ const CARDS: DisplayCard[] = [...SKILLS, ...PROJECTS];
 const TABS = [
 	{
 		name: "Services",
-		icon: Suitcase,
+		icon: SuitcaseIcon,
 	},
 	{
 		name: "Recruiters",
-		icon: ProfileCircle,
+		icon: ProfileIcon,
 	},
 ];
 
-export { LINKS, SECTIONS, EXPERIENCE, CARDS, TABS };
+const ICON_LINKS = [
+	{
+		title: "LinkedIn",
+		url: "https://www.linkedin.com/in/christianbeener",
+		icon: LinkedInIcon,
+	},
+	{
+		title: "GitHub",
+		url: "https://www.github.com/lvncloudsolutions",
+		icon: GitHubIcon,
+	},
+];
+
+export { NAV_LINKS, SECTIONS, EXPERIENCE, CARDS, TABS, ICON_LINKS };

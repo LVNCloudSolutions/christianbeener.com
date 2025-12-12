@@ -19,7 +19,7 @@
 }
 
 .btn {
-	color: var(--color-white);
+	color: var(--color-light);
 	border: none;
 }
 
@@ -28,11 +28,11 @@
 	opacity: 0.9;
 }
 
-.primary-btn {
+.btn-primary {
 	background-color: var(--color-primary);
 }
 
-.secondary-btn {
+.btn-secondary {
 	background-color: var(--color-accent);
 }
 

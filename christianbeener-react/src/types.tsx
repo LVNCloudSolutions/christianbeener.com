@@ -33,4 +33,20 @@ interface ExperienceHighlight {
 	description: string;
 }
 
-export type { DisplayCard, ExperienceItem };
+interface IconLinkConfig {
+	title?: string;
+	url: string;
+	icon: any;
+}
+
+interface IconLinkButtonConfig extends IconLinkConfig {
+	text: string;
+	isPrimary: boolean;
+}
+
+export type {
+	DisplayCard,
+	ExperienceItem,
+	IconLinkConfig,
+	IconLinkButtonConfig,
+};

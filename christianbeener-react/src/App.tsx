@@ -1,5 +1,5 @@
-import StickyNavbar from "./components/general/StickyNavbar";
-import Profile from "./components/sections/Profile";
+import Navbar from "./components/general/Navbar";
+import About from "./components/sections/About";
 import Section from "./components/general/Section";
 import { SECTIONS } from "./constants";
 import "./styles/App.css";
@@ -8,8 +8,8 @@ function App() {
 	const sections = SECTIONS;
 	return (
 		<>
-			<StickyNavbar></StickyNavbar>
-			<Profile></Profile>
+			<Navbar></Navbar>
+			<About></About>
 			{sections.map((section) => (
 				<Section
 					key={section.id}
