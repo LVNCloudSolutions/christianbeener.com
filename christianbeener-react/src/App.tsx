@@ -1,8 +1,8 @@
-import StickyNavbar from "./components/StickyNavbar";
-import Profile from "./components/Profile";
-import Section from "./components/Section";
+import StickyNavbar from "./components/general/StickyNavbar";
+import Profile from "./components/sections/Profile";
+import Section from "./components/general/Section";
 import { SECTIONS } from "./constants";
-import "./App.css";
+import "./styles/App.css";
 
 function App() {
 	const sections = SECTIONS;

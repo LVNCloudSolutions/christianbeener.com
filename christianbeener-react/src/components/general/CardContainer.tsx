@@ -1,4 +1,4 @@
-import type { DisplayCard } from "../types";
+import type { DisplayCard } from "../../types";
 
 export default function CardContainer({ card }: { card: DisplayCard }) {
 	let cardContent;

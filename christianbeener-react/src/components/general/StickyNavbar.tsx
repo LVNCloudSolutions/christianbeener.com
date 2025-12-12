@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Menu, Xmark } from "iconoir-react";
-import { LINKS } from "../constants";
+import { LINKS } from "../../constants";
 
 function NavList() {
 	return (

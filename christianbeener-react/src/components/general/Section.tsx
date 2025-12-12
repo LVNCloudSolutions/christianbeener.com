@@ -1,6 +1,6 @@
-import CardGroupContainer from "./CardGroupContainer";
-import Experience from "./Experience";
-import Contact from "./Contact";
+import CardGroupContainer from "../general/CardGroupContainer";
+import Experience from "../sections/Experience";
+import Contact from "../sections/Contact";
 
 export default function Section(config: {
 	id: string;

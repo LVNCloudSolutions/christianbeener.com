@@ -1,4 +1,4 @@
-import { EXPERIENCE } from "../constants";
+import { EXPERIENCE } from "../../constants";
 
 const formatDate = (date: Date | null): string => {
 	if (!date) {
