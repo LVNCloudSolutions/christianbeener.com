@@ -8,7 +8,7 @@ export default function Contact() {
 	const [activeTab, setActiveTab] = useState("services");
 	// NEW: State for Toast and Submission Status
 	const [toastStatus, setToastStatus] = useState<
-		"idle" | "submitting" | "success" | "error"
+		"idle" | "success" | "error"
 	>("idle");
 	const [toastMessage, setToastMessage] = useState("");
 	const handleToastClose = () => {

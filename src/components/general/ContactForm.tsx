@@ -1,29 +1,27 @@
-import React, { useState, type Dispatch, type SetStateAction } from "react";
+import { useState, useEffect, type Dispatch, type SetStateAction } from "react";
+// 🎯 NEW: Import Formspree and ReCAPTCHA hooks
+import { useForm, ValidationError } from "@formspree/react";
+import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
+
 import { SERVICES } from "../../utils/constants";
 import SendButton from "./SendButton";
 
-// Define the expected props, including the setters
+const getFormHash = (actionUrl: string) => actionUrl.split("/").pop() || "";
+
+// Define the expected props, including the setters (which we still use for the Toast)
 interface ContactFormProps {
 	form: {
 		id: "services" | "recruiter";
 		title: string;
 		subtitle: string;
-		action: string;
+		action: string; // This holds the Formspree URL
 		textarea: { name: string; rows: number };
 	};
-	setToastStatus: Dispatch<
-		SetStateAction<"idle" | "submitting" | "success" | "error">
-	>;
+	setToastStatus: Dispatch<SetStateAction<"idle" | "success" | "error">>;
 	setToastMessage: Dispatch<SetStateAction<string>>;
 }
 
-const initialFormState = {
-	nameCompany: "",
-	email: "",
-	service: "Static Website Deployment",
-	message: "",
-};
-
+// --- Select Options (Remains the same) ---
 const SelectOptions = () => {
 	return SERVICES.map((service, index) => {
 		return (
@@ -36,19 +34,16 @@ const SelectOptions = () => {
 
 interface TextAreaProps {
 	textarea: { name: string; rows: number };
-	value: string; // New: Value from state
-	onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
 }
-const TextArea = ({ textarea, value, onChange }: TextAreaProps) => {
+
+const TextArea = ({ textarea }: TextAreaProps) => {
 	return (
 		<div>
 			<textarea
 				placeholder={textarea.name}
-				name="message"
+				name={textarea.name}
 				rows={textarea.rows}
 				required
-				value={value}
-				onChange={onChange}
 				className="w-full p-3 rounded-lg bg-dark text-light border border-slate-700 focus:ring-primary focus:border-primary font-mono lg:h-full"
 			></textarea>
 		</div>
@@ -60,76 +55,37 @@ export default function ContactForm({
 	setToastStatus,
 	setToastMessage,
 }: ContactFormProps) {
-	const [formData, setFormData] = useState(initialFormState);
-	const [isSubmitting, setIsSubmitting] = useState(false);
+	// 1. Initialize Formspree and ReCAPTCHA hooks
+	const { executeRecaptcha } = useGoogleReCaptcha();
+	const formHash = getFormHash(form.action);
 
-	const handleInputChange = (
-		e: React.ChangeEvent<
-			HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-		>
-	) => {
-		const inputName =
-			e.target.name === "Name/Company"
-				? "nameCompany"
-				: e.target.name === "Email"
-				? "email"
-				: e.target.name === "Service"
-				? "service"
-				: "message";
+	const [state, handleSubmit] = useForm(formHash, {
+		data: { "g-recaptcha-response": executeRecaptcha }, // Inject ReCAPTCHA handler
+	});
 
-		setFormData((prev) => ({
-			...prev,
-			[inputName]: e.target.value,
-		}));
-	};
+	// 2. Sync Formspree state to your custom Toast state
+	useEffect(() => {
+		if (state.succeeded) {
+			setToastStatus("success");
+			setToastMessage("Message sent! I'll be in touch.");
 
-	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-		e.preventDefault();
-
-		setIsSubmitting(true);
-		setToastStatus("submitting");
-		setToastMessage("Sending message...");
-
-		const payload = {
-			"Name/Company": formData.nameCompany,
-			Email: formData.email,
-			...(form.id === "services" && { Service: formData.service }),
-
-			[form.textarea.name]: formData.message,
-			"g-recaptcha-response":
-				(
-					document.getElementById(
-						"g-recaptcha-response"
-					) as HTMLInputElement
-				)?.value || "",
-		};
-
-		try {
-			const response = await fetch(form.action, {
-				method: "POST",
-				headers: { "Content-Type": "application/json" },
-				body: JSON.stringify(payload),
-			});
-
-			if (response.ok) {
-				setToastStatus("success");
-				setToastMessage("Message sent!");
-				setFormData(initialFormState);
-			} else {
-				const data = await response.json();
-				setToastStatus("error");
-				setToastMessage(data.error || "Uh Oh! Something went wrong.");
-			}
-		} catch (err) {
+			// OPTIONAL: Manually reset form fields on success for uncontrolled form
+			const currentForm = document.getElementById(
+				form.id + "-form"
+			) as HTMLFormElement;
+			if (currentForm) currentForm.reset();
+		} else if (state.errors) {
+			// Only show errors after attempt
 			setToastStatus("error");
-			setToastMessage("Network error. Check your connection.");
-		} finally {
-			setIsSubmitting(false);
+			setToastMessage("Uh oh! Something went wrong.");
 		}
-	};
-
-	// NOTE: You will need to update the prop definition for the TextArea component
-	// in its separate file to accept 'value' and 'onChange'.
+	}, [
+		state.succeeded,
+		state.errors,
+		setToastStatus,
+		setToastMessage,
+		form.id,
+	]);
 
 	return (
 		<div
@@ -141,36 +97,34 @@ export default function ContactForm({
 			</h3>
 			<p className="text-slate-400 mb-4 text-sm">{form.subtitle}</p>
 
+			{/* 3. Attach Formspree handleSubmit hook */}
 			<form
 				id={form.id + "-form"}
 				onSubmit={handleSubmit}
 				className="space-y-4 lg:grid lg:grid-cols-2 lg:gap-4 lg:space-y-0"
 			>
 				<div className="space-y-4">
+					{/* Input 1: UNCONTROLLED (Value/OnChange REMOVED) */}
 					<input
 						type="text"
 						name="Name/Company"
 						placeholder="Your Name / Company"
 						required
-						value={formData.nameCompany}
-						onChange={handleInputChange}
 						className="w-full p-3 rounded-lg bg-dark text-light border border-slate-700 focus:ring-primary focus:border-primary font-mono"
 					/>
+					{/* Input 2: UNCONTROLLED */}
 					<input
 						type="email"
 						name="Email"
 						placeholder="Your Email"
 						required
-						value={formData.email}
-						onChange={handleInputChange}
 						className="w-full p-3 rounded-lg bg-dark text-light border border-slate-700 focus:ring-primary focus:border-primary font-mono"
 					/>
 
+					{/* Conditional Select: UNCONTROLLED */}
 					{form.id === "services" ? (
 						<select
 							name="Service"
-							value={formData.service}
-							onChange={handleInputChange}
 							className="w-full p-3 rounded-lg bg-dark text-light border border-slate-700 focus:ring-primary focus:border-primary font-mono"
 						>
 							<SelectOptions />
@@ -178,21 +132,21 @@ export default function ContactForm({
 					) : null}
 				</div>
 
-				<TextArea
-					textarea={form.textarea}
-					value={formData.message}
-					onChange={handleInputChange}
-				/>
+				{/* Text Area: UNCONTROLLED */}
+				<TextArea textarea={form.textarea} />
 
-				<input
-					type="hidden"
-					name="g-recaptcha-response"
-					id="g-recaptcha-response"
-				/>
+				{/* Hidden input is NOT needed for Formspree/Hooks */}
 
 				<div className="lg:col-span-2">
-					<SendButton isSubmitting={isSubmitting} />
+					<SendButton isSubmitting={state.submitting} />
 				</div>
+
+				{/* Display Formspree Errors (Optional, but good for debugging) */}
+				<ValidationError
+					className="text-red-500 lg:col-span-2"
+					field="email"
+					errors={state.errors}
+				/>
 			</form>
 		</div>
 	);

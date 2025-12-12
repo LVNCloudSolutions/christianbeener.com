@@ -46,7 +46,7 @@ export default function ToastNotification({
 			<div className="flex items-center justify-between">
 				<div className="flex items-center">
 					{createElement(icon, {
-						className: "h-5 w-5 mr-3 stroke-2",
+						className: "h-6 w-6 mr-2 stroke-2",
 					})}
 					<p>{message}</p>
 				</div>
