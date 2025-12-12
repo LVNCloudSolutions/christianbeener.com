@@ -2,9 +2,9 @@
 
 ## An evolving project
 
-##### The GitHub Actions workflow is specified in the [react.yml](.github/workflows/react.yml) file.
+### 2. Dynamic Frontend
 
-### Dynamic Frontend
+##### The GitHub Actions workflow is specified in the [react.yml](.github/workflows/react.yml) file.
 
 This branch is built using [Vite](README.vite.md), React, TypeScript and TailwindCSS. Several reusable components have been made to improve scalability and maintainability.
 
