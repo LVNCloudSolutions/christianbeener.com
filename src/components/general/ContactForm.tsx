@@ -1,4 +1,4 @@
-import { useState, useEffect, type Dispatch, type SetStateAction } from "react";
+import { useEffect, type Dispatch, type SetStateAction } from "react";
 // 🎯 NEW: Import Formspree and ReCAPTCHA hooks
 import { useForm, ValidationError } from "@formspree/react";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
