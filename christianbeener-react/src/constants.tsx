@@ -5,6 +5,8 @@ import {
 	Clock,
 	MessageText,
 	DownloadCircle,
+	ProfileCircle,
+	Suitcase,
 } from "iconoir-react";
 import type { DisplayCard, ExperienceItem } from "./types";
 
@@ -297,4 +299,16 @@ const PROJECTS: DisplayCard[] = [
 // Combined card array for simpler processing...
 const CARDS: DisplayCard[] = [...SKILLS, ...PROJECTS];
 
-export { LINKS, SECTIONS, EXPERIENCE, CARDS };
+// Tabs for tab group
+const TABS = [
+	{
+		name: "Services",
+		icon: Suitcase,
+	},
+	{
+		name: "Recruiters",
+		icon: ProfileCircle,
+	},
+];
+
+export { LINKS, SECTIONS, EXPERIENCE, CARDS, TABS };

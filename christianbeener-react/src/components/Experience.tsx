@@ -1,9 +1,3 @@
-import {
-	Timeline,
-	TimelineItem,
-	TimelineBody,
-	Typography,
-} from "@material-tailwind/react";
 import { EXPERIENCE } from "../constants";
 
 const formatDate = (date: Date | null): string => {
@@ -22,28 +16,19 @@ export default function Experience() {
 	const experienceItems = EXPERIENCE.map((experience) => {
 		return (
 			<>
-				<TimelineBody>
-					<Typography
-						as="h3"
-						className="text-2xl font-bold text-primary"
-					>
+				<div>
+					<h3 className="text-2xl font-bold text-primary">
 						{experience.role}
-					</Typography>
-					<Typography
-						as="h4"
-						className="text-lg font-semibold text-light mt-1"
-					>
+					</h3>
+					<h4 className="text-lg font-semibold text-light mt-1">
 						{experience.employer}
-					</Typography>
-					<Typography as="p" className="text-sm text-slate-500 mb-4">
+					</h4>
+					<span className="text-sm text-slate-500 mb-4">
 						{`${formatDate(experience.startDate)} - ${formatDate(
 							experience.endDate
 						)}`}
-					</Typography>
-					<Typography
-						as="ul"
-						className="list-disc ml-5 space-y-2 text-slate-400 tech-label"
-					>
+					</span>
+					<ul className="list-disc ml-5 space-y-2 text-slate-400 tech-label">
 						{experience.highlights.map((highlight, index) => {
 							return (
 								<li key={index}>
@@ -52,26 +37,26 @@ export default function Experience() {
 								</li>
 							);
 						})}
-					</Typography>
-				</TimelineBody>
+					</ul>
+				</div>
 			</>
 		);
 	});
 
 	return (
 		<>
-			<Timeline orientation="vertical" className="flex-col">
+			<div className="flex-col">
 				<div className="relative border-l-4 border-accent space-y-8 ml-4 md:ml-0 md:pl-4">
 					{experienceItems.map((experienceItem) => {
 						return (
 							<div className="relative pl-4">
 								<div className="absolute -left-3.5 md:-left-7.5 top-1 w-6 h-6 rounded-full bg-primary border-4 border-dark"></div>
-								<TimelineItem>{experienceItem}</TimelineItem>
+								{experienceItem}
 							</div>
 						);
 					})}
 				</div>
-			</Timeline>
+			</div>
 		</>
 	);
 }

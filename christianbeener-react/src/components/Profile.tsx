@@ -1,4 +1,3 @@
-import { Typography, Button } from "@material-tailwind/react";
 import { Linkedin, GithubCircle, Code, MessageText } from "iconoir-react";
 
 export default function Profile() {
@@ -17,46 +16,35 @@ export default function Profile() {
 							className="w-full h-full object-cover"
 						/>
 					</div>
-					<Typography
-						as="h1"
-						className="text-2xl text-light font-bold"
-					>
+					<h1 className="text-2xl text-light font-bold">
 						Christian Beener
-					</Typography>
-					<Typography
-						as="p"
-						className="text-sm text-primary font-medium mt-1"
-					>
+					</h1>
+					<p className="text-sm text-primary font-medium mt-1">
 						Austin, TX
-					</Typography>
+					</p>
 					<div className="flex justify-center md:justify-start space-x-4 mt-4 text-xl">
-						<Typography
-							as="a"
+						<a
 							className="link"
 							href="https://linkedin.com/in/christianbeener"
 							target="_blank"
 						>
 							<Linkedin className="h-6 w-6" />
-						</Typography>
-						<Typography
-							as="a"
+						</a>
+						<a
 							className="link"
 							href="https://github.com/lvncloudsolutions"
 							target="_blank"
 						>
 							<GithubCircle className="h-6 w-6" />
-						</Typography>
+						</a>
 					</div>
 				</div>
 
 				<div className="md:col-span-3 p-4 border-l-4 border-accent pl-8">
-					<Typography
-						as="h1"
-						className="text-4xl sm:text-4xl font-extrabold mb-5 leading-tight text-white"
-					>
+					<h1 className="text-4xl sm:text-4xl font-extrabold mb-5 leading-tight text-white">
 						Full Stack Engineering & DevOps
-					</Typography>
-					<Typography as="p" className="text-xl text-slate-400 mb-5">
+					</h1>
+					<p className="text-xl text-slate-400 mb-5">
 						I'm Christian, a passionate Full Stack Engineer and
 						DevOps specialist based in Austin, TX. With a strong
 						foundation in both front-end and back-end development, I
@@ -64,24 +52,22 @@ export default function Profile() {
 						applications. My expertise spans a variety of
 						technologies, and I'm dedicated to continuous learning
 						and innovation in the ever-evolving tech landscape.
-					</Typography>
+					</p>
 					<div className="flex flex-col sm:flex-row gap-4 sm:gap-0 sm:space-x-4">
-						<Button
-							as="a"
+						<a
 							href="#contact"
 							className={profileBtn + " btn primary-btn"}
 						>
 							<MessageText className="h-5 w-5 stroke-2" />
 							Connect with Me
-						</Button>
-						<Button
-							as="a"
+						</a>
+						<a
 							href="#projects"
 							className={profileBtn + " btn secondary-btn"}
 						>
 							<Code className="h-5 w-5 stroke-2" />
 							Current Projects
-						</Button>
+						</a>
 					</div>
 				</div>
 			</div>
