@@ -32,7 +32,7 @@ export default function ToastNotification({
 		if (status === "success" || status === "error") {
 			const timer = setTimeout(() => {
 				onClose();
-			}, 4000);
+			}, 3000);
 
 			return () => clearTimeout(timer); // Cleanup function
 		}

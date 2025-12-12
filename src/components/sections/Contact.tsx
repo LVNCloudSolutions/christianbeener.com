@@ -14,6 +14,7 @@ export default function Contact() {
 			</p>
 			<TabGroup activeTab={activeTab} setActiveTab={setActiveTab} />
 			<ContactForm
+				key={activeTab}
 				form={
 					activeTab === "services"
 						? (SERVICE_FORM as any)
