@@ -10,7 +10,6 @@ export default function IconLinkButton({
 	const classList = btnClass.concat(
 		" btn flex gap-2 px-4 py-3 text-center rounded-lg"
 	);
-	console.log(classList);
 	return (
 		<a href={url} className={classList}>
 			<Icon className="h-5 w-5 stroke-2 mt-0.5" />

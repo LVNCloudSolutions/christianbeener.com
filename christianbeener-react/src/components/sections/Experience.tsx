@@ -13,10 +13,10 @@ const formatDate = (date: Date | null): string => {
 
 // This component uses a mix of the Material Tailwind timeline component and some custom design
 export default function Experience() {
-	const experienceItems = EXPERIENCE.map((experience) => {
+	const experienceItems = EXPERIENCE.map((experience, index) => {
 		return (
 			<>
-				<div>
+				<div key={index}>
 					<h3 className="text-2xl font-bold text-primary">
 						{experience.role}
 					</h3>
@@ -47,9 +47,9 @@ export default function Experience() {
 		<>
 			<div className="flex-col">
 				<div className="relative border-l-4 border-accent space-y-8 ml-4 md:ml-0 md:pl-4">
-					{experienceItems.map((experienceItem) => {
+					{experienceItems.map((experienceItem, index) => {
 						return (
-							<div className="relative pl-4">
+							<div key={index} className="relative pl-4">
 								<div className="absolute -left-3.5 md:-left-7.5 top-1 w-6 h-6 rounded-full bg-primary border-4 border-dark"></div>
 								{experienceItem}
 							</div>

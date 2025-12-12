@@ -326,4 +326,66 @@ const ICON_LINKS = [
 	},
 ];
 
-export { NAV_LINKS, SECTIONS, EXPERIENCE, CARDS, TABS, ICON_LINKS };
+const BIO = {
+	title: "Full-Stack Engineering & DevOps",
+	summary: `Hello! I'm Christian, an intrepid Full-Stack Engineer and DevOps enthusiast based in Austin, TX. With a strong foundation in both front-end and back-end development, I thrive on creating seamless, efficient, and scalable applications. My expertise spans a variety of technologies, and I'm dedicated to continuous learning and innovation in the ever-evolving tech landscape.`,
+};
+
+const SERVICES = [
+	{
+		option: "Static Website Development",
+		value: "static-website-development",
+	},
+	{
+		option: "CI/CD Pipeline Setup",
+		value: "ci-cd-pipeline-setup",
+	},
+	{
+		option: "AWS/Terraform Infrastructure",
+		value: "aws-terraform-infrastructure",
+	},
+	{
+		option: "Full-Stack Consulting",
+		value: "full-stack-consulting",
+	},
+	{
+		option: "Other Inquiry",
+		value: "other-inquiry",
+	},
+];
+
+const RECRUITER_FORM = {
+	id: "recruiter",
+	title: "Job Offers & Inquiries",
+	subtitle: "Let me know if you're hiring!",
+	action: "https://formspree.io/f/mjkjbbbj",
+	textarea: {
+		name: "Job Details",
+		rows: 3,
+	},
+};
+
+const SERVICE_FORM = {
+	id: "services",
+	title: "Contract Services",
+	subtitle:
+		"For quick, fixed-price DevOps projects, cloud consultation, or inquiries about LVN Cloud Solutions.",
+	action: "https://formspree.io/f/xrbrzzza",
+	textarea: {
+		name: "Project Details",
+		rows: 4,
+	},
+};
+
+export {
+	NAV_LINKS,
+	SECTIONS,
+	EXPERIENCE,
+	CARDS,
+	TABS,
+	ICON_LINKS,
+	BIO,
+	SERVICES,
+	RECRUITER_FORM,
+	SERVICE_FORM,
+};

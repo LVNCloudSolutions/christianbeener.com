@@ -1,6 +1,7 @@
 import { useState } from "react";
 import TabGroup from "../general/TabGroup";
-import Form from "../general/Form";
+import ContactForm from "../general/ContactForm";
+import { SERVICE_FORM, RECRUITER_FORM } from "../../constants";
 
 export default function Contact() {
 	const [activeTab, setActiveTab] = useState("services");
@@ -12,7 +13,9 @@ export default function Contact() {
 				channel.
 			</p>
 			<TabGroup activeTab={activeTab} setActiveTab={setActiveTab} />
-			<Form activeForm={activeTab} />
+			<ContactForm
+				form={activeTab === "services" ? SERVICE_FORM : RECRUITER_FORM}
+			/>
 		</>
 	);
 }
