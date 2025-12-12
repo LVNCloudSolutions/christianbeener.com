@@ -1,4 +1,4 @@
-import { TABS } from "../../constants";
+import { TABS } from "../../utils/constants";
 
 export default function TabGroup(props: { activeTab: any; setActiveTab: any }) {
 	const { activeTab, setActiveTab } = props;

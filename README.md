@@ -2,16 +2,10 @@
 
 ## An evolving project
 
-### 1. Static Starter
+##### The GitHub Actions workflow is specified in the [react.yml](.github/workflows/react.yml) file.
 
-The original christianbeener.com! #####
-The GitHub Actions workflow is specified in the [static.yml](.github/workflows/static.yml) file.
-Form submissions are handled by formspree.
+### Dynamic Frontend
 
-#### \*This branch is no longer in active development.
+This branch is built using [Vite](README.vite.md), React, TypeScript and TailwindCSS. Several reusable components have been made to improve scalability and maintainability.
 
-### 2. Dynamic Frontend
-
-Also built using HTML, JavaScript, and tailwindCSS built during deployment, except this version uses JavaScript to dynamically inject content into the page.
-
-#### \*This branch is in active development
+##### \*This branch is in active development

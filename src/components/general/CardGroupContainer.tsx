@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { CARDS } from "../../constants";
+import { CARDS } from "../../utils/constants";
 import CardContainer from "./CardContainer";
 
 // This component will display a group of cards, 3 at a time.

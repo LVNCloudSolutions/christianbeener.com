@@ -1,5 +1,5 @@
 import IconLink from "../general/IconLink";
-import { ICON_LINKS } from "../../constants";
+import { ICON_LINKS } from "../../utils/constants";
 
 export default function Profile() {
 	return (

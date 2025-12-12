@@ -1,4 +1,4 @@
-import type { IconLinkButtonConfig } from "../../types";
+import type { IconLinkButtonConfig } from "../../utils/types";
 
 export default function IconLinkButton({
 	url,

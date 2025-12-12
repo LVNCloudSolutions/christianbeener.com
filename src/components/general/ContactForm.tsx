@@ -1,5 +1,5 @@
 import React, { useState, type Dispatch, type SetStateAction } from "react";
-import { SERVICES } from "../../constants";
+import { SERVICES } from "../../utils/constants";
 import SendButton from "./SendButton";
 
 // Define the expected props, including the setters

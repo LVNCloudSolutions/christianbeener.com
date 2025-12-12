@@ -1,0 +1,58 @@
+# Updated workflow to build and deploy the site as a React app
+name: Build & Deploy React
+
+on:
+    push:
+        branches: ["main"]
+
+    # Allows you to run this workflow manually from the Actions tab
+    workflow_dispatch:
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+    contents: read
+    pages: write
+    id-token: write
+
+# Allow only one concurrent deployment, and do not cancel in-progress deployments.
+concurrency:
+    group: "pages"
+    cancel-in-progress: false
+
+jobs:
+    build-and-deploy:
+        environment:
+            name: github-pages
+            url: ${{ steps.deployment.outputs.page_url }}
+        runs-on: ubuntu-latest
+        steps:
+            # 1. --- Checkout ---
+            - name: Checkout
+              uses: actions/checkout@v4
+
+            # 2. --- Setup Node.js ---
+            - name: Setup Node.js
+              uses: actions/setup-node@v4
+
+            # 3. --- Install dependencies ---
+            - name: Install dependencies
+              run: npm install
+
+            # 4. --- Build Vite/React App ---
+            - name: Build Vite/React App
+              run: npm run build
+
+            # 5. --- Deploy to GitHub Pages ---
+            - name: Setup Pages
+              uses: actions/configure-pages@v5
+
+            # 6. --- Upload artifact using 'dist' folder ---
+            - name: Upload artifact
+              uses: actions/upload-pages-artifact@v3
+              with:
+                  path: "./dist"
+
+            # 7. --- Deploy the build package ---
+            - name: Deploy to GitHub Pages
+              id: deployment
+              uses: actions/deploy-pages@v4

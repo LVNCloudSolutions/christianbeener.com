@@ -3,7 +3,7 @@ import {
 	Code as CodeIcon,
 } from "iconoir-react";
 import IconLinkButton from "./IconLinkButton";
-import { BIO } from "../../constants";
+import { BIO } from "../../utils/constants";
 
 export default function Summary() {
 	return (
