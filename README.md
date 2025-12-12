@@ -1,6 +1,5 @@
 # christianbeener.com - An evolving project
 
-## Version Control:
 Each major version is listed in ascending order by branch name.
 
 ### v1.static-starter
