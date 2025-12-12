@@ -1,6 +1,10 @@
 import { SendDiagonalSolid } from "iconoir-react";
 
-export default function SendButton() {
+export default function SendButton({
+	isSubmitting,
+}: {
+	isSubmitting: boolean;
+}) {
 	return (
 		<button
 			type="submit"
