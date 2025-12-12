@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+@theme {
+	--color-primary: #3b82f6; /* Trustworthy Blue (Buttons, Accents) */
+	--color-dark: #0f172a; /* Deep Slate (Main Background) */
+	--color-light: #f1f5f9; /* Light Gray (Text) */
+	--color-card: #1e293b; /* Dark Card Background */
+	--color-accent: #64748b; /* Slate Gray (Borders/Dividers) */
+	--color-white: #ffffff; /* Pure White */
+
+	--font-sans: "Inter", sans-serif;
+	--font-mono: "Roboto Mono", monospace;
+}

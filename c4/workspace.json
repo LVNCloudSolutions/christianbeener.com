@@ -1,0 +1,582 @@
+{
+  "configuration" : { },
+  "description" : "A static website hosted on GitHub Pages, built using Tailwind CSS and deployed via GitHub Actions.",
+  "documentation" : { },
+  "id" : 1,
+  "lastModifiedAgent" : "structurizr-ui",
+  "lastModifiedDate" : "2025-11-13T17:31:55Z",
+  "model" : {
+    "deploymentNodes" : [ {
+      "containerInstances" : [ {
+        "containerId" : "9",
+        "deploymentGroups" : [ "Default" ],
+        "environment" : "Production",
+        "id" : "36",
+        "instanceId" : 1,
+        "properties" : {
+          "structurizr.dsl.identifier" : "99be1c7c-7856-460d-83cc-f92ba6036f0b"
+        },
+        "relationships" : [ {
+          "description" : "Provides client-side logic for",
+          "destinationId" : "37",
+          "id" : "38",
+          "linkedRelationshipId" : "22",
+          "sourceId" : "36"
+        } ],
+        "tags" : "Container Instance"
+      }, {
+        "containerId" : "10",
+        "deploymentGroups" : [ "Default" ],
+        "environment" : "Production",
+        "id" : "37",
+        "instanceId" : 1,
+        "properties" : {
+          "structurizr.dsl.identifier" : "2fb85abe-e0a5-4747-9a1f-c8ad5c3c7c16"
+        },
+        "tags" : "Container Instance"
+      } ],
+      "environment" : "Production",
+      "id" : "35",
+      "instances" : "1",
+      "name" : "Recruiter/Client Device",
+      "properties" : {
+        "structurizr.dsl.identifier" : "clientDevice"
+      },
+      "tags" : "Element,Deployment Node"
+    }, {
+      "children" : [ {
+        "containerInstances" : [ {
+          "containerId" : "5",
+          "deploymentGroups" : [ "Default" ],
+          "environment" : "Production",
+          "id" : "41",
+          "instanceId" : 1,
+          "properties" : {
+            "structurizr.dsl.identifier" : "91078158-2bd4-4865-ba4f-34327304c122"
+          },
+          "relationships" : [ {
+            "description" : "Compiles assets and pushes final build.",
+            "destinationId" : "36",
+            "id" : "42",
+            "linkedRelationshipId" : "16",
+            "sourceId" : "41",
+            "technology" : "GitHub Actions"
+          } ],
+          "tags" : "Container Instance"
+        } ],
+        "environment" : "Production",
+        "id" : "40",
+        "instances" : "1",
+        "name" : "GitHub Actions Runner",
+        "properties" : {
+          "structurizr.dsl.identifier" : "githubActionsNode"
+        },
+        "tags" : "Element,Deployment Node"
+      }, {
+        "containerInstances" : [ {
+          "containerId" : "4",
+          "deploymentGroups" : [ "Default" ],
+          "environment" : "Production",
+          "id" : "44",
+          "instanceId" : 1,
+          "properties" : {
+            "structurizr.dsl.identifier" : "4148abe6-e989-4435-8181-a3bab1cc34c8"
+          },
+          "relationships" : [ {
+            "description" : "Serves latest version of assets from",
+            "destinationId" : "36",
+            "id" : "45",
+            "linkedRelationshipId" : "20",
+            "sourceId" : "44",
+            "technology" : "HTTPS"
+          } ],
+          "tags" : "Container Instance"
+        } ],
+        "description" : "Cloud Service",
+        "environment" : "Production",
+        "id" : "43",
+        "instances" : "1",
+        "name" : "GitHub Pages Host",
+        "properties" : {
+          "structurizr.dsl.identifier" : "githubHost"
+        },
+        "tags" : "Element,Deployment Node"
+      } ],
+      "description" : "CI/CD & Hosting Environment",
+      "environment" : "Production",
+      "id" : "39",
+      "instances" : "1",
+      "name" : "GitHub Platform",
+      "properties" : {
+        "structurizr.dsl.identifier" : "githubPlatform"
+      },
+      "tags" : "Element,Deployment Node"
+    } ],
+    "people" : [ {
+      "id" : "1",
+      "name" : "Recruiter/Client",
+      "properties" : {
+        "structurizr.dsl.identifier" : "user"
+      },
+      "relationships" : [ {
+        "description" : "Visits",
+        "destinationId" : "8",
+        "id" : "13",
+        "sourceId" : "1",
+        "tags" : "Relationship",
+        "technology" : "HTTPS"
+      } ],
+      "tags" : "Element,Person"
+    }, {
+      "id" : "2",
+      "name" : "Developer/Site Owner",
+      "properties" : {
+        "structurizr.dsl.identifier" : "developer"
+      },
+      "relationships" : [ {
+        "description" : "Commits code to",
+        "destinationId" : "3",
+        "id" : "14",
+        "sourceId" : "2",
+        "tags" : "Relationship"
+      }, {
+        "description" : "Triggers build and deployment on code push to main branch.",
+        "destinationId" : "5",
+        "id" : "15",
+        "sourceId" : "2",
+        "tags" : "Relationship",
+        "technology" : "Webhook"
+      } ],
+      "tags" : "Element,Person"
+    } ],
+    "softwareSystems" : [ {
+      "containers" : [ {
+        "description" : "Provides static file hosting and serving of the website via HTTPS.",
+        "documentation" : { },
+        "id" : "4",
+        "name" : "GitHub Pages",
+        "properties" : {
+          "structurizr.dsl.identifier" : "githubPages"
+        },
+        "relationships" : [ {
+          "description" : "Serves latest version of assets from",
+          "destinationId" : "9",
+          "id" : "20",
+          "sourceId" : "4",
+          "tags" : "Relationship",
+          "technology" : "HTTPS"
+        }, {
+          "description" : "Serves latest version of assets from",
+          "destinationId" : "8",
+          "id" : "21",
+          "linkedRelationshipId" : "20",
+          "sourceId" : "4",
+          "technology" : "HTTPS"
+        } ],
+        "tags" : "Element,Container,External",
+        "technology" : "CDN/Static Host"
+      }, {
+        "description" : "The CI/CD pipeline responsible for building Tailwind CSS and deploying the site.",
+        "documentation" : { },
+        "id" : "5",
+        "name" : "GitHub Actions",
+        "properties" : {
+          "structurizr.dsl.identifier" : "githubActions"
+        },
+        "relationships" : [ {
+          "description" : "Compiles assets and pushes final build.",
+          "destinationId" : "9",
+          "id" : "16",
+          "sourceId" : "5",
+          "tags" : "Relationship",
+          "technology" : "GitHub Actions"
+        }, {
+          "description" : "Compiles assets and pushes final build.",
+          "destinationId" : "8",
+          "id" : "17",
+          "linkedRelationshipId" : "16",
+          "sourceId" : "5",
+          "technology" : "GitHub Actions"
+        } ],
+        "tags" : "Element,Container,External",
+        "technology" : "CI/CD Tool"
+      } ],
+      "description" : "External Git platform hosting the code repository and providing the CI/CD environment.",
+      "documentation" : { },
+      "id" : "3",
+      "name" : "GitHub",
+      "properties" : {
+        "structurizr.dsl.identifier" : "github"
+      },
+      "relationships" : [ {
+        "description" : "Compiles assets and pushes final build.",
+        "destinationId" : "9",
+        "id" : "18",
+        "linkedRelationshipId" : "16",
+        "sourceId" : "3",
+        "technology" : "GitHub Actions"
+      }, {
+        "description" : "Compiles assets and pushes final build.",
+        "destinationId" : "8",
+        "id" : "19",
+        "linkedRelationshipId" : "16",
+        "sourceId" : "3",
+        "technology" : "GitHub Actions"
+      } ],
+      "tags" : "Element,Software System,External"
+    }, {
+      "containers" : [ {
+        "description" : "Processes form submissions and sends email notifications.",
+        "documentation" : { },
+        "id" : "7",
+        "name" : "Form Handler",
+        "properties" : {
+          "structurizr.dsl.identifier" : "formHandler"
+        },
+        "relationships" : [ {
+          "description" : "Returns submission status to",
+          "destinationId" : "10",
+          "id" : "29",
+          "sourceId" : "7",
+          "tags" : "Relationship",
+          "technology" : "HTTPS/JSON"
+        }, {
+          "description" : "Returns submission status to",
+          "destinationId" : "8",
+          "id" : "30",
+          "linkedRelationshipId" : "29",
+          "sourceId" : "7",
+          "technology" : "HTTPS/JSON"
+        }, {
+          "description" : "Sends email notifications to",
+          "destinationId" : "2",
+          "id" : "33",
+          "sourceId" : "7",
+          "tags" : "Relationship",
+          "technology" : "Email"
+        } ],
+        "tags" : "Element,Container,External",
+        "technology" : "SaaS"
+      } ],
+      "description" : "Third-party service to handle form submissions and email notifications.",
+      "documentation" : { },
+      "id" : "6",
+      "name" : "Formspree",
+      "properties" : {
+        "structurizr.dsl.identifier" : "formSpree"
+      },
+      "relationships" : [ {
+        "description" : "Returns submission status to",
+        "destinationId" : "10",
+        "id" : "31",
+        "linkedRelationshipId" : "29",
+        "sourceId" : "6",
+        "technology" : "HTTPS/JSON"
+      }, {
+        "description" : "Returns submission status to",
+        "destinationId" : "8",
+        "id" : "32",
+        "linkedRelationshipId" : "29",
+        "sourceId" : "6",
+        "technology" : "HTTPS/JSON"
+      }, {
+        "description" : "Sends email notifications to",
+        "destinationId" : "2",
+        "id" : "34",
+        "linkedRelationshipId" : "33",
+        "sourceId" : "6",
+        "technology" : "Email"
+      } ],
+      "tags" : "Element,Software System,External"
+    }, {
+      "containers" : [ {
+        "description" : "The final rendered HTML, and compiled TailwindCSS and JavaScript.",
+        "documentation" : { },
+        "id" : "9",
+        "name" : "HTML/CSS/JS",
+        "properties" : {
+          "structurizr.dsl.identifier" : "staticAssets"
+        },
+        "relationships" : [ {
+          "description" : "Provides client-side logic for",
+          "destinationId" : "10",
+          "id" : "22",
+          "sourceId" : "9",
+          "tags" : "Relationship"
+        } ],
+        "tags" : "Element,Container"
+      }, {
+        "description" : "Client-side logic to handle form submission and display toast notification.",
+        "documentation" : { },
+        "id" : "10",
+        "name" : "Contact Form",
+        "properties" : {
+          "structurizr.dsl.identifier" : "contactForm"
+        },
+        "relationships" : [ {
+          "description" : "Displays success/failure notifications.",
+          "destinationId" : "1",
+          "id" : "23",
+          "sourceId" : "10",
+          "tags" : "Relationship",
+          "technology" : "JavaScript"
+        }, {
+          "description" : "Submits form data to",
+          "destinationId" : "7",
+          "id" : "25",
+          "sourceId" : "10",
+          "tags" : "Relationship",
+          "technology" : "HTTPS/JSON"
+        }, {
+          "description" : "Submits form data to",
+          "destinationId" : "6",
+          "id" : "26",
+          "linkedRelationshipId" : "25",
+          "sourceId" : "10",
+          "technology" : "HTTPS/JSON"
+        } ],
+        "tags" : "Element,Container",
+        "technology" : "JavaScript"
+      } ],
+      "description" : "The responsive, content-rich frontend application.",
+      "documentation" : { },
+      "id" : "8",
+      "name" : "christianbeener.com",
+      "properties" : {
+        "structurizr.dsl.identifier" : "webSystem"
+      },
+      "relationships" : [ {
+        "description" : "Hosted via",
+        "destinationId" : "4",
+        "id" : "11",
+        "sourceId" : "8",
+        "tags" : "Relationship"
+      }, {
+        "description" : "Hosted via",
+        "destinationId" : "3",
+        "id" : "12",
+        "linkedRelationshipId" : "11",
+        "sourceId" : "8"
+      }, {
+        "description" : "Displays success/failure notifications.",
+        "destinationId" : "1",
+        "id" : "24",
+        "linkedRelationshipId" : "23",
+        "sourceId" : "8",
+        "technology" : "JavaScript"
+      }, {
+        "description" : "Submits form data to",
+        "destinationId" : "7",
+        "id" : "27",
+        "linkedRelationshipId" : "25",
+        "sourceId" : "8",
+        "technology" : "HTTPS/JSON"
+      }, {
+        "description" : "Submits form data to",
+        "destinationId" : "6",
+        "id" : "28",
+        "linkedRelationshipId" : "25",
+        "sourceId" : "8",
+        "technology" : "HTTPS/JSON"
+      } ],
+      "tags" : "Element,Software System,Web Application"
+    } ]
+  },
+  "name" : "Christian Beener Portfolio Site",
+  "properties" : {
+    "structurizr.inspection.info" : "0",
+    "structurizr.inspection.ignore" : "0",
+    "structurizr.inspection.error" : "33",
+    "structurizr.inspection.warning" : "0",
+    "structurizr.dsl" : "d29ya3NwYWNlICJDaHJpc3RpYW4gQmVlbmVyIFBvcnRmb2xpbyBTaXRlIiAiQSBzdGF0aWMgd2Vic2l0ZSBob3N0ZWQgb24gR2l0SHViIFBhZ2VzLCBidWlsdCB1c2luZyBUYWlsd2luZCBDU1MgYW5kIGRlcGxveWVkIHZpYSBHaXRIdWIgQWN0aW9ucy4iIHsKCiAgICBtb2RlbCB7CiAgICAgICAgLy8gMS4gQWN0b3JzIGFuZCBQcmltYXJ5IFVzZXJzCiAgICAgICAgdXNlciA9IHBlcnNvbiAiUmVjcnVpdGVyL0NsaWVudCIKICAgICAgICBkZXZlbG9wZXIgPSBwZXJzb24gIkRldmVsb3Blci9TaXRlIE93bmVyIgogICAgICAgIAogICAgICAgIC8vIDIuIEV4dGVybmFsIFN5c3RlbXMKICAgICAgICBnaXRodWIgPSBzb2Z0d2FyZVN5c3RlbSAiR2l0SHViIiAiRXh0ZXJuYWwgR2l0IHBsYXRmb3JtIGhvc3RpbmcgdGhlIGNvZGUgcmVwb3NpdG9yeSBhbmQgcHJvdmlkaW5nIHRoZSBDSS9DRCBlbnZpcm9ubWVudC4iICJFeHRlcm5hbCIgewogICAgICAgICAgICAvLyBVc2luZyBhbGlhc2VzIGZvciByZWZlcmVuY2UKICAgICAgICAgICAgZ2l0aHViUGFnZXMgPSBjb250YWluZXIgIkdpdEh1YiBQYWdlcyIgIlByb3ZpZGVzIHN0YXRpYyBmaWxlIGhvc3RpbmcgYW5kIHNlcnZpbmcgb2YgdGhlIHdlYnNpdGUgdmlhIEhUVFBTLiIgIkNETi9TdGF0aWMgSG9zdCIgIkV4dGVybmFsIgogICAgICAgICAgICBnaXRodWJBY3Rpb25zID0gY29udGFpbmVyICJHaXRIdWIgQWN0aW9ucyIgIlRoZSBDSS9DRCBwaXBlbGluZSByZXNwb25zaWJsZSBmb3IgYnVpbGRpbmcgVGFpbHdpbmQgQ1NTIGFuZCBkZXBsb3lpbmcgdGhlIHNpdGUuIiAiQ0kvQ0QgVG9vbCIgIkV4dGVybmFsIgogICAgICAgIH0KICAgICAgICBmb3JtU3ByZWUgPSBzb2Z0d2FyZVN5c3RlbSAiRm9ybXNwcmVlIiAiVGhpcmQtcGFydHkgc2VydmljZSB0byBoYW5kbGUgZm9ybSBzdWJtaXNzaW9ucyBhbmQgZW1haWwgbm90aWZpY2F0aW9ucy4iICJFeHRlcm5hbCIgewogICAgICAgICAgICAvLyBVc2luZyBhbGlhcyBmb3IgcmVmZXJlbmNlCiAgICAgICAgICAgIGZvcm1IYW5kbGVyID0gY29udGFpbmVyICJGb3JtIEhhbmRsZXIiICJQcm9jZXNzZXMgZm9ybSBzdWJtaXNzaW9ucyBhbmQgc2VuZHMgZW1haWwgbm90aWZpY2F0aW9ucy4iICJTYWFTIiAiRXh0ZXJuYWwiCiAgICAgICAgfQoKICAgICAgICAvLyAzLiBUaGUgU3lzdGVtIFVuZGVyIERldmVsb3BtZW50IChTVUQpCiAgICAgICAgd2ViU3lzdGVtID0gc29mdHdhcmVTeXN0ZW0gImNocmlzdGlhbmJlZW5lci5jb20iICJUaGUgcmVzcG9uc2l2ZSwgY29udGVudC1yaWNoIGZyb250ZW5kIGFwcGxpY2F0aW9uLiIgIldlYiBBcHBsaWNhdGlvbiIgewogICAgICAgICAgICAvLyBVc2luZyBhbGlhc2VzIGZvciByZWZlcmVuY2UKICAgICAgICAgICAgc3RhdGljQXNzZXRzID0gY29udGFpbmVyICJIVE1ML0NTUy9KUyIgIlRoZSBmaW5hbCByZW5kZXJlZCBIVE1MLCBhbmQgY29tcGlsZWQgVGFpbHdpbmRDU1MgYW5kIEphdmFTY3JpcHQuIgogICAgICAgICAgICBjb250YWN0Rm9ybSA9IGNvbnRhaW5lciAiQ29udGFjdCBGb3JtIiAiQ2xpZW50LXNpZGUgbG9naWMgdG8gaGFuZGxlIGZvcm0gc3VibWlzc2lvbiBhbmQgZGlzcGxheSB0b2FzdCBub3RpZmljYXRpb24uIiAiSmF2YVNjcmlwdCIKICAgICAgICB9CiAgICAgICAgCiAgICAgICAgLy8gNC4gUmVsYXRpb25zaGlwcyAoRGVmaW5lZCBvbmNlLCBpbiB0aGUgbW9kZWwpCiAgICAgICAgd2ViU3lzdGVtIC0+IGdpdGh1YlBhZ2VzICJIb3N0ZWQgdmlhIgogICAgICAgIHVzZXIgLT4gd2ViU3lzdGVtICJWaXNpdHMiICJIVFRQUyIKICAgICAgICBkZXZlbG9wZXIgLT4gZ2l0aHViICJDb21taXRzIGNvZGUgdG8iCiAgICAgICAgZGV2ZWxvcGVyIC0+IGdpdGh1YkFjdGlvbnMgIlRyaWdnZXJzIGJ1aWxkIGFuZCBkZXBsb3ltZW50IG9uIGNvZGUgcHVzaCB0byBtYWluIGJyYW5jaC4iICJXZWJob29rIgogICAgICAgIGdpdGh1YkFjdGlvbnMgLT4gc3RhdGljQXNzZXRzICJDb21waWxlcyBhc3NldHMgYW5kIHB1c2hlcyBmaW5hbCBidWlsZC4iICJHaXRIdWIgQWN0aW9ucyIKICAgICAgICBnaXRodWJQYWdlcyAtPiBzdGF0aWNBc3NldHMgIlNlcnZlcyBsYXRlc3QgdmVyc2lvbiBvZiBhc3NldHMgZnJvbSIgIkhUVFBTIgogICAgICAgIHN0YXRpY0Fzc2V0cyAtPiBjb250YWN0Rm9ybSAiUHJvdmlkZXMgY2xpZW50LXNpZGUgbG9naWMgZm9yIgogICAgICAgIGNvbnRhY3RGb3JtIC0+IHVzZXIgIkRpc3BsYXlzIHN1Y2Nlc3MvZmFpbHVyZSBub3RpZmljYXRpb25zLiIgIkphdmFTY3JpcHQiCiAgICAgICAgY29udGFjdEZvcm0gLT4gZm9ybUhhbmRsZXIgIlN1Ym1pdHMgZm9ybSBkYXRhIHRvIiAiSFRUUFMvSlNPTiIKICAgICAgICBmb3JtSGFuZGxlciAtPiBjb250YWN0Rm9ybSAiUmV0dXJucyBzdWJtaXNzaW9uIHN0YXR1cyB0byIgIkhUVFBTL0pTT04iCiAgICAgICAgZm9ybUhhbmRsZXIgLT4gZGV2ZWxvcGVyICJTZW5kcyBlbWFpbCBub3RpZmljYXRpb25zIHRvIiAiRW1haWwiCiAgICAgICAgCiAgICAgICAgLy8gNS4gRGVwbG95bWVudCBNb2RlbCBEZWZpbml0aW9uIChDb3JyZWN0bHkgU2NvcGVkKQogICAgICAgIHByb2RFbnYgPSBkZXBsb3ltZW50RW52aXJvbm1lbnQgIlByb2R1Y3Rpb24iIHsKICAgICAgICAgICAgCiAgICAgICAgICAgIGNsaWVudERldmljZSA9IGRlcGxveW1lbnROb2RlICJSZWNydWl0ZXIvQ2xpZW50IERldmljZSIgewogICAgICAgICAgICAgICAgLy8gSW5zdGFudGlhdGUgdGhlIGNvbnRhaW5lcnMgb24gdGhlIG5vZGUKICAgICAgICAgICAgICAgIGNvbnRhaW5lckluc3RhbmNlIHN0YXRpY0Fzc2V0cyAKICAgICAgICAgICAgICAgIGNvbnRhaW5lckluc3RhbmNlIGNvbnRhY3RGb3JtIAogICAgICAgICAgICB9CiAgICAgICAgICAgIAogICAgICAgICAgICBnaXRodWJQbGF0Zm9ybSA9IGRlcGxveW1lbnROb2RlICJHaXRIdWIgUGxhdGZvcm0iICJDSS9DRCAmIEhvc3RpbmcgRW52aXJvbm1lbnQiIHsKICAgICAgICAgICAgICAgIC8vIEZJWDogUmVuYW1lZCBpZGVudGlmaWVyIHRvIGF2b2lkIGNvbGxpc2lvbiB3aXRoIGNvbnRhaW5lciBgZ2l0aHViQWN0aW9uc2AKICAgICAgICAgICAgICAgIGdpdGh1YkFjdGlvbnNOb2RlID0gZGVwbG95bWVudE5vZGUgIkdpdEh1YiBBY3Rpb25zIFJ1bm5lciIgeyAKICAgICAgICAgICAgICAgICAgICBjb250YWluZXJJbnN0YW5jZSBnaXRodWJBY3Rpb25zCiAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgICBnaXRodWJIb3N0ID0gZGVwbG95bWVudE5vZGUgIkdpdEh1YiBQYWdlcyBIb3N0IiAiQ2xvdWQgU2VydmljZSIgewogICAgICAgICAgICAgICAgICAgIGNvbnRhaW5lckluc3RhbmNlIGdpdGh1YlBhZ2VzCiAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgIH0KICAgICAgICB9CiAgICB9CgogICAgdmlld3MgewogICAgICAgIC8vIEMxOiBTeXN0ZW0gQ29udGV4dCBEaWFncmFtIAogICAgICAgIHN5c3RlbUNvbnRleHQgd2ViU3lzdGVtICJTeXN0ZW1Db250ZXh0IiAiU2hvd3MgdGhlIHVzZXJzIGFuZCBwcmltYXJ5IGV4dGVybmFsIHN5c3RlbXMgdGhlIHdlYnNpdGUgaW50ZXJhY3RzIHdpdGguIiB7CiAgICAgICAgICAgIGluY2x1ZGUgKgogICAgICAgICAgICBpbmNsdWRlIGRldmVsb3BlcgogICAgICAgICAgICBhdXRvbGF5b3V0IGxyCiAgICAgICAgfQogICAgICAgIAogICAgICAgIC8vIEMyOiBDb250YWluZXIgRGlhZ3JhbQogICAgICAgIGNvbnRhaW5lciB3ZWJTeXN0ZW0gIkNvbnRhaW5lckRpYWdyYW0iICJEZXRhaWxzIHRoZSBtYWpvciBjb250YWluZXJzIHdpdGhpbiB0aGUgd2Vic2l0ZSBzeXN0ZW0gYW5kIHRoZWlyIGNvbm5lY3Rpb24gdG8gZXh0ZXJuYWwgaG9zdGluZyBzZXJ2aWNlcy4iIHsKICAgICAgICAgICAgaW5jbHVkZSAqCiAgICAgICAgICAgIGluY2x1ZGUgZGV2ZWxvcGVyCiAgICAgICAgICAgIGF1dG9sYXlvdXQgbHIKICAgICAgICB9CgogICAgICAgIHN0eWxlcyB7CiAgICAgICAgICAgIGVsZW1lbnQgIkVsZW1lbnQiIHsKICAgICAgICAgICAgICAgIGNvbG9yICMwNzczYWYKICAgICAgICAgICAgICAgIHN0cm9rZSAjMDc3M2FmCiAgICAgICAgICAgICAgICBzdHJva2VXaWR0aCA1CiAgICAgICAgICAgICAgICBzaGFwZSByb3VuZGVkYm94CiAgICAgICAgICAgIH0KICAgICAgICAgICAgZWxlbWVudCAiUGVyc29uIiB7CiAgICAgICAgICAgICAgICBzaGFwZSBwZXJzb24KICAgICAgICAgICAgfQogICAgICAgICAgICBlbGVtZW50ICJCb3VuZGFyeSIgewogICAgICAgICAgICAgICAgc3Ryb2tlV2lkdGggNQogICAgICAgICAgICB9CiAgICAgICAgICAgIHJlbGF0aW9uc2hpcCAiUmVsYXRpb25zaGlwIiB7CiAgICAgICAgICAgICAgICB0aGlja25lc3MgMgogICAgICAgICAgICB9CiAgICAgICAgfQogICAgfQp9"
+  },
+  "views" : {
+    "configuration" : {
+      "branding" : { },
+      "lastSavedView" : "SystemContext",
+      "metadataSymbols" : "SquareBrackets",
+      "styles" : {
+        "elements" : [ {
+          "strokeWidth" : 5,
+          "tag" : "Boundary"
+        }, {
+          "color" : "#0773af",
+          "shape" : "RoundedBox",
+          "stroke" : "#0773af",
+          "strokeWidth" : 5,
+          "tag" : "Element"
+        }, {
+          "shape" : "Person",
+          "tag" : "Person"
+        } ],
+        "relationships" : [ {
+          "tag" : "Relationship",
+          "thickness" : 2
+        } ]
+      },
+      "terminology" : { }
+    },
+    "containerViews" : [ {
+      "automaticLayout" : {
+        "applied" : true,
+        "edgeSeparation" : 0,
+        "implementation" : "Graphviz",
+        "nodeSeparation" : 300,
+        "rankDirection" : "LeftRight",
+        "rankSeparation" : 300,
+        "vertices" : false
+      },
+      "description" : "Details the major containers within the website system and their connection to external hosting services.",
+      "dimensions" : {
+        "height" : 1607,
+        "width" : 2370
+      },
+      "elements" : [ {
+        "id" : "1",
+        "x" : 1744,
+        "y" : 793
+      }, {
+        "id" : "2",
+        "x" : 994,
+        "y" : 143
+      }, {
+        "id" : "3",
+        "x" : 1719,
+        "y" : 193
+      }, {
+        "id" : "6",
+        "x" : 219,
+        "y" : 218
+      }, {
+        "id" : "9",
+        "x" : 219,
+        "y" : 843
+      }, {
+        "id" : "10",
+        "x" : 969,
+        "y" : 843
+      } ],
+      "externalSoftwareSystemBoundariesVisible" : false,
+      "key" : "ContainerDiagram",
+      "name" : "Container View: christianbeener.com",
+      "order" : 2,
+      "relationships" : [ {
+        "id" : "14"
+      }, {
+        "id" : "18",
+        "vertices" : [ {
+          "x" : 1719,
+          "y" : 643
+        }, {
+          "x" : 1523,
+          "y" : 1293
+        }, {
+          "x" : 969,
+          "y" : 1293
+        } ]
+      }, {
+        "id" : "22"
+      }, {
+        "id" : "23"
+      }, {
+        "id" : "26",
+        "vertices" : [ {
+          "x" : 915,
+          "y" : 565
+        } ]
+      }, {
+        "id" : "31",
+        "vertices" : [ {
+          "x" : 722,
+          "y" : 795
+        } ]
+      }, {
+        "id" : "34"
+      } ],
+      "softwareSystemId" : "8"
+    } ],
+    "systemContextViews" : [ {
+      "automaticLayout" : {
+        "applied" : true,
+        "edgeSeparation" : 0,
+        "implementation" : "Graphviz",
+        "nodeSeparation" : 300,
+        "rankDirection" : "LeftRight",
+        "rankSeparation" : 300,
+        "vertices" : false
+      },
+      "description" : "Shows the users and primary external systems the website interacts with.",
+      "dimensions" : {
+        "height" : 1554,
+        "width" : 3750
+      },
+      "elements" : [ {
+        "id" : "1",
+        "x" : 200,
+        "y" : 472
+      }, {
+        "id" : "2",
+        "x" : 2400,
+        "y" : 897
+      }, {
+        "id" : "3",
+        "x" : 3100,
+        "y" : 143
+      }, {
+        "id" : "6",
+        "x" : 1650,
+        "y" : 897
+      }, {
+        "id" : "8",
+        "x" : 900,
+        "y" : 522
+      } ],
+      "enterpriseBoundaryVisible" : true,
+      "key" : "SystemContext",
+      "name" : "System Context View: christianbeener.com",
+      "order" : 1,
+      "relationships" : [ {
+        "id" : "12",
+        "vertices" : [ {
+          "x" : 2250,
+          "y" : 630
+        } ]
+      }, {
+        "id" : "13",
+        "vertices" : [ {
+          "x" : 762,
+          "y" : 822
+        } ]
+      }, {
+        "id" : "14"
+      }, {
+        "id" : "19",
+        "vertices" : [ {
+          "x" : 2199,
+          "y" : 334
+        } ]
+      }, {
+        "id" : "24",
+        "vertices" : [ {
+          "x" : 762,
+          "y" : 522
+        } ]
+      }, {
+        "id" : "28",
+        "vertices" : [ {
+          "x" : 1432,
+          "y" : 993
+        } ]
+      }, {
+        "id" : "32",
+        "vertices" : [ {
+          "x" : 1567,
+          "y" : 725
+        } ]
+      }, {
+        "id" : "34"
+      } ],
+      "softwareSystemId" : "8"
+    } ]
+  }
+}

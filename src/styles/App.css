@@ -1,0 +1,48 @@
+.tech-label {
+	font-family: "Roboto Mono", monospace;
+	font-size: 0.875rem;
+}
+
+.link {
+	color: var(--color-light);
+	text-decoration: none;
+}
+
+.link:hover {
+	color: var(--color-primary);
+	text-decoration: none;
+	transform: scale(1.05);
+	font-size: var(--text-md);
+	svg {
+		color: var(--color-primary);
+	}
+}
+
+.btn {
+	color: var(--color-light);
+	border: none;
+}
+
+.btn:hover {
+	transform: scale(1.05);
+	opacity: 0.9;
+}
+
+.btn-primary {
+	background-color: var(--color-primary);
+}
+
+.btn-secondary {
+	background-color: var(--color-card);
+}
+
+.btn-secondary:hover {
+	color: var(--color-blue-300);
+}
+
+.card-link:hover {
+	cursor: pointer;
+	color: var(--color-light);
+	font-size: var(--text-md);
+	text-decoration: none;
+}
