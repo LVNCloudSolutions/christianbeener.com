@@ -1,10 +1,11 @@
-import { useEffect, type Dispatch, type SetStateAction } from "react";
+import { useState, useEffect } from "react";
 // 🎯 NEW: Import Formspree and ReCAPTCHA hooks
 import { useForm, ValidationError } from "@formspree/react";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 
 import { SERVICES } from "../../utils/constants";
 import SendButton from "./SendButton";
+import ToastNotification from "./ToastNotification";
 
 const getFormHash = (actionUrl: string) => actionUrl.split("/").pop() || "";
 
@@ -17,8 +18,6 @@ interface ContactFormProps {
 		action: string; // This holds the Formspree URL
 		textarea: { name: string; rows: number };
 	};
-	setToastStatus: Dispatch<SetStateAction<"idle" | "success" | "error">>;
-	setToastMessage: Dispatch<SetStateAction<string>>;
 }
 
 // --- Select Options (Remains the same) ---
@@ -50,11 +49,7 @@ const TextArea = ({ textarea }: TextAreaProps) => {
 	);
 };
 
-export default function ContactForm({
-	form,
-	setToastStatus,
-	setToastMessage,
-}: ContactFormProps) {
+export default function ContactForm({ form }: ContactFormProps) {
 	// 1. Initialize Formspree and ReCAPTCHA hooks
 	const { executeRecaptcha } = useGoogleReCaptcha();
 	const formHash = getFormHash(form.action);
@@ -62,6 +57,16 @@ export default function ContactForm({
 	const [state, handleSubmit] = useForm(formHash, {
 		data: { "g-recaptcha-response": executeRecaptcha }, // Inject ReCAPTCHA handler
 	});
+
+	// NEW: State for Toast and Submission Status
+	const [toastStatus, setToastStatus] = useState<
+		"idle" | "success" | "error"
+	>("idle");
+	const [toastMessage, setToastMessage] = useState("");
+	const handleToastClose = () => {
+		setToastStatus("idle");
+		setToastMessage("");
+	};
 
 	// 2. Sync Formspree state to your custom Toast state
 	useEffect(() => {
@@ -88,66 +93,74 @@ export default function ContactForm({
 	]);
 
 	return (
-		<div
-			id={form.id}
-			className="tab-content py-4 px-8 bg-card rounded-xl shadow-2xl border border-slate-700"
-		>
-			<h3 className="text-2xl font-bold mb-2 text-primary">
-				{form.title}
-			</h3>
-			<p className="text-slate-400 mb-4 text-sm">{form.subtitle}</p>
-
-			{/* 3. Attach Formspree handleSubmit hook */}
-			<form
-				id={form.id + "-form"}
-				onSubmit={handleSubmit}
-				className="space-y-4 lg:grid lg:grid-cols-2 lg:gap-4 lg:space-y-0"
+		<>
+			<div
+				id={form.id}
+				className="tab-content py-4 px-8 bg-card rounded-xl shadow-2xl border border-slate-700"
 			>
-				<div className="space-y-4">
-					{/* Input 1: UNCONTROLLED (Value/OnChange REMOVED) */}
-					<input
-						type="text"
-						name="Name/Company"
-						placeholder="Your Name / Company"
-						required
-						className="w-full p-3 rounded-lg bg-dark text-light border border-slate-700 focus:ring-primary focus:border-primary font-mono"
-					/>
-					{/* Input 2: UNCONTROLLED */}
-					<input
-						type="email"
-						name="Email"
-						placeholder="Your Email"
-						required
-						className="w-full p-3 rounded-lg bg-dark text-light border border-slate-700 focus:ring-primary focus:border-primary font-mono"
-					/>
+				<h3 className="text-2xl font-bold mb-2 text-primary">
+					{form.title}
+				</h3>
+				<p className="text-slate-400 mb-4 text-sm">{form.subtitle}</p>
 
-					{/* Conditional Select: UNCONTROLLED */}
-					{form.id === "services" ? (
-						<select
-							name="Service"
+				{/* 3. Attach Formspree handleSubmit hook */}
+				<form
+					id={form.id + "-form"}
+					onSubmit={handleSubmit}
+					className="space-y-4 lg:grid lg:grid-cols-2 lg:gap-4 lg:space-y-0"
+				>
+					<div className="space-y-4">
+						{/* Input 1: UNCONTROLLED (Value/OnChange REMOVED) */}
+						<input
+							type="text"
+							name="Name/Company"
+							placeholder="Your Name / Company"
+							required
 							className="w-full p-3 rounded-lg bg-dark text-light border border-slate-700 focus:ring-primary focus:border-primary font-mono"
-						>
-							<SelectOptions />
-						</select>
-					) : null}
-				</div>
+						/>
+						{/* Input 2: UNCONTROLLED */}
+						<input
+							type="email"
+							name="Email"
+							placeholder="Your Email"
+							required
+							className="w-full p-3 rounded-lg bg-dark text-light border border-slate-700 focus:ring-primary focus:border-primary font-mono"
+						/>
 
-				{/* Text Area: UNCONTROLLED */}
-				<TextArea textarea={form.textarea} />
+						{/* Conditional Select: UNCONTROLLED */}
+						{form.id === "services" ? (
+							<select
+								name="Service"
+								className="w-full p-3 rounded-lg bg-dark text-light border border-slate-700 focus:ring-primary focus:border-primary font-mono"
+							>
+								<SelectOptions />
+							</select>
+						) : null}
+					</div>
 
-				{/* Hidden input is NOT needed for Formspree/Hooks */}
+					{/* Text Area: UNCONTROLLED */}
+					<TextArea textarea={form.textarea} />
 
-				<div className="lg:col-span-2">
-					<SendButton isSubmitting={state.submitting} />
-				</div>
+					{/* Hidden input is NOT needed for Formspree/Hooks */}
 
-				{/* Display Formspree Errors (Optional, but good for debugging) */}
-				<ValidationError
-					className="text-red-500 lg:col-span-2"
-					field="email"
-					errors={state.errors}
-				/>
-			</form>
-		</div>
+					<div className="lg:col-span-2">
+						<SendButton isSubmitting={state.submitting} />
+					</div>
+
+					{/* Display Formspree Errors (Optional, but good for debugging) */}
+					<ValidationError
+						className="text-red-500 lg:col-span-2"
+						field="email"
+						errors={state.errors}
+					/>
+				</form>
+			</div>
+
+			<ToastNotification
+				status={toastStatus}
+				message={toastMessage}
+				onClose={handleToastClose}
+			/>
+		</>
 	);
 }
