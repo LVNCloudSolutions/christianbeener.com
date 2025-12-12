@@ -1,8 +1,17 @@
-# christianbeener.com
+# christianbeener.com - An evolving project
 
-## An evolving project
+## Version Control:
+Each major version is listed in ascending order by branch name.
 
-### 2. Dynamic Frontend
+### v1.static-starter
+
+##### The GitHub Actions workflow is specified in the static.yml file.
+
+This version is built using static HTML, JavaScript, and tailwindCSS built during deployment. The GitHub Actions workflow is specified in the [static.yml](.github/workflows/static.yml) file.
+
+#### \*This branch is no longer in active development.
+
+### v2. dynamic-frontend
 
 ##### The GitHub Actions workflow is specified in the [react.yml](.github/workflows/react.yml) file.
 
