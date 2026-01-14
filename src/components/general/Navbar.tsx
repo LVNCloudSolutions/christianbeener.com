@@ -5,7 +5,7 @@ import { NAV_LINKS } from "../../utils/constants";
 function NavList() {
 	return (
 		<ul className="flex bg-dark flex-col gap-x-3 gap-y-1.5 lg:mt-0 lg:flex-row lg:items-center py-2">
-			{NAV_LINKS.map(({ icon: Icon, title, url, download }) => (
+			{NAV_LINKS.map(({ icon: Icon, title, url }) => (
 				<li
 					className="lg:border-none border-b border-accent lg:p-0 px-2"
 					key={title}
@@ -13,7 +13,6 @@ function NavList() {
 					<a
 						href={url}
 						className="link tech-label flex items-center gap-x-2 p-2"
-						download={download}
 					>
 						<Icon className="h-5 w-5 text-light" />
 						{title}
