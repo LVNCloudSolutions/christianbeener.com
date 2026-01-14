@@ -39,13 +39,6 @@ const NAV_LINKS = [
 		title: "Contact",
 		url: "#contact",
 	},
-	{
-		icon: DownloadIcon,
-		title: "Resume",
-		url: "/downloads/Christian_Beener_resume_2026-download.pdf",
-		target: "_blank",
-		download: "Christian_Beener_resume_2026-download.pdf",
-	},
 ];
 
 // Display sections
@@ -74,35 +67,6 @@ const SECTIONS = [
 
 // Experience formatted for timeline display
 const EXPERIENCE: ExperienceItem[] = [
-	{
-		role: "Independent Consulting",
-		employer: "Self-Employed",
-		location: "Austin, TX",
-		startDate: new Date("10/01/2025"),
-		endDate: null,
-		highlights: [
-			{
-				title: "IaC Templating",
-				description:
-					"Actively building reusable Infrastructure as Code (IaC templates to ensure client solutions start with secure, scalable foundations.",
-			},
-			{
-				title: "Full-Stack Development",
-				description:
-					"Building reusable React components to simplify design/development for ongoing projects.",
-			},
-			{
-				title: "Workflow Automation",
-				description:
-					"Designing and implementing automated CI/CD pipelines for containerized applications, focusing on reliability and speed in deployment cycles.",
-			},
-			{
-				title: "Career Growth",
-				description:
-					"Preparing for the AWS Solutions Architect - Associate certification to expand and formalize expertise in cloud architecture design.",
-			},
-		],
-	},
 	{
 		role: "Full-Stack Developer",
 		employer: "Fieldd",
@@ -301,18 +265,6 @@ const PROJECTS: DisplayCard[] = [
 // Combined card array for simpler processing...
 const CARDS: DisplayCard[] = [...SKILLS, ...PROJECTS];
 
-// Tabs for tab group
-const TABS = [
-	{
-		name: "Services",
-		icon: SuitcaseIcon,
-	},
-	{
-		name: "Recruiters",
-		icon: ProfileIcon,
-	},
-];
-
 const ICON_LINKS = [
 	{
 		title: "LinkedIn",
@@ -333,59 +285,34 @@ const BIO = {
 
 const SERVICES = [
 	{
-		option: "Static Website Development",
-		value: "static-website-development",
+		option: "Custom Web Applications",
+		value: "custom-web-applications",
 	},
 	{
-		option: "CI/CD Pipeline Setup",
-		value: "ci-cd-pipeline-setup",
-	},
-	{
-		option: "AWS/Terraform Infrastructure",
-		value: "aws-terraform-infrastructure",
-	},
-	{
-		option: "Full-Stack Consulting",
-		value: "full-stack-consulting",
-	},
-	{
-		option: "Other Inquiry",
-		value: "other-inquiry",
+		option: "Other Business Inquiries",
+		value: "other-business-inquiries",
 	},
 ];
 
-const RECRUITER_FORM = {
-	id: "recruiter",
-	title: "Job Offers & Inquiries",
-	subtitle: "Let me know if you're hiring!",
-	action: "https://formspree.io/f/mjkjbbbj",
-	textarea: {
-		name: "Job Details",
-		rows: 3,
-	},
-};
-
 const SERVICE_FORM = {
 	id: "services",
-	title: "Contract Services",
+	title: "Service Inquiry",
 	subtitle:
-		"For quick, fixed-price DevOps projects, cloud consultation, or inquiries about LVN Cloud Solutions.",
+		"Need help with a project? Fill out the form below to get in touch!",
 	action: "https://formspree.io/f/xrbrzzza",
 	textarea: {
 		name: "Project Details",
 		rows: 4,
 	},
-};
+} as const;
 
 export {
 	NAV_LINKS,
 	SECTIONS,
 	EXPERIENCE,
 	CARDS,
-	TABS,
 	ICON_LINKS,
 	BIO,
 	SERVICES,
-	RECRUITER_FORM,
 	SERVICE_FORM,
 };
