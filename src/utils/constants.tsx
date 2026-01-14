@@ -4,9 +4,6 @@ import {
 	Code as CodeIcon,
 	Clock as ClockIcon,
 	MessageText as MessageIcon,
-	DownloadCircle as DownloadIcon,
-	ProfileCircle as ProfileIcon,
-	Suitcase as SuitcaseIcon,
 	GithubCircle as GitHubIcon,
 	Linkedin as LinkedInIcon,
 } from "iconoir-react";
