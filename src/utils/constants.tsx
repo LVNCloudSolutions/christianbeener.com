@@ -221,7 +221,7 @@ const PROJECTS: DisplayCard[] = [
 			technologies to enhance performance, responsiveness, and user experience.
         `,
 		},
-		url: "https://github.com/lvncloudsolutions/christianbeener.com",
+		url: "https://github.com/cbeens/christianbeener.com",
 		src: "GitHub",
 	},
 	{
@@ -270,7 +270,7 @@ const ICON_LINKS = [
 	},
 	{
 		title: "GitHub",
-		url: "https://www.github.com/lvncloudsolutions",
+		url: "https://www.github.com/cbeens",
 		icon: GitHubIcon,
 	},
 ];
