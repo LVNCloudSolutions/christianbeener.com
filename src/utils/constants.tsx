@@ -296,7 +296,7 @@ const SERVICE_FORM = {
 	title: "Service Inquiry",
 	subtitle:
 		"Need help with a project? Fill out the form below to get in touch!",
-	action: "https://formspree.io/f/xrbrzzza",
+	action: "https://formspree.io/f/xeezyyzv",
 	textarea: {
 		name: "Project Details",
 		rows: 4,
