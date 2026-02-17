@@ -3,7 +3,6 @@ import {
 	Brain as BrainIcon,
 	Code as CodeIcon,
 	Clock as ClockIcon,
-	MessageText as MessageIcon,
 	GithubCircle as GitHubIcon,
 	Linkedin as LinkedInIcon,
 } from "iconoir-react";
@@ -17,7 +16,7 @@ const NAV_LINKS = [
 		url: "#about",
 	},
 	{
-		icon: BrainIcon,
+		icon: CodeIcon,
 		title: "Skills",
 		url: "#skills",
 	},
@@ -27,14 +26,9 @@ const NAV_LINKS = [
 		url: "#experience",
 	},
 	{
-		icon: CodeIcon,
-		title: "Projects",
-		url: "#projects",
-	},
-	{
-		icon: MessageIcon,
-		title: "Contact",
-		url: "#contact",
+		icon: BrainIcon,
+		title: "Philosophy",
+		url: "#philosophy",
 	},
 ];
 
@@ -42,23 +36,18 @@ const NAV_LINKS = [
 const SECTIONS = [
 	{
 		id: "skills",
-		title: "End-to-End Tech Stack",
+		title: "Skills",
 		bgColor: "bg-card",
 	},
 	{
 		id: "experience",
-		title: "Professional Experience",
+		title: "Recent Experience",
 		bgColor: "bg-dark",
 	},
 	{
-		id: "projects",
-		title: "Current Projects",
+		id: "philosophy",
+		title: "Philosophy",
 		bgColor: "bg-card",
-	},
-	{
-		id: "contact",
-		title: "Contact",
-		bgColor: "bg-dark",
 	},
 ];
 
@@ -122,145 +111,133 @@ const EXPERIENCE: ExperienceItem[] = [
 			},
 		],
 	},
-	{
-		role: "Project Manager / Full-Stack Developer",
-		employer: "Uh Capstone Project",
-		location: "Houston, TX",
-		startDate: new Date("08//01/2020"),
-		endDate: new Date("05//01/2021"),
-		highlights: [
-			{
-				title: "Leadership",
-				description:
-					"Directed a 9-member team to deliver full-stack Java and AWS business app valued at $50K.",
-			},
-			{
-				title: "Oversaw SDLC",
-				description:
-					"Requirements, architecture, coding, testing, and deployment.",
-			},
-			{
-				title: "Full-Stack Development",
-				description:
-					"Developed backend services and responsive UI integrated with AWS-hosted data pipelines.",
-			},
-		],
-	},
 ];
 
 // Skills formatted for Card display
 const SKILLS: DisplayCard[] = [
 	{
 		category: "skills",
-		title: "Full-Stack Development",
-		subtitle: "Robust & Scalable Applications",
+		title: "Integrations & APIs",
 		tags: [],
 		content: {
 			type: "list",
 			items: [
 				{
-					Frontend:
-						"Angular, React, TailwindCSS, JavaScript/TypeScript",
+					"Restful APIs":
+						"Node.js, Express.js, Java/Spring Boot, 3rd-party integrations",
 				},
-				{ Data: "MySQL, PostgreSQL, MongoDB, SQL/NoSQL Design" },
-				{ Specialty: "Legacy System Modernization" },
+				{ Tools: "Postman, VS Code, ngrok" },
 			],
 		},
 	},
 	{
 		category: "skills",
-		title: "Cloud Infrastructure",
-		subtitle: "Automation & Provisioning",
+		title: "Enterprise Scalability",
 		tags: [],
 		content: {
 			type: "list",
 			items: [
-				{ AWS: "EC2, S3, RDS, IAM, SES" },
 				{
-					DevOps: "Terraform, Pulumi, CI/CD Pipelines (GitHub Actions)",
+					"Cloud Providers":
+						"AWS, Azure, DigitalOcean, Google Cloud Platform",
 				},
 				{
-					Containers:
-						"Docker, Kubernetes, and Containerized Deployment",
+					Tools: "Kubernetes, Docker, YAML",
 				},
 			],
 		},
 	},
 	{
 		category: "skills",
-		title: "Optimized Workflows",
-		subtitle: "Agile & Efficient Delivery",
+		title: "UX & Delivery",
 		tags: [],
 		content: {
 			type: "list",
 			items: [
-				{ Tools: "Git, VS Code, Linux Environments" },
 				{
-					"Agile Delivery":
-						"SCRUM/Kanban, Sprint Planning, Project Management",
+					"Frontend Frameworks":
+						"Angular, React, Ionic/Cordova, Material, TailwindCSS",
 				},
 				{
-					"Testing & Quality":
-						"Unit & Integration Testing, AI-Assisted Code Review",
+					Tools: "GitHub, Jira, Figma, Agile/Scrum methodologies",
 				},
 			],
 		},
 	},
 ];
-// Projects formatted for Card display
-const PROJECTS: DisplayCard[] = [
+
+const PHILOSOPHY: DisplayCard[] = [
 	{
-		category: "projects",
-		title: "Dynamic Website Update",
-		subtitle: "Full-Stack Development",
-		tags: ["React", "TypeScript", "TailwindCSS"],
+		category: "philosophy",
+		title: "Technical Approach",
+		subtitle: "How I Solve Problems",
+		tags: [],
 		content: {
-			type: "text",
-			items: `
-            A complete rebuild of this website using the latest React and TailwindCSS
-			technologies to enhance performance, responsiveness, and user experience.
-        `,
+			type: "list",
+			items: [
+				{
+					Discovery:
+						"Identify real pain points behind a technical request.",
+				},
+				{
+					Design: "Architect solutions that are scalable, maintainable, and efficient.",
+				},
+				{
+					Validation:
+						"Iterate quickly with feedback loops to quickly address user needs and business goals.",
+				},
+			],
 		},
-		url: "https://github.com/cbeens/christianbeener.com",
-		src: "GitHub",
 	},
 	{
-		category: "projects",
-		title: "IaC using Terraform",
-		subtitle: "DevOps Automation",
-		tags: ["IaC", "Terraform", "AWS"],
+		category: "philosophy",
+		title: "Strategic Alignment",
+		subtitle: "How I Connect Tech to Business",
+		tags: [],
 		content: {
-			type: "text",
-			items: `
-				An ongoing project to create reusable Infrastructure as Code (IaC) templates
-				for provisioning secure and scalable AWS
-				cloud resources using
-				Terraform.
-			`,
+			type: "list",
+			items: [
+				{
+					Discovery:
+						"Understanding the business objectives behind every technical requirement.",
+				},
+				{
+					Design: "Solutions shouldn't just work technically, but accelerate growth and provide a clear path to value.",
+				},
+				{
+					Validation:
+						"Measure success through user feedback to drive future iterations.",
+				},
+			],
 		},
-		url: "https://github.com/lvncloudsolutions/terraform-projects",
-		src: "GitHub",
 	},
 	{
-		category: "projects",
-		title: "SAA-C03 Certification",
-		subtitle: "AWS Solutions Architect - Associate",
-		tags: ["AWS", "Cloud", "Infrastructure"],
+		category: "philosophy",
+		title: "Prioritize Partnership",
+		subtitle: "How I Collaborate",
+		tags: [],
 		content: {
-			type: "text",
-			items: `
-				Currently studying for the AWS Certified Solutions Architect - Associate (SAA-C03)
-				exam, focusing on designing resilient
-				architectures, high-performing systems, and
-				cost-optimized solutions on AWS.
-			`,
+			type: "list",
+			items: [
+				{
+					"Cross-Functional Communication":
+						"Bridging the gap between technical and non-technical stakeholders.",
+				},
+				{
+					Adaptability:
+						"I adapt my communication style and technical approach to fit the unique needs of each situation.",
+				},
+				{
+					"Continuous Learning":
+						"Stay curious and open to new ideas and innovations.",
+				},
+			],
 		},
-		url: "https://aws.amazon.com/certification/certified-solutions-architect-associate/",
-		src: "AWS",
 	},
 ];
+
 // Combined card array for simpler processing...
-const CARDS: DisplayCard[] = [...SKILLS, ...PROJECTS];
+const CARDS: DisplayCard[] = [...SKILLS, ...PHILOSOPHY];
 
 const ICON_LINKS = [
 	{
@@ -276,40 +253,9 @@ const ICON_LINKS = [
 ];
 
 const BIO = {
-	title: "Full-Stack Engineering & DevOps",
-	summary: `Hello! I'm Christian, an intrepid Full-Stack Engineer and DevOps enthusiast based in Austin, TX. With a strong foundation in both front-end and back-end development, I thrive on creating seamless, efficient, and scalable applications. My expertise spans a variety of technologies, and I'm dedicated to continuous learning and innovation in the ever-evolving tech landscape.`,
+	title: "Technical Solutions Expert",
+	summary:
+		"I am a Strategic Solutions Engineer based in Austin, TX, specializing in the intersection of enterprise architecture and business growth. With a foundation in full-stack engineering and DevOps, I architect scalable solutions that bridge the gap between complex technical requirements and high-value business outcomes. I thrive on performing technical discovery and delivering persuasive demonstrations that prove the art of the possible.",
 };
 
-const SERVICES = [
-	{
-		option: "Custom Web Applications",
-		value: "custom-web-applications",
-	},
-	{
-		option: "Other Business Inquiries",
-		value: "other-business-inquiries",
-	},
-];
-
-const SERVICE_FORM = {
-	id: "services",
-	title: "Service Inquiry",
-	subtitle:
-		"Need help with a project? Fill out the form below to get in touch!",
-	action: "https://formspree.io/f/xeezyyzv",
-	textarea: {
-		name: "Project Details",
-		rows: 4,
-	},
-} as const;
-
-export {
-	NAV_LINKS,
-	SECTIONS,
-	EXPERIENCE,
-	CARDS,
-	ICON_LINKS,
-	BIO,
-	SERVICES,
-	SERVICE_FORM,
-};
+export { NAV_LINKS, SECTIONS, EXPERIENCE, CARDS, ICON_LINKS, BIO };

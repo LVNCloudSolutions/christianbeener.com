@@ -15,12 +15,12 @@ export default function CardContainer({ card }: { card: DisplayCard }) {
 					(detail, index) => {
 						const key = Object.keys(detail)[0];
 						return (
-							<li key={index}>
+							<li className="py-1.5" key={index}>
 								<strong>{key}</strong>:{" "}
 								{detail[key as keyof typeof detail]}
 							</li>
 						);
-					}
+					},
 				)}
 			</ul>
 		);
@@ -38,20 +38,6 @@ export default function CardContainer({ card }: { card: DisplayCard }) {
 					<h4 className="text-sm mb-2 text-white">{card.subtitle}</h4>
 					{cardContent}
 				</div>
-				{card.category === "projects" ? (
-					<div>
-						<p className="text-xs text-accent font-mono mb-2">
-							Tech: {card.tags.join(", ")}
-						</p>
-						<a
-							className="card-link text-primary underline text-sm font-semibold transition duration-300"
-							href={card.url}
-							target="_blank"
-						>
-							View on {card.src}
-						</a>
-					</div>
-				) : null}
 			</div>
 		</>
 	);

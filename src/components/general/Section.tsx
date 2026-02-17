@@ -1,6 +1,5 @@
 import CardGroupContainer from "../general/CardGroupContainer";
 import Experience from "../sections/Experience";
-import Contact from "../sections/Contact";
 
 export default function Section(config: {
 	id: string;
@@ -17,13 +16,11 @@ export default function Section(config: {
 	const SectionContent = () => {
 		switch (config.id) {
 			case "skills":
-				return <CardGroupContainer isProjects={false} />;
-			case "projects":
-				return <CardGroupContainer isProjects={true} />;
+				return <CardGroupContainer isPhilosophy={false} />;
+			case "philosophy":
+				return <CardGroupContainer isPhilosophy={true} />;
 			case "experience":
 				return <Experience />;
-			case "contact":
-				return <Contact />;
 			default:
 				return null;
 		}
