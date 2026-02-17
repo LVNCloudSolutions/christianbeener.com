@@ -35,8 +35,8 @@ const NAV_LINKS = [
 // Display sections
 const SECTIONS = [
 	{
-		id: "skills",
-		title: "Skills",
+		id: "philosophy",
+		title: "Philosophy",
 		bgColor: "bg-card",
 	},
 	{
@@ -45,8 +45,8 @@ const SECTIONS = [
 		bgColor: "bg-dark",
 	},
 	{
-		id: "philosophy",
-		title: "Philosophy",
+		id: "skills",
+		title: "Skills",
 		bgColor: "bg-card",
 	},
 ];
@@ -155,8 +155,8 @@ const SKILLS: DisplayCard[] = [
 			type: "list",
 			items: [
 				{
-					"Frontend Frameworks":
-						"Angular, React, Ionic/Cordova, Material, TailwindCSS",
+					"Frontend Development":
+						"JavaScript/TypeScript, Angular, React, Ionic/Cordova",
 				},
 				{
 					Tools: "GitHub, Jira, Figma, Agile/Scrum methodologies",
