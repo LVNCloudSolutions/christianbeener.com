@@ -3,7 +3,6 @@ import {
 	Brain as BrainIcon,
 	Code as CodeIcon,
 	Clock as ClockIcon,
-	MessageText as MessageIcon,
 	GithubCircle as GitHubIcon,
 	Linkedin as LinkedInIcon,
 } from "iconoir-react";
@@ -171,7 +170,7 @@ const PHILOSOPHY: DisplayCard[] = [
 	{
 		category: "philosophy",
 		title: "Technical Approach",
-		subtitle: "How I solve problems",
+		subtitle: "How I Solve Problems",
 		tags: [],
 		content: {
 			type: "list",
@@ -185,7 +184,52 @@ const PHILOSOPHY: DisplayCard[] = [
 				},
 				{
 					Validation:
-						"Iterate quickly with feedback loops to ensure the solution meets user needs and business goals.",
+						"Iterate quickly with feedback loops to quickly address user needs and business goals.",
+				},
+			],
+		},
+	},
+	{
+		category: "philosophy",
+		title: "Strategic Alignment",
+		subtitle: "How I Connect Tech to Business",
+		tags: [],
+		content: {
+			type: "list",
+			items: [
+				{
+					Discovery:
+						"Understanding the business objectives behind every technical requirement.",
+				},
+				{
+					Design: "Solutions shouldn't just work technically, but accelerate growth and provide a clear path to value.",
+				},
+				{
+					Validation:
+						"Measure success through user feedback to drive future iterations.",
+				},
+			],
+		},
+	},
+	{
+		category: "philosophy",
+		title: "Prioritize Partnership",
+		subtitle: "How I Collaborate",
+		tags: [],
+		content: {
+			type: "list",
+			items: [
+				{
+					"Cross-Functional Communication":
+						"Bridging the gap between technical and non-technical stakeholders.",
+				},
+				{
+					Adaptability:
+						"I adapt my communication style and technical approach to fit the unique needs of each situation.",
+				},
+				{
+					"Continuous Learning":
+						"Stay curious and open to new ideas and innovations.",
 				},
 			],
 		},
@@ -209,8 +253,9 @@ const ICON_LINKS = [
 ];
 
 const BIO = {
-	title: "Full-Stack Engineering & DevOps",
-	summary: `Hello! I'm Christian, an intrepid Full-Stack Engineer and DevOps enthusiast based in Austin, TX. With a strong foundation in both front-end and back-end development, I thrive on creating seamless, efficient, and scalable applications. My expertise spans a variety of technologies, and I'm dedicated to continuous learning and innovation in the ever-evolving tech landscape.`,
+	title: "Technical Solutions Expert",
+	summary:
+		"I am a Strategic Solutions Engineer based in Austin, TX, specializing in the intersection of enterprise architecture and business growth. With a foundation in full-stack engineering and DevOps, I architect scalable solutions that bridge the gap between complex technical requirements and high-value business outcomes. I thrive on performing technical discovery and delivering persuasive demonstrations that prove the art of the possible.",
 };
 
 export { NAV_LINKS, SECTIONS, EXPERIENCE, CARDS, ICON_LINKS, BIO };

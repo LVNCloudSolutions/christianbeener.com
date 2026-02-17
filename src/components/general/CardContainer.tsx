@@ -15,7 +15,7 @@ export default function CardContainer({ card }: { card: DisplayCard }) {
 					(detail, index) => {
 						const key = Object.keys(detail)[0];
 						return (
-							<li key={index}>
+							<li className="py-1.5" key={index}>
 								<strong>{key}</strong>:{" "}
 								{detail[key as keyof typeof detail]}
 							</li>
