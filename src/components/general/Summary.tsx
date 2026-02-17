@@ -14,20 +14,6 @@ export default function Summary() {
 			<p className="text-md text-slate-400 mb-5 font-mono">
 				{BIO.summary}
 			</p>
-			<div className="flex flex-col sm:flex-row gap-4 sm:gap-0 sm:space-x-4">
-				<IconLinkButton
-					text={"Connect with me"}
-					isPrimary={true}
-					url={"#contact"}
-					icon={MessageIcon}
-				/>
-				<IconLinkButton
-					text={"Current Projects"}
-					isPrimary={false}
-					url={"#projects"}
-					icon={CodeIcon}
-				/>
-			</div>
 		</div>
 	);
 }

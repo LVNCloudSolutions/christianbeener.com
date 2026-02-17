@@ -4,7 +4,7 @@ interface CardList {
 
 interface DisplayCard {
 	// Mandatory fields
-	category: "skills" | "projects";
+	category: "skills" | "philosophy";
 	title: string;
 	subtitle?: string;
 	tags: string[];
