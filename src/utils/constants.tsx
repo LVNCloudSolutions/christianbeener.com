@@ -16,9 +16,9 @@ const NAV_LINKS = [
 		url: "#about",
 	},
 	{
-		icon: CodeIcon,
-		title: "Skills",
-		url: "#skills",
+		icon: BrainIcon,
+		title: "Philosophy",
+		url: "#philosophy",
 	},
 	{
 		icon: ClockIcon,
@@ -26,9 +26,9 @@ const NAV_LINKS = [
 		url: "#experience",
 	},
 	{
-		icon: BrainIcon,
-		title: "Philosophy",
-		url: "#philosophy",
+		icon: CodeIcon,
+		title: "Skills",
+		url: "#skills",
 	},
 ];
 
