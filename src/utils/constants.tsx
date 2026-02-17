@@ -280,29 +280,6 @@ const BIO = {
 	summary: `Hello! I'm Christian, an intrepid Full-Stack Engineer and DevOps enthusiast based in Austin, TX. With a strong foundation in both front-end and back-end development, I thrive on creating seamless, efficient, and scalable applications. My expertise spans a variety of technologies, and I'm dedicated to continuous learning and innovation in the ever-evolving tech landscape.`,
 };
 
-const SERVICES = [
-	{
-		option: "Custom Web Applications",
-		value: "custom-web-applications",
-	},
-	{
-		option: "Other Business Inquiries",
-		value: "other-business-inquiries",
-	},
-];
-
-const SERVICE_FORM = {
-	id: "services",
-	title: "Service Inquiry",
-	subtitle:
-		"Need help with a project? Fill out the form below to get in touch!",
-	action: "https://formspree.io/f/xeezyyzv",
-	textarea: {
-		name: "Project Details",
-		rows: 4,
-	},
-} as const;
-
 export {
 	NAV_LINKS,
 	SECTIONS,
@@ -310,6 +287,4 @@ export {
 	CARDS,
 	ICON_LINKS,
 	BIO,
-	SERVICES,
-	SERVICE_FORM,
 };
