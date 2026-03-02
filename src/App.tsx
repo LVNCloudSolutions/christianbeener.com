@@ -19,7 +19,17 @@ function App() {
 				/>
 			))}
 			<footer className="sticky text-center py-6 px-8 border-t border-slate-600 text-slate-400 text-xs">
-				<p>&copy; 2025 Christian Beener, All rights reserved.</p>
+				<p>
+					&copy; 2025 Christian Beener, All rights reserved. | Built
+					by{" "}
+					<a
+						href="https://cbeens.dev"
+						className="link"
+						target="blank"
+					>
+						cbeens.dev
+					</a>
+				</p>
 			</footer>
 		</>
 	);
