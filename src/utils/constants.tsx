@@ -255,7 +255,7 @@ const ICON_LINKS = [
 const BIO = {
 	title: "Technical Solutions Expert",
 	summary:
-		"I’m a UX-first full‑stack engineer with a strong instinct for system design, workflow mapping, and solving customer-facing problems. Powered by a relentless curiosity, I thrive on delivering creative solutions that reduce complexity and inefficiencies to drive organic adoption. My working style involves a mix of technical execution and business strategy through ownership, rapid prototyping, and continuous growth.",
+		"I'm a UX-first full-stack engineer with a strong instinct for system design, workflow mapping, and solving customer-facing problems. Powered by a relentless curiosity, I thrive on delivering creative solutions that reduce complexity and inefficiencies to drive organic adoption. My working style involves a mix of technical execution and business strategy through ownership, rapid prototyping, and continuous growth.",
 };
 
 export { NAV_LINKS, SECTIONS, EXPERIENCE, CARDS, ICON_LINKS, BIO };
